@@ -407,6 +407,12 @@ Cloud Infrastructure Software Profile Requirements
      - Not required
      - Optional
      - N/A
+   * - Virtual Networking
+     - infra.net.acc.cfg.005
+     - AF_XDP
+     - Not required
+     - Optional
+     - N/A
 
 Virtual Networking
 

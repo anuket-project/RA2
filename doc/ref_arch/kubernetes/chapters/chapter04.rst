@@ -167,6 +167,12 @@ the following specifications:
        the Kubernetes Cluster.
      - tbd
      - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+   * - ra2.ch.019
+     - AF_XDP Zero Copy capable netdev’s
+     - AF_XDP Zero Copy capable netdev’s (dependent on AF_XDP Zero Copy NIC driver) must be available in Kubernetes
+       node if optional AF_XDP is used.
+     - e.cap.025 from :cite:t:`refmodel` Chapter 4, section Exposed infrastructure capabilities
+     -
 
 Node Operating System
 ---------------------
@@ -229,6 +235,9 @@ Table 4.3 lists the kernel versions that comply with this Reference Architecture
      - 4.x
      - The overlay filesystem snapshotter, used by default by containerd, uses features that were finalized in the 4.x
        kernel series.
+   * - Linux
+     - >= 4.18
+     - If using optional AF_XDP (see ra2.ch.019).
    * - Windows
      - 1809 (10.0.17763)
      - For worker nodes only.

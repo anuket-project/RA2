@@ -1,11 +1,11 @@
 # Anuket Reference Architecture (RA2) for Kubernetes based cloud infrastructure
 
 This repo contains the source for the
-[Reference Architecture (RA2) for Kubernetes based cloud infrastructure](https://cntt.readthedocs.io/projects/ra2/en/stable-orinoco/index.html).
+[Reference Architecture (RA2) for Kubernetes based cloud infrastructure](https://cntt.readthedocs.io/projects/ra2/en/latest/index.html).
 
 ## Issues
 
-Issues for this repo handled in the
+Issues for this repo are handled in the
 [anuket-project/anuket-specifications](https://github.com/anuket-project/anuket-specifications/issues) repository. 
 
 # Pull Requests

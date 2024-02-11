@@ -169,8 +169,8 @@ the following specifications:
      - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
    * - ra2.ch.019
      - AF_XDP Zero Copy capable netdevs
-     - AF_XDP Zero Copy capable netdevs (dependent on AF_XDP Zero Copy NIC driver) must be available in a compliant Kubernetes cluster
-       node if optional AF_XDP is used.
+     - AF_XDP Zero Copy capable netdevs (dependent on AF_XDP Zero Copy NIC driver) must be available in a compliant
+       Kubernetes worker node if optional AF_XDP is used.
      - e.cap.025 from :cite:t:`refmodel` Chapter 4, section Exposed infrastructure capabilities
      -
 

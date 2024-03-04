@@ -288,7 +288,7 @@ the following specifications:
      - Kubernetes API Version
      - An implementation must use a Kubernetes version as per
        the subcomponent versions table in :ref:`chapters/chapter01:required component versions`.
-       In alignment with the :cite:t:`k8s-version-skew-policy`, the difference between the kubernetes release of the 
+       In alignment with the :cite:t:`k8s-version-skew-policy`, the difference between the kubernetes release of the
        control plane nodes and the kubernetes release of the worker nodes must be at most **3** releases
        (i.e. a n-3 skew).
      -

@@ -1632,7 +1632,7 @@ machines or containers.
      - Kubernetes Cluster
      - General
      - The Architecture must enable automated TLS certificate management.
-     - 
+     -
    * - int.api.01
      - API
      - General

@@ -344,7 +344,7 @@ can delegate the lifecycle management of their certificates to `cert-manager`.
 
 Example lifecycle steps are listed below:
 
-- On start-up, the CNF requests the certificate from cert-manager. The certificate parameters are specified using the 
+- On start-up, the CNF requests the certificate from cert-manager. The certificate parameters are specified using the
   Certificate Custom Resource Definition (CRD). The CRD includes details of the required X.509 fields and values, the
   issuing CA to be used, the lifetime, the renewal time, and the name of the K8s Secret resource where the certificate
   and private key should be stored. So the CNF just provides the intent (“what” the certificate should look like,

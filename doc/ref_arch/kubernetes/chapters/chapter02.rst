@@ -1631,7 +1631,7 @@ machines or containers.
    * - kcm.gen.03
      - Kubernetes Cluster
      - General
-     - The Architecture must enable automated TLS certificate management.
+     - The Architecture should enable automated TLS certificate management.
      - ra2.k8s.020
    * - int.api.01
      - API

@@ -49,7 +49,7 @@ In these Reference Architecture APIs, only those APIs which are in any of the fo
 
 The Kubernetes API reference is available here :cite:p:`k8s-api-reference`.
 
-The list of :cite:t:`k8s-v1.26-api-groups` that are mandatory is as follows:
+The list of :cite:t:`k8s-v1.29-api-groups` that are mandatory is as follows:
 
 .. list-table:: Mandatory API Groups
    :widths: 30 30
@@ -84,7 +84,7 @@ The list of :cite:t:`k8s-v1.26-api-groups` that are mandatory is as follows:
    * - events.k8s.io
      - v1
    * - flowcontrol.apiserver.k8s.io
-     - v1beta2
+     - v1
    * - networking.k8s.io
      - v1
    * - node.k8s.io

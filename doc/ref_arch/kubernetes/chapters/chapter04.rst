@@ -414,6 +414,12 @@ the following specifications:
        of the same version doesn't exist, or for APIs listed in RA2 Ch6 list of Mandatory API Groups.
      - int.api.04 in :ref:`chapters/chapter02:kubernetes architecture requirements`
      -
+   * - ra2.k8s.020
+     - TLS Certificate management for workloads
+     - Kubernetes cert-manager should be supported and integrated with a PKI certificate provider for workloads to
+       request/renew TLS certificates.
+     - int.api.04 in :ref:`chapters/chapter02:kubernetes architecture requirements`
+     - kcm.gen.03
 
 Container runtimes
 ------------------

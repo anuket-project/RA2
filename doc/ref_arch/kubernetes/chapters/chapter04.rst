@@ -416,7 +416,7 @@ the following specifications:
      -
    * - ra2.k8s.020
      - TLS Certificate management for workloads
-     - Kubernetes cert-manager should be supported and integrated with a PKI certificate provider for workloads to
+     - Cert-manager :cite:p:`cert-manager` should be supported and integrated with a PKI certificate provider for workloads to
        request/renew TLS certificates.
      - int.api.04 in :ref:`chapters/chapter02:kubernetes architecture requirements`
      - kcm.gen.03

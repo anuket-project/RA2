@@ -337,7 +337,7 @@ TLS Certificate Management
 
 Network functions (NFs) running in Kubernetes may require PKI TLS certificates for multiple purposes.
 For example, 3GPP TS 33.501 describes how Inter-NF communications must be secured using mutual TLS and OAuth.
-`cert-manager` can automatically provision and manage TLS certificates in Kubernetes, in order for CNFs to use them for
+`cert-manager` :cite:p:`cert-manager` can automatically provision and manage TLS certificates in Kubernetes, in order for CNFs to use them for
 TLS communications. It can request PKI certificates from issuers, ensure the certificates are valid and up-to-date,
 and can renew them before their expiry. Network Functions that are deployed on Kubernetes clusters
 can delegate the lifecycle management of their certificates to `cert-manager`.

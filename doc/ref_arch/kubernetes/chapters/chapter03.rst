@@ -344,25 +344,25 @@ can delegate the lifecycle management of their certificates to `cert-manager`.
 
 Example lifecycle steps are listed below:
 
-- On start-up, the CNF requests the certificate from cert-manager. The certificate parameters are specified using the
-  Certificate Custom Resource Definition (CRD). The CRD includes details of the required X.509 fields and values, the
-  issuing CA to be used, the lifetime, the renewal time, and the name of the K8s Secret resource where the certificate
-  and private key should be stored. So the CNF just provides the intent (“what” the certificate should look like,
-  “where” it should be stored, and “when” it should be renewed). The CNF does not need to be concerned with any aspect
-  of “how” the certificate is obtained, since this is delegated to cert-manager. The certificate request can originate
-  from any container in the CNF Pod- either the NFc “application”, or the service mesh (e.g. where deployed as a
-  sidecar).
-- When it receives the certificate request, cert-manager will generate a new key pair, then send a Certificate Signing
-  Request (CSR) to the relevant issuing CA. The CA returns the signed certificate. One of the benefits of cert-manager
-  is its “pluggable” architecture. It comes with built-in support for a number of issuing CA types and protocols, and
-  developers can easily add support for new ones.
-- Once the certificate is returned by the relevant issuing CA, cert-manager stores the private key and certificate as a
-  K8s Secret (specifically using the built-in “kubernetes.io/tls” Secret type). The Secret name is taken from the
-  Certificate CRD.
-- The containers in the CNF Pods can access the K8s Secret, and use the certificate and private key. All entities in
-  the diagram belong to the same K8s namespace.
-- Renewal of the certificate before expiry is handled by cert-manager and is transparent to the CNF. Steps 2 and 3
-  above are repeated, and the CNF will receive the updated certificate when it next accesses the K8s Secret.
+1. On start-up, the CNF requests the certificate from cert-manager. The certificate parameters are specified using the
+   Certificate Custom Resource Definition (CRD). The CRD includes details of the required X.509 fields and values, the
+   issuing CA to be used, the lifetime, the renewal time, and the name of the K8s Secret resource where the certificate
+   and private key should be stored. So the CNF just provides the intent (“what” the certificate should look like,
+   “where” it should be stored, and “when” it should be renewed). The CNF does not need to be concerned with any aspect
+   of “how” the certificate is obtained, since this is delegated to cert-manager. The certificate request can originate
+   from any container in the CNF Pod- either the NFc “application”, or the service mesh (e.g. where deployed as a
+   sidecar).
+2. When it receives the certificate request, cert-manager will generate a new key pair, then send a Certificate Signing
+   Request (CSR) to the relevant issuing CA. The CA returns the signed certificate. One of the benefits of cert-manager
+   is its “pluggable” architecture. It comes with built-in support for a number of issuing CA types and protocols, and
+   developers can easily add support for new ones.
+3. Once the certificate is returned by the relevant issuing CA, cert-manager stores the private key and certificate as a
+   K8s Secret (specifically using the built-in “kubernetes.io/tls” Secret type). The Secret name is taken from the
+   Certificate CRD.
+4. The containers in the CNF Pods can access the K8s Secret, and use the certificate and private key. All entities
+   belong to the same K8s namespace.
+6. Renewal of the certificate before expiry is handled by cert-manager and is transparent to the CNF. Steps 2 and 3
+   above are repeated, and the CNF will receive the updated certificate when it next accesses the K8s Secret.
 
 Container Networking Services
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

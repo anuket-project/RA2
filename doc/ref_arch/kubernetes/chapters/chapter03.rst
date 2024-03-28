@@ -361,7 +361,7 @@ Example lifecycle steps are listed below:
    Certificate CRD.
 4. The containers in the CNF Pods can access the K8s Secret, and use the certificate and private key. All entities
    belong to the same K8s namespace.
-6. Renewal of the certificate before expiry is handled by cert-manager and is transparent to the CNF. Steps 2 and 3
+5. Renewal of the certificate before expiry is handled by cert-manager and is transparent to the CNF. Steps 2 and 3
    above are repeated, and the CNF will receive the updated certificate when it next accesses the K8s Secret.
 
 Container Networking Services

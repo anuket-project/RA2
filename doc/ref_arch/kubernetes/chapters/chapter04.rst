@@ -1068,7 +1068,7 @@ service componenets when the platform service is supported.
     - Reference Model :cite:p:`refmodel` Chapter 5.1.5
   * - ra2.plat.019
     - Logging
-    - If a logging framework is supported it must support log management from multiple distributed
+    - If a logging framework is supported it must support log management from multiple distributed sources
     - pas.lb.006 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
   * - ra2.plat.020
     - Logging

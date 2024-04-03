@@ -854,7 +854,7 @@ supported by an architecture:
 - Application definition and image build
 - CI/CD
 - Ingress/egress controllers
-- Network service
+- Network related services
 - Coordination and service discovery
 - Automation and configuration
 - Secrets Store

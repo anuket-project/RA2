@@ -1018,7 +1018,7 @@ service componenets when the platform service is supported.
     - pas.lb.003 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
   * - ra2.plat.007
     - Load balancer and service proxy
-    - If a load balancer is supported it must support OSI Level 3/4 load balancing
+    - If a load balancer is supported it must support OSI Layer 3/4 load balancing
     - pas.lb.004 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
   * - ra2.plat.008
     - Load balancer and service proxy

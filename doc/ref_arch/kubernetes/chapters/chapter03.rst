@@ -866,6 +866,33 @@ have the following different capability levels:
 -  Auto pilot: Horizontal/vertical scaling, automated configuration tuning, abnormality detection, and scheduling
    tuning.
 
+Platform services
+-----------------
+
+The archirecture may support functionalities on top of the infrastructure services. With Kubernetes and the cloud native
+paradigms the demarcation between infrastructure services and platform services are fuzzy. In this specification we
+considider every service what is provided by Kubernetes with the help of supporting components as infrastructure service,
+while all services provided by independent open source components are considered as platform services. Based on the
+specification of Chapter 5.1.5 of the Reference Model (RM) :cite:p:`refmodel` the following platform services may be
+supported by an architecture:
+
+- Data stores/databases
+- Streaming and messaging
+- Load balancer and service proxy
+- Service mesh
+- Security and compliance
+- Monitoring
+- Logging
+- Application definition and image build
+- CI/CD
+- Ingress/egress controllers
+- Network related services
+- Coordination and service discovery
+- Automation and configuration
+- Secrets Store
+- Tracing
+
+
 CaaS Manager - Cluster Lifecycle Management
 -------------------------------------------
 

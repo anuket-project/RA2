@@ -1628,6 +1628,11 @@ machines or containers.
      - General
      - The Architecture must enable workload resiliency.
      - ra2.k8s.004
+   * - kcm.gen.03
+     - Kubernetes Cluster
+     - General
+     - The Architecture should enable automated TLS certificate management.
+     - ra2.k8s.020
    * - int.api.01
      - API
      - General

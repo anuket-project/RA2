@@ -332,6 +332,38 @@ When running in VMs, the following list of configurations shows what is needed f
    the VM virtual hardware. The required devices must be virtualised in the hypervisor or passed through to the Node VM,
    and mapped into the pods.
 
+TLS Certificate Management
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Network functions (NFs) running in Kubernetes may require PKI TLS certificates for multiple purposes.
+For example, 3GPP TS 33.501 describes how Inter-NF communications must be secured using mutual TLS and OAuth.
+`cert-manager` :cite:p:`cert-manager` can automatically provision and manage TLS certificates in Kubernetes, in order for CNFs to use them for
+TLS communications. It can request PKI certificates from issuers, ensure the certificates are valid and up-to-date,
+and can renew them before their expiry. Network Functions that are deployed on Kubernetes clusters
+can delegate the lifecycle management of their certificates to `cert-manager`.
+
+Example lifecycle steps are listed below:
+
+1. On start-up, the CNF requests the certificate from cert-manager. The certificate parameters are specified using the
+   Certificate Custom Resource Definition (CRD). The CRD includes details of the required X.509 fields and values, the
+   issuing CA to be used, the lifetime, the renewal time, and the name of the K8s Secret resource where the certificate
+   and private key should be stored. So the CNF just provides the intent (“what” the certificate should look like,
+   “where” it should be stored, and “when” it should be renewed). The CNF does not need to be concerned with any aspect
+   of “how” the certificate is obtained, since this is delegated to cert-manager. The certificate request can originate
+   from any container in the CNF Pod- either the NFc “application”, or the service mesh (e.g. where deployed as a
+   sidecar).
+2. When it receives the certificate request, cert-manager will generate a new key pair, then send a Certificate Signing
+   Request (CSR) to the relevant issuing CA. The CA returns the signed certificate. One of the benefits of cert-manager
+   is its “pluggable” architecture. It comes with built-in support for a number of issuing CA types and protocols, and
+   developers can easily add support for new ones.
+3. Once the certificate is returned by the relevant issuing CA, cert-manager stores the private key and certificate as a
+   K8s Secret (specifically using the built-in “kubernetes.io/tls” Secret type). The Secret name is taken from the
+   Certificate CRD.
+4. The containers in the CNF Pods can access the K8s Secret, and use the certificate and private key. All entities
+   belong to the same K8s namespace.
+5. Renewal of the certificate before expiry is handled by cert-manager and is transparent to the CNF. Steps 2 and 3
+   above are repeated, and the CNF will receive the updated certificate when it next accesses the K8s Secret.
+
 Container Networking Services
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

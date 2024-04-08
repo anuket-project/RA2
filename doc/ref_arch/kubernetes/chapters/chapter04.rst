@@ -1055,81 +1055,81 @@ service componenets when the platform service is supported.
       :cite:p:`sevice-mesh-interface`
     - Reference Model :cite:p:`refmodel` Chapter 5.1.5
   * - ra2.plat.016
-    - Security and compliance
-    - The platform may support any open source security and compliance technology
-    - Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.017
     - Monitoring
     - The platform may support any open source monitoring technology
     - Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.018
+  * - ra2.plat.017
     - Logging
     - The platform may support any open source logging technology
     - Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.019
+  * - ra2.plat.018
     - Logging
     - If a logging framework is supported it must support log management from multiple distributed sources
     - pas.lb.006 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.020
+  * - ra2.plat.019
     - Logging
     - If a logging framework is supported it must manage log rotation at configurable periods
     - pas.lb.006 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.021
+  * - ra2.plat.020
     - Logging
     - If a logging framework is supported it must manage log rotation at configurable log file status (%full)
     - pas.lb.006 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.022
+  * - ra2.plat.021
     - Logging
     - If a logging framework is supported it must manage archival and retention of logs for configurable periods by
       different log types
     - pas.lb.006 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.023
+  * - ra2.plat.022
     - Logging
     - If a logging framework is supported it must ensure log file integrity (no changes, particularlychanges that may
       affect the completeness, consistency, and accuracy, including event times, of the log file content)
       different log types
     - pas.lb.006 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.024
+  * - ra2.plat.023
     - Logging
     - If a logging framework is supported it must monitor log rotation and log archival processes
     - pas.lb.006 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.025
+  * - ra2.plat.024
     - Logging
     - If a logging framework is supported it must monitor the logging status of all the log sources
     - pas.lb.006 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.026
+  * - ra2.plat.025
     - Logging
     - If a logging framework is supported it must ensure that the clock of each logging host is synchronized to a common
       time source
     - pas.lb.006 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.027
+  * - ra2.plat.026
     - Logging
     - If a logging framework is supported it must support the reconfiguring of logging as needed, based on policy
       changes, technology changes, and other factors
     - pas.lb.006 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.028
+  * - ra2.plat.027
     - Logging
     - If a logging framework is supported it must support the documenting and reporting of anomalies in log settings,
       configurations, and processes
     - pas.lb.006 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.029
+  * - ra2.plat.028
     - Logging
     - If a logging framework is supported it must support the correlating of entries from multiple logs that relate to
       the same event
     - pas.lb.006 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.030
+  * - ra2.plat.029
     - Logging
     - If a logging framework is supported it must support the correlating of multiple log entries from a single source
       or multiple sources, based on logged values (for example, event types, timestamps, and IP addresses)
     - pas.lb.006 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.031
+  * - ra2.plat.030
     - Application definition and image build
     - Kubernetes Application package managers must follow the specifications defined in Chapter 4.9
       :ref:`chapters/chapter04:kubernetes application package managers`
     - Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.032
+  * - ra2.plat.031
     - CI/CD
     - The platform may support any open source CI/CD technology
+    - Reference Model :cite:p:`refmodel` Chapter 5.1.5
+  * - ra2.plat.032
+    - Ingress/egress controllers
+    - The platform may support any open source Ingress/egress controllers technology
     - Reference Model :cite:p:`refmodel` Chapter 5.1.5
   * - ra2.plat.033
     - Ingress/egress controllers
@@ -1137,55 +1137,51 @@ service componenets when the platform service is supported.
     - Reference Model :cite:p:`refmodel` Chapter 5.1.5
   * - ra2.plat.034
     - Ingress/egress controllers
-    - The platform may support any open source Ingress/egress controllers technology
-    - Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.035
-    - Ingress/egress controllers
     - If an egress controller is supported it must provide fixed and consistent source IP addresses for any given egress
       traffic.
     -
-  * - ra2.plat.036
+  * - ra2.plat.035
     - Ingress/egress controllers
     - If an egress controller is supported it must support several source IP addresses on egress control.
     -
-  * - ra2.plat.037
+  * - ra2.plat.036
     - Ingress/egress controllers
     - If an egress controller is supported it must provide a way to preserve the client IP address on egress control
     -
-  * - ra2.plat.038
+  * - ra2.plat.037
     - Ingress/egress controllers
     - If an ingress and egress controller is supported it must support symmetric IP/VIP for ingress and egress
     -
-  * - ra2.plat.039
+  * - ra2.plat.038
     - Ingress/egress controllers
     - If an egress controller is supported it must provide capabilities to route and isolate egress traffic based on
       traffic types (OAM, Signaling, etc), connected to e.g., to separate VRFs
     -
-  * - ra2.plat.040
+  * - ra2.plat.039
     - Ingress/egress controllers
     - If an egress controller is supported it must support VLAN tagging for egress traffic
     -
-  * - ra2.plat.041
+  * - ra2.plat.040
     - Ingress/egress controllers
     - If an egress controller is supported it must support the separation for overlapping destination address.
     -
-  * - ra2.plat.042
+  * - ra2.plat.041
     - Network service
     - The platform may support any open source network service technology
     - Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.043
+  * - ra2.plat.042
     - Coordination and service discovery
     - The platform may support any open source coordination and service discovery technology
     - Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.044
+  * - ra2.plat.043
     - Automation and configuration
     - The platform may support any open source automation and configuration technology
     - Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.045
+  * - ra2.plat.044
     - Key management
     - The platform may support any open source key management technology
     - Reference Model :cite:p:`refmodel` Chapter 5.1.5
-  * - ra2.plat.046
+  * - ra2.plat.045
     - Tracing
     - The platform may support any open source tracing technology
     - Reference Model :cite:p:`refmodel` Chapter 5.1.5

@@ -76,38 +76,38 @@ Cloud Infrastructure Software Profile Capabilities
    * - Profiles Specifications & Capability Mapping
      - e.cap.006
      - CPU pinning support
-     - Not required
+     - Optional
      - Must support
      - ra2.k8s.009
    * - Profiles Specifications & Capability Mapping
      - e.cap.007
      - NUMA support
-     - Not required
+     - Optional
      - Must support
      - ra2.k8s.006
    * - Exposed Infrastructure Capabilities
      - e.cap.008
      - IPsec Acceleration using the virtio-ipsec interface
-     - Not required
+     - Optional
      - Optional
      - N/A
    * - Exposed Infrastructure Capabilities
      - e.cap.009
      - Crypto Acceleration using the virtio-crypto interface
-     - Not required
+     - Optional
      - Optional
      - N/A
    * - Exposed Infrastructure Capabilities
      - e.cap.010
      - Transcoding Acceleration
-     - Not required
-     - Not required
+     - Optional
+     - Optional
      - N/A
    * - Exposed Infrastructure Capabilities
      - e.cap.011
      - Programmable Acceleration
-     - Not required
-     - Not required
+     - Optional
+     - Optional
      - N/A
    * - Exposed Infrastructure Capabilities
      - e.cap.012
@@ -118,25 +118,25 @@ Cloud Infrastructure Software Profile Capabilities
    * - Profiles Specifications & Capability Mapping
      - e.cap.013
      - SR-IOV over PCI-PT
-     - Not required
+     - Optional
      - Must support
      - ra2.ch.002 ra2.ch.003 ra2.k8s.007 ra2.ntw.004 ra2.ntw.008
    * - Exposed Infrastructure Capabilities
      - e.cap.014
      - Hardware coprocessor support (GPU/NPU)
-     - Not required
-     - Not required
+     - Optional
+     - Optional
      - N/A
    * - Exposed Infrastructure Capabilities
      - e.cap.015
      - SmartNICs
-     - Not required
+     - Optional
      - Optional
      - N/A
    * - Exposed Infrastructure Capabilities
      - e.cap.016
      - FPGA/other Acceleration H/W
-     - Not required
+     - Optional
      - Optional
      - ra2.k8s.007 ra2.ntw.012
    * - Exposed Infrastructure Capabilities
@@ -167,13 +167,13 @@ Cloud Infrastructure Software Profile Capabilities
    * - Internal Infrastructure Capabilities
      - i.cap.017
      - QoS enablement of the connection point (vNIC or interface)
-     - Not required
+     - Optional
      - Must support
      - N/A
    * - Internal Infrastructure Capabilities
      - i.cap.018
      - Support for huge pages
-     - Not required
+     - Optional
      - Must support
      - ra2.ch.001
    * - Internal Infrastructure Capabilities
@@ -293,58 +293,58 @@ Cloud Infrastructure Software Profile Requirements
      - Requirement for High-Performance Profile
      - Specification Reference
    * - Virtual Compute
-     - infra.com. cfg.001
+     - infra.com.cfg.001
      - CPU allocation ratio
      - 1:1
      - 1:1
      - ra2.ch.005, ra2.ch.006
    * - Virtual Compute
-     - infra.com. cfg.002
+     - infra.com.cfg.002
      - NUMA awareness
-     - Not required
+     - Optional
      - Must support
      - ra2.k8s.006
    * - Virtual Compute
-     - infra.com. cfg.003
+     - infra.com.cfg.003
      - CPU pinning capability
-     - Not required
+     - Optional
      - Must support
      - ra2.k8s.009
    * - Virtual Compute
-     - infra.com. cfg.004
+     - infra.com.cfg.004
      - Huge pages
-     - Not required
+     - Optional
      - Must support
      - ra2.ch.001
    * - Virtual Storage
-     - infra.stg. cfg.002
+     - infra.stg.cfg.002
      - Storage Block
      - Must support
      - Must support
      - ra2.stg.004
    * - Virtual Storage
-     - infra.stg. cfg.003
+     - infra.stg.cfg.003
      - Storage with replication
-     - Not required
+     - Optional
      - Must support
      - N/A
    * - Virtual Storage
-     - infra.stg. cfg.004
+     - infra.stg.cfg.004
      - Storage with encryption
      - Must support
      - Must support
      - N/A
    * - Virtual Storage
-     - infra.stg. acc.cfg.001
+     - infra.stg.acc.cfg.001
      - Storage IOPS oriented encryption
-     - Not required
+     - Optional
      - Must support
      - N/A
    * - Virtual Storage
-     - infra.stg. acc.cfg.002
+     - infra.stg.acc.cfg.002
      - Storage capacity-oriented encryption
-     - Not required
-     - Not required
+     - Optional
+     - Optional
      - N/A
    * - Virtual Networking
      - infra.net.cfg.001
@@ -374,7 +374,7 @@ Cloud Infrastructure Software Profile Requirements
    * - Virtual Networking
      - infra.net.cfg.005
      - SFC support
-     - Not required
+     - Optional
      - Must support
      - N/A
    * - Virtual Networking
@@ -386,31 +386,31 @@ Cloud Infrastructure Software Profile Requirements
    * - Virtual Networking
      - infra.net.acc.cfg.001
      - vSwitch optimisation
-     - Not required
+     - Optional
      - Must support DPDK (3)
      - ra2.ntw.010
    * - Virtual Networking
      - infra.net.acc.cfg.002
      - Support of HW offload
-     - Not required
+     - Optional
      - Optional, SmartNIC
      - N/A
    * - Virtual Networking
      - infra.net.acc.cfg.003
      - Crypto acceleration
-     - Not required
+     - Optional
      - Optional
      - N/A
    * - Virtual Networking
      - infra.net.acc.cfg.004
      - Crypto Acceleration Interface
-     - Not required
+     - Optional
      - Optional
      - N/A
    * - Virtual Networking
      - infra.net.acc.cfg.005
      - AF_XDP
-     - Not required
+     - Optional
      - Optional
      - N/A
 
@@ -464,7 +464,7 @@ Cloud Infrastructure Hardware Profile Requirements
    * - Compute Resources
      - infra.hw.cac.cfg.001
      - GPU
-     - Not required
+     - Optional
      - Optional
      - N/A
    * - Storage Configurations`
@@ -512,13 +512,13 @@ Cloud Infrastructure Hardware Profile Requirements
    * - Network Resources
      - infra.hw.nac.cfg.001
      - Cryptographic acceleration
-     - Not required
+     - Optional
      - Optional
      - N/A
    * - Network Resources
      - infra.hw.nac.cfg.002
      - A SmartNIC that is used to offload vSwitch functionality to hardware
-     - Not required
+     - Optional
      - Optional (1)
      - N/A
    * - Network Resources

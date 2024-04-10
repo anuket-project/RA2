@@ -404,7 +404,6 @@ Definition De-facto Standard :cite:p:`k8s-multi-net-spec`.
   (CNI) and allows for the use of multiple CNI plugins, in order to provide this specific connectivity that the
   default Network Plugin may not be able to provide (such as Multus).
 
-.. _Comparison of example Kubernetes networking solutions:
 .. list-table:: Comparison of example Kubernetes networking solutions
    :widths: 33 33 33
    :header-rows: 1

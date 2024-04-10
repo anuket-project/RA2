@@ -764,75 +764,75 @@ Architecture, they must be implemented according to the following specifications
    * - ra2.app.011
      - Published helm chart
      - Helm charts of the CNF must be published in a helm registry and must not be used from local copies.
-     - :cite:t:`cnf-testsuite-helm_chart_published`
+     - :cite:t:`cnti-testsuite-helm_chart_published`
      - N/A
    * - ra2.app.012
      - Valid Helm chart
      - Helm charts of the CNF must be valid and should pass the helm lint validation.
-     - :cite:t:`cnf-testsuite-helm_chart_valid`
+     - :cite:t:`cnti-testsuite-helm_chart_valid`
      - N/A
    * - ra2.app.013
      - Rolling update
      - Rolling updates of the CNF must be possible using Kubernetes deployments.
-     - :cite:t:`cnf-testsuite-rolling_update`
+     - :cite:t:`cnti-testsuite-rolling_update`
      - N/A
    * - ra2.app.014
      - Rolling downgrade
      - Rolling downgrades of the CNF must be possible using Kubernetes deployments.
-     - :cite:t:`cnf-testsuite-rolling_downgrade`
+     - :cite:t:`cnti-testsuite-rolling_downgrade`
      - N/A
    * - ra2.app.015
      - CNI compatibility
      - The CNF must use CNI compatible networking plugins.
-     - :cite:t:`cnf-testsuite-cni_compatibility`
+     - :cite:t:`cnti-testsuite-cni_compatibility`
      - N/A
    * - ra2.app.016
      - Kubernetes API stability
      - The CNF must not use any Kubernetes alpha APIs, except for those required by the specifications in this chapter
        (for example, NFD).
-     - :cite:t:`cnf-testsuite-cni_compatibility`
+     - :cite:t:`cnti-testsuite-cni_compatibility`
      - N/A
    * - ra2.app.017
      - CNF resiliency (node drain)
      - The CNF must not lose data. It must continue to run and its readiness probe outcome must be Success, even in the
        event of a node drain and consequent rescheduling.
-     - :cite:t:`cnf-testsuite-node_drain`
+     - :cite:t:`cnti-testsuite-node_drain`
      - N/A
    * - ra2.app.018
      - CNF resiliency (network latency)
      - The CNF must not lose data. It must continue to run and its readiness probe outcome must be Success, even if
        network latency of up to 2000 ms occurs.
-     - :cite:t:`cnf-testsuite-pod_network_latency`
+     - :cite:t:`cnti-testsuite-pod_network_latency`
      - N/A
    * - ra2.app.019
      - CNF resiliency (pod delete)
      - The CNF must not lose data. It must continue to run and its readiness probe outcome must be Success, even if a
        pod delete occurs.
-     - :cite:t:`cnf-testsuite-disk_fill`
+     - :cite:t:`cnti-testsuite-disk_fill`
      - N/A
    * - ra2.app.020
      - CNF resiliency (pod memory hog)
      - The CNF must not lose data. It must continue to run and its readiness probe outcome must be Success, even if a
        pod memory hog occurs.
-     - :cite:t:`cnf-testsuite-pod_memory_hog`
+     - :cite:t:`cnti-testsuite-pod_memory_hog`
      - N/A
    * - ra2.app.021
      - CNF resiliency (pod I/O stress)
      - The CNF must not lose data. It must continue to run and its readiness probe outcome must be Success, even if pod
        I/O stress occurs.
-     - :cite:t:`cnf-testsuite-pod_io_stress`
+     - :cite:t:`cnti-testsuite-pod_io_stress`
      - N/A
    * - ra2.app.022
      - CNF resiliency (pod network corruption)
      - The CNF must not lose data. It must continue to run and its readiness probe outcome must be Success, even if pod
        network corruption occurs.
-     - :cite:t:`cnf-testsuite-pod_network_corruption`
+     - :cite:t:`cnti-testsuite-pod_network_corruption`
      - N/A
    * - ra2.app.023
      - CNF resiliency (pod network duplication)
      - The CNF must not lose data. It must continue to run and its readiness probe outcome must be Success, even if a
        pod network duplication occurs.
-     - :cite:t:`cnf-testsuite-pod_network_duplication`
+     - :cite:t:`cnti-testsuite-pod_network_duplication`
      - N/A
    * - ra2.app.024
      - CNF resiliency (pod DNS error)
@@ -843,17 +843,17 @@ Architecture, they must be implemented according to the following specifications
    * - ra2.app.025
      - CNF local storage
      - The CNF must not use local storage.
-     - :cite:t:`cnf-testsuite-no_local_volume_configuration`
+     - :cite:t:`cnti-testsuite-no_local_volume_configuration`
      - N/A
    * - ra2.app.026
      - Liveness probe
      - All Pods of the CNF must have livenessProbe defined.
-     - :cite:t:`cnf-testsuite-liveness`
+     - :cite:t:`cnti-testsuite-liveness`
      - N/A
    * - ra2.app.027
      - Readiness probe
      - All Pods of the CNF must have readinessProbe defined.
-     - :cite:t:`cnf-testsuite-readiness`
+     - :cite:t:`cnti-testsuite-readiness`
      - N/A
    * - ra2.app.028
      - No access to container daemon sockets
@@ -865,31 +865,31 @@ Architecture, they must be implemented according to the following specifications
      - No automatic service account mapping
      - Non-specified service accounts must not be automatically mapped. To prevent this, the
        automountServiceAccountToken: false flag must be set in all Pods of the CNF.
-     - :cite:t:`cnf-testsuite-service_account_mapping`
+     - :cite:t:`cnti-testsuite-service_account_mapping`
      - N/A
    * - ra2.app.030
      - No host network access
      - Host network must not be attached to any of the Pods of the CNF. The hostNetwork attribute of the Pod
        specifications must be False, or it should not be specified.
-     - :cite:t:`cnf-testsuite-host_network`
+     - :cite:t:`cnti-testsuite-host_network`
      - N/A
    * - ra2.app.031
      - Host process namespace separation
      - The Pods of the CNF must not share the host process ID namespace or the host IPC namespace. The Pod manifests
        must not have the hostPID or the hostIPC attribute set to true.
-     - :cite:t:`cnf-testsuite-host_pid_ipc_privileges`
+     - :cite:t:`cnti-testsuite-host_pid_ipc_privileges`
      - N/A
    * - ra2.app.032
      - Resource limits
      - All containers and namespaces of the CNF must have defined resource limits for at least the CPU and memory
        resources.
-     - :cite:t:`cnf-testsuite-resource_policies`
+     - :cite:t:`cnti-testsuite-resource_policies`
      - N/A
    * - ra2.app.033
      - Read only filesystem
      - All the containers of the CNF must have a read-only filesystem. The readOnlyRootFilesystem attribute of the Pods
        in their securityContext should be set to true.
-     - :cite:t:`cnf-testsuite-immutable_file_systems`
+     - :cite:t:`cnti-testsuite-immutable_file_systems`
      - N/A
    * - ra2.app.034
      - Container image tags
@@ -900,7 +900,7 @@ Architecture, they must be implemented according to the following specifications
    * - ra2.app.035
      - No hardcoded IP addresses
      - The CNF must not have any hardcoded IP addresses in its Pod specifications.
-     - :cite:t:`cnf-testsuite-hardcoded_ip_addresses_in_k8s_runtime_configuration`
+     - :cite:t:`cnti-testsuite-hardcoded_ip_addresses_in_k8s_runtime_configuration`
      - N/A
    * - ra2.app.036
      - No node ports
@@ -923,34 +923,34 @@ Architecture, they must be implemented according to the following specifications
    * - ra2.app.039
      - CNF image size
      - The different container images of the CNF should not be bigger than 5GB.
-     - :cite:t:`cnf-testsuite-reasonable_image_size`
+     - :cite:t:`cnti-testsuite-reasonable_image_size`
      - N/A
    * - ra2.app.040
      - CNF startup time
      - The startup time of the Pods of a CNF should not exceed 60 seconds, where the startup time is the time between
        the starting of the Pod and the readiness probe outcome registering Success.
-     - :cite:t:`cnf-testsuite-reasonable_startup_time`
+     - :cite:t:`cnti-testsuite-reasonable_startup_time`
      - N/A
    * - ra2.app.041
      - No privileged mode
      - Pods of the CNF must not run in privileged mode.
-     - :cite:t:`cnf-testsuite-privileged_containers`
+     - :cite:t:`cnti-testsuite-privileged_containers`
      - N/A
    * - ra2.app.042
      - No root user
      - Pods of the CNF must not run as a root user.
-     - :cite:t:`cnf-testsuite-non_root_user`
+     - :cite:t:`cnti-testsuite-non_root_user`
      - N/A
    * - ra2.app.043
      - No privilege escalation
      - None of the containers of the CNF should allow privilege escalation.
-     - :cite:t:`cnf-testsuite-privilege_escalation`
+     - :cite:t:`cnti-testsuite-privilege_escalation`
      - N/A
    * - ra2.app.044
      - Non-root user
      - All the Pods of the CNF must be able to execute with a non-root user having a non-root group. Both the
        runAsUser and the runAsGroup attributes must be set to a value greater than 999.
-     - :cite:t:`cnf-testsuite-non_root_containers`
+     - :cite:t:`cnti-testsuite-non_root_containers`
      - N/A
    * - ra2.app.045
      - Labels
@@ -968,7 +968,7 @@ Architecture, they must be implemented according to the following specifications
      - Host ports
      - The Pods of the CNF should not use the host ports. Using the host ports ties the CNF to a specific node, thereby
        making the CNF less portable and scalable.
-     - :cite:t:`cnf-testsuite-hostport_not_used`
+     - :cite:t:`cnti-testsuite-hostport_not_used`
      - N/A
    * - ra2.app.048
      - SELinux options

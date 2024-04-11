@@ -21,6 +21,11 @@ linkcheck_ignore = [
     "https://www.iso.org/obp/ui/#iso:std:iso-iec:27032:ed-1:v1:en",
     "https://ntia.gov/page/software-bill-materials"
 ]
+
+linkcheck_anchors_ignore_for_url = [
+    "https://github.com/cnti-testcatalog/testsuite/blob/main/RATIONALE.md"
+]
+
 intersphinx_mapping = {
     'cntt': ('https://cntt.readthedocs.io/en/latest/', None),
     'ref_model': ('https://cntt.readthedocs.io/projects/rm/en/latest/', None),

@@ -1,8 +1,8 @@
-Overview
-========
-
 Introduction
-------------
+============
+
+Overview
+--------
 
 The objective of this Reference Architecture (RA) is to develop a usable Kubernetes-based platform for the Telco
 industry. The RA will be based on the standard Kubernetes platform wherever possible. This Reference Architecture
@@ -38,7 +38,7 @@ community. The intention is to expand as much of the existing test frameworks to
 conformance testing of Kubernetes-based workloads, and Kubernetes cluster lifecycle management.
 
 Required component versions
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ========== ===================
 Component  Required version(s)
@@ -47,10 +47,10 @@ Kubernetes 1.29
 ========== ===================
 
 Principles
-----------
+~~~~~~~~~~
 
 Architectural principles
-~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 This Reference Architecture conforms with the Anuket principles:
 
@@ -77,7 +77,7 @@ This Reference Architecture conforms with the Anuket principles:
    Single Point of Failure.
 
 Cloud Native Principles
-~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^
 
 For the purposes of this document, the CNCF TOC's (Technical Oversight Committee) definition of Cloud Native applies:
 
@@ -114,7 +114,7 @@ There are many similarities with the CNCF principles, briefly that infrastructur
 -  **high-impact changes frequently and predictably**
 
 Exceptions
-~~~~~~~~~~
+^^^^^^^^^^
 
 Anuket specifications define certain policies and general principles and strive to
 .. add general principles from common
@@ -131,7 +131,7 @@ technology choices, versions and requirements change. The Exceptions have an ass
 period shall include time for transitioning.
 
 Technology Exceptions
-^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++
 
 The list of Technology Exceptions will be updated or removed when alternative technologies, aligned with the principles
 of Anuket specifications, develop and mature.
@@ -160,7 +160,7 @@ of Anuket specifications, develop and mature.
      -
 
 .. Requirements Exceptions
-.. ^^^^^^^^^^^^^^^^^^^^^^^
+.. +++++++++++++++++++++++
 
 .. The Requirements Exceptions lists the Reference Model (RM) requirements and/or Reference Architecture (RA) requirements
 .. that will be either waived or be only partially implemented in this version of the RA. The exception list will be
@@ -182,6 +182,17 @@ of Anuket specifications, develop and mature.
 ..      - xxxxxxx
 ..      -
 ..      -
+
+Approach
+~~~~~~~~
+
+The approach taken in this Reference Architecture is to start with a basic Kubernetes architecture, based on the
+community distribution, and then add detail and additional features/extensions as is required to meet the requirements
+of the Reference Model and the functional and non-functional requirements of common cloud native network functions.
+
+This document starts with a description of interfaces and capabilities requirements (the "what") before providing
+guidance on "how" those elements are deployed, through specifications. The details of how the elements will be used
+together are documented in full detail in the Reference Implementation.
 
 Scope
 -----
@@ -206,17 +217,6 @@ The following items are considered **out of scope**:
    :name: Kubernetes Reference Architecture scope
 
    Kubernetes Reference Architecture scope
-
-Approach
---------
-
-The approach taken in this Reference Architecture is to start with a basic Kubernetes architecture, based on the
-community distribution, and then add detail and additional features/extensions as is required to meet the requirements
-of the Reference Model and the functional and non-functional requirements of common cloud native network functions.
-
-This document starts with a description of interfaces and capabilities requirements (the "what") before providing
-guidance on "how" those elements are deployed, through specifications. The details of how the elements will be used
-together are documented in full detail in the Reference Implementation.
 
 Definitions
 -----------
@@ -418,7 +418,6 @@ Definitions
      - An application (for example **VNF**, or **CNF**) that performs certain task(s) for the users. In the Cloud
        Infrastructure, these applications run on top of compute resources such as **VMs** or **Containers**.
 
-
 Abbreviations
 -------------
 
@@ -611,6 +610,12 @@ Abbreviations
    * - ZTA
      - Zero Trust Architecture
 
+References
+----------
+
+.. bibliography::
+   :cited:
+
 Conventions
 -----------
 
@@ -618,10 +623,3 @@ The key words "**MUST**", "**MUST NOT**", "required", "**SHALL**",
 **SHALL NOT**", "**SHOULD**", "**SHOULD NOT**", "recommended", "**MAY**", and
 "**OPTIONAL**" in this document are to be interpreted as described in
 RFC 2119 :cite:p:`rfc2119`.
-
-
-References
-----------
-
-.. bibliography::
-   :cited:

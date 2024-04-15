@@ -352,7 +352,7 @@ Example lifecycle steps are listed below:
    of “how” the certificate is obtained, since this is delegated to cert-manager. The certificate request can originate
    from any container in the CNF Pod- either the NFc “application”, or the service mesh (e.g. where deployed as a
    sidecar).
-2. When it receives the certificate request, cert-manager will generate a new key pair, then send a Certificate Signing
+2. When it receives the certificate request, cert-manager will generate a new private key, then send a Certificate Signing
    Request (CSR) to the relevant issuing CA. The CA returns the signed certificate. One of the benefits of cert-manager
    is its “pluggable” architecture. It comes with built-in support for a number of issuing CA types and protocols, and
    developers can easily add support for new ones.

@@ -130,7 +130,10 @@ API Machinery Special Interest Group :cite:p:`k8s-api-sig-api-machinery`
      - Verify ResourceQuota with terminating scopes through scope selectors
    * - Feature: StorageVersionAPI :cite:p:`k8s-feature-storageversionapi`
      -
+     - Enable the storage version API.
+   * - Feature:WatchList :cite:p:`k8s-feature-gates`
      -
+     - Enable support for streaming initial state of objects in watch requests.
 
 Apps  :cite:p:`k8s-api-sig-apps`
 ------------------------------------------------------
@@ -191,6 +194,9 @@ Auth Special Interest Group :cite:p:`k8s-api-sig-auth`
    * - Feature: BoundServiceAccountTokenVolume :cite:p:`k8s-feature-boundserviceaccounttokenvolume`
      -
      - The ServiceAccount admission controller migration upgrade should maintain a functioning cluster.
+   * - Feature:ClusterTrustBundle :cite:p:`k8s-feature-gates`
+     -
+     - Enable ClusterTrustBundle objects and kubelet integration.
    * - Feature:NodeAuthenticator
      - X
      - The kubelet's main port 10250 should reject requests with no credentials.
@@ -321,6 +327,9 @@ Network Special Interest Group :cite:p:`k8s-api-sig-network`
    * - Feature:SCTPConnectivity
      -
      - The Pods should function for intra-pod communication: sctp.
+   * - Feature:ServiceCIDRs :cite:p:`k8s-extend-service-ip-ranges`
+     -
+     - Track IP address allocations for Service cluster IPs using IPAddress objects.
 
 Node Special Interest Group :cite:p:`k8s-api-sig-node`
 ------------------------------------------------------
@@ -338,6 +347,9 @@ Node Special Interest Group :cite:p:`k8s-api-sig-node`
    * - None
      - X
      - Kubernetes mainstream features.
+   * - Feature:DynamicResourceAllocation :cite:p:`k8s-feature-gates`
+     -
+     - Enables support for resources with custom parameters and a lifecycle that is independent of a Pod.
    * - Feature:Example
      - X
      - The liveness pods should be automatically restarted.
@@ -347,12 +359,28 @@ Node Special Interest Group :cite:p:`k8s-api-sig-node`
    * - Feature:GPUUpgrade
      -
      - The Control Plane node upgrade should not disrupt the GPU Pod.
+   * - Feature:InPlacePodVerticalScaling :cite:p:`k8s-feature-gates`
+     -
+     - Enables in-place Pod vertical scaling.
+   * - Feature:NodeLogQuery :cite:p:`k8s-feature-gates`
+     -
+     - Enables querying logs of node services using the /logs endpoint.
    * - Feature:PodGarbageCollector
      -
      - The PodGarbageCollector feature should handle the creation of 1000 pods.
+   * - Feature:PodLifecycleSleepAction :cite:p:`k8s-feature-gates`
+     -
+     - Enables the sleep action in Container lifecycle hooks.
    * - Feature:RegularResourceUsageTracking
      -
      - Resource tracking for 0 pods per node.
+   * - Feature:SidecarContainers :cite:p:`k8s-feature-gates`
+     -
+     - Allow setting the restartPolicy of an init container to Always so that
+       the container becomes a sidecar container (restartable init containers).
+   * - Feature:UserNamespacesSupport :cite:p:`k8s-feature-gates`
+     -
+     - Enable user namespace support for Pods.
    * - Feature: ProbeTerminationGracePeriod :cite:p:`k8s-feature-probeterminationgraceperiod`
      - X
      - The probing container should override timeoutGracePeriodSeconds when the LivenessProbe field is set.
@@ -417,6 +445,13 @@ Storage Special Interest Group :cite:p:`k8s-api-sig-storage`
      -
      -
    * - Feature:Flexvolumes
+     -
+     -
+   * - Feature:RecoverVolumeExpansionFailure :cite:p:`k8s-feature-gates`
+     -
+     - Enables users to edit their PVCs to smaller sizes so as they can
+       recover from previously issued volume expansion failures.
+   * - Feature:SELinux
      -
      -
    * - Feature:GKELocalSSD

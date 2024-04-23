@@ -28,10 +28,10 @@ linkcheck_anchors_ignore_for_url = [
 ]
 
 intersphinx_mapping = {
-    'cntt': ('https://cntt.readthedocs.io/en/latest/', None),
-    'ref_model': ('https://cntt.readthedocs.io/projects/rm/en/latest/', None),
-    'ref_impl2': ('https://cntt.readthedocs.io/projects/ri2/en/latest/', None),
-    'ref_arch1': ('https://cntt.readthedocs.io/projects/ra1/en/latest/', None)
+    'cntt': ('https://cntt.readthedocs.io/en/stable-pieman/', None),
+    'ref_model': ('https://cntt.readthedocs.io/projects/rm/en/stable-pieman/', None),
+    'ref_impl2': ('https://cntt.readthedocs.io/projects/ri2/en/stable-pieman/', None),
+    'ref_arch1': ('https://cntt.readthedocs.io/projects/ra1/en/stable-pieman/', None)
 }
 autosectionlabel_prefix_document = True
 autosectionlabel_maxdepth = 4

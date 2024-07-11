@@ -21,7 +21,9 @@ linkcheck_ignore = [
     "https://www.iso.org/obp/ui/#iso:std:iso-iec:27032:ed-1:v1:en",
     "https://ntia.gov/page/software-bill-materials",
     "https://www.cisecurity.org/controls/cis-controls-list",
-    'https://github.com/cnti-testcatalog/testsuite/blob/main/RATIONALE.md#'
+    "https://github.com/cnti-testcatalog/testsuite/blob/main/RATIONALE.md#",
+    "http://127.0.0.1",
+    "http://104.154.71.112:8080"
 ]
 
 intersphinx_mapping = {

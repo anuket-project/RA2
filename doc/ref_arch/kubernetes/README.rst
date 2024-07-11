@@ -15,6 +15,7 @@ Chapter 04                                                                      
 Chapter 05                                                                                          Lots of SME feedback
 Chapter 06                                                                                          Dickering over the fine points
 Chapter 07                                                                                          Lots of SME feedback
+Chapter 08                                                                                          Lots of SME feedback
 Appendix A - Guidance For workload isolation (Multitenancy) with Kubernetes for application vendors Lots of SME feedback
 =================================================================================================== ==============================
 
@@ -32,4 +33,5 @@ Table of Contents
     chapters/chapter05
     chapters/chapter06
     chapters/chapter07
+    chapters/chapter08
     chapters/appendix-a

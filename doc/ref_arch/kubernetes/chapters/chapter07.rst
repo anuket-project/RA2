@@ -41,7 +41,7 @@ Multitenancy and workload isolation with Kubernetes
 
 **Gap description:** Today, Kubernetes lacks hard multitenancy capabilities that allow untrusted tenants to share
 infrastructure resources. This presents a security problem when operators seek to separate workloads by categorization
-or simply production versus non-production. Furthermore, tenant networks need to be segregated, yet still centrally
+or simply production versus non-production. Furthermore, tenant networks need to be segmented, yet still centrally
 administered and maintained. Beyond just security, this also presents an operational problem. Trying to deploy too
 many CNFs in the same cluster could result in version conflicts, configuration conflicts, and problems with software
 lifecycle management. Finally, without proper isolation, there is an increased risk of cascading failures.

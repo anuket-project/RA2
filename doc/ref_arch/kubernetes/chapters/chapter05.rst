@@ -85,7 +85,7 @@ The core principles to consider when securing cloud-native applications are as f
    -  Separate sensitive workloads using Namespaces.
    -  Secure tenant metadata access.
 
--  Segregate container networks using security zoning and network standards.
+-  Segment container networks using security zoning and network standards.
 -  Harden the Host OS running the containers.
 -  Use container-aware runtime defence tools.
 -  Enable Role-Based Access Control (RBAC).
@@ -156,7 +156,7 @@ The security recommendations for the orchestration manager are as follows:
 -  Multifactor authentication is used for all administrative access.
 -  Harden the configuration by using Center for Internet Security (CIS)
    benchmarks, which are available for container runtime and Kubernetes.
--  Deploy security products that provide whitelisting, behaviour monitoring, and
+-  Deploy security products that provide allow listing, behaviour monitoring, and
    anomaly detection, in order to prevent malicious activity.
 -  Avoid privileged container application through policy management to reduce the
    effects of potential attacks.

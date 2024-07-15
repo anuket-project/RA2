@@ -863,7 +863,7 @@ Cloud Infrastructure Security Requirements
      - `Network Resources Use Transport Layer Security and Service Mesh`
    * - Platform and Access
      - sec.sys.005
-     - The Cloud Infrastructure **must** segregate the underlay and overlay networks.
+     - The Cloud Infrastructure **must** separate the underlay and overlay networks.
      -
    * - Platform and Access
      - sec.sys.006

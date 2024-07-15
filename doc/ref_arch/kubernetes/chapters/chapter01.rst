@@ -238,7 +238,7 @@ Definitions
        Instances of CaaS Platforms are known as **CaaS Clusters**.
    * - CaaS Manager
      - A management plane function that manages the lifecycle (instantiation, scaling, healing, etc.) of one or more
-       CaaS instances, including communication with VIM for master/node lifecycle management.
+       CaaS instances, including communication with VIM for control plane and node lifecycle management.
    * - Cloud Infrastructure
      - A generic term covering **NFVI**, **IaaS** and **CaaS** capabilities - essentially the infrastructure on which a
        **Workload** can be executed. **NFVI**, **IaaS** and **CaaS** layers can be built on top of each other. In case

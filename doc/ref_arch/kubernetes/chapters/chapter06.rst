@@ -4,16 +4,16 @@ API and Feature Testing requirements
 Introduction to API and Feature Testing requirement
 ---------------------------------------------------
 
-The CNCF has defined a :cite:t:`k8s-testing-sig` to help the community to write and run tests, and to contribute,
+The CNCF has defined a :cite:p:`k8s-testing-sig` to help the community to write and run tests, and to contribute,
 analyze, and act upon test results. This chapter maps the requirements written in the previous chapters as mandatory
 Special Interest Group features. It enforces the overall requirements traceability to testing, especially those offered
-for :cite:t:`k8s-testing-sig-e2e-tests`.
+for :cite:p:`k8s-testing-sig-e2e-tests`.
 The Anuket Reference Conformance (RC2) testing matches the features and tests defined here.
 
 Kubernetes feature gate policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:cite:t:`k8s-feature-gates` are a set of key-value pairs that describe the Kubernetes features. The components of the
+:cite:p:`k8s-feature-gates` are a set of key-value pairs that describe the Kubernetes features. The components of the
 control plane of the Kubernetes Clusters can be run with different Feature Gate settings.
 
 A feature can be in the Alpha, Beta, or General Availability (GA) stage:
@@ -23,7 +23,7 @@ A feature can be in the Alpha, Beta, or General Availability (GA) stage:
 - Beta features are disabled by default. They are well tested, and support will not be dropped, although breaking API
   changes may happen. As of 1.24, any existing Beta feature will continue to be enabled by default. However, new beta
   APIs and features will not be enabled by default after Kubernetes 1.24.
-  For more information, see :cite:t:`k8s-kep-3136`
+  For more information, see :cite:p:`k8s-kep-3136`
 - GA features are stable. They are always enabled and cannot be disabled.
 
 Only those Kubernetes features can be made mandatory in this Reference Architecture which are GA or were Beta before
@@ -34,7 +34,7 @@ A list of feature gates is available here :cite:p:`k8s-feature-gates`.
 Kubernetes API policy
 ~~~~~~~~~~~~~~~~~~~~~
 
-The :cite:t:`k8s-api` supports all operations and communications between components, and external user commands.
+The :cite:p:`k8s-api` supports all operations and communications between components, and external user commands.
 Everything in the Kubernetes platform is treated as an API object. Different API versions indicate different levels of
 stability and support. An API can have Alpha, Beta or Stable versions. The version of APIs that are backed by a feature
 will match the stage of the feature itself (i.e. Alpha, Beta or GA or Stable).
@@ -49,7 +49,7 @@ In these Reference Architecture APIs, only those APIs which are in any of the fo
 
 The Kubernetes API reference is available here :cite:p:`k8s-api-reference`.
 
-The list of :cite:t:`k8s-v1.29-api-groups` that are mandatory is as follows:
+The list of :cite:p:`k8s-v1.29-api-groups` that are mandatory is as follows:
 
 .. list-table:: Mandatory API Groups
    :widths: 30 30
@@ -479,36 +479,97 @@ Storage Special Interest Group :cite:p:`k8s-api-sig-storage`
 Conformance testing
 -------------------
 
-Traceability Matrix
-~~~~~~~~~~~~~~~~~~~
+The objective of this section is to provide an automated mechanism
+to validate Kubernetes based cloud infrastructure
+against the standard set of requirements defined in
+:ref:`chapters/chapter02:architecture requirements`. Through this validation
+mechanism, a provider of cloud infrastructure will be able to test their
+cloud infrastructure's conformance to this reference architecture. This will
+ease the integration of network functions into operator environments that host
+compatible cloud infrastructures, thereby reducing cost, complexity, and time
+of integration.
+
+The overall workstream requires the close coordination of the following:
+
+-  **Requirements** - The agreed upon capabilities and conditions that a
+   compliant cloud infrastructure must provide or satisfy.
+-  **Tests** - The verification mechanism that determines that a given
+   cloud infrastructure complies with one or more requirements.
+-  **Conformance Specifications** - The definition of the requirements,
+   tests, and circumstances (test case integration, etc.) that must be
+   met to be deemed conformant.
+
+Requirements and Testing Principles
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In addition to the description of the test case integration and tooling,
+:cite:p:`refarch1` defines the requirements and the testing principles to
+which every Anuket Conformance test suite must comply as this Conformance
+Test Suite.
+
+In two words, the verification, validation, and conformance processes leverage
+existing Anuket testing knowledge (projects) and experience (history) by
+utilising the toolchain design already in-place.
+
+The Kubernetes based cloud infrastructure suite
+**MUST** utilise the Anuket test case integration toolchain to deliver
+overall integration, the same end user actions, and a unique test result
+format (e.g. Anuket test result database) needed by the end users and any
+test case result verification program.
+
+To reach all goals in terms of verification, validation, compliance, and
+conformance, all test cases **MUST** be delivered as Docker containers
+:cite:p:`docker` to simplify the CI toolchain
+setup including:
+
+-  the common test case execution
+-  the unified way to manage all the interactions with the CI/CD
+   components and with third-parties (e.g. dump all test case logs and
+   results for conformance)
+
+The Docker containers proposed by the test projects **MUST** also embed the
+Xtesting Python package :cite:p:`xtestingpythonpackage` and the
+related test case execution description files
+:cite:p:`testcasedescription` as required by Xtesting.
+
+Xtesting CI :cite:p:`xtestingci`
+leverages the common test case execution proposed by Xtesting. Thanks to
+a simple test case list, this tool deploys plug-and-play CI/CD
+toolchains in a few commands :cite:p:`cicdtoolchainsinafewcommands` to
+run this Conformance Test Suite.
+
+See :cite:p:`refarch1` for more details.
+
+Test Case traceability
+~~~~~~~~~~~~~~~~~~~~~~
 
 Kubernetes API testing
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The primary objectives of the :cite:t:`k8s-testing-sig-e2e-tests`
+The primary objectives of the :cite:p:`k8s-testing-sig-e2e-tests`
 are to ensure a consistent and reliable behavior of the Kubernetes code
 base, and to catch hard-to-test bugs before users do, when unit and
 integration tests are insufficient. They are partially selected for the
-:cite:t:`k8s-conformance` run by the Kubernetes community (under the aegis of
+:cite:p:`k8s-conformance` run by the Kubernetes community (under the aegis of
 the CNCF).
 
 Anuket shares the same goal to give end users the confidence that when
 they use a certified product they can rely on a high level of common
 functionality. Then Anuket RC2 starts with the test list defined by
-the :cite:t:`k8s-conformance` which is expected to grow according to the
+the :cite:p:`k8s-conformance` which is expected to grow according to the
 ongoing requirement traceability.
 
-The :cite:t:`k8s-testing-sig-e2e-tests` basically asks for focus and skip
+The :cite:p:`k8s-testing-sig-e2e-tests` basically asks for focus and skip
 regexes to select or to exclude single tests:
 
--  focus basically matches Conformance or the :cite:t:`k8s-testing-sig`
+-  focus basically matches Conformance or the :cite:p:`k8s-testing-sig`
    in sub-sections below
 -  skip excludes the SIG labels listed as optional in
    :ref:`chapters/chapter06:api and feature testing requirements`.
 
 The Reference Conformance suites must be stable and executed on real
 deployments. Then all the following labels are defacto skipped in
-the :cite:t:`k8s-testing-sig-e2e-tests`:
+the :cite:p:`k8s-testing-sig-e2e-tests`:
 
 -  alpha
 -  Disruptive
@@ -520,9 +581,9 @@ Conformance as per the rules.
 K8s Conformance
 +++++++++++++++
 
-It must be noted that the default :cite:t:`k8s-conformance` testing is
-disruptive thus Anuket RC2 rather picks :cite:t:`non-disruptive-conformance`
-testing as defined by :cite:t:`sonobuoy`.
+It must be noted that the default :cite:p:`k8s-conformance` testing is
+disruptive thus Anuket RC2 rather picks :cite:p:`non-disruptive-conformance`
+testing as defined by :cite:p:`sonobuoy`.
 
 focus: [Conformance]
 
@@ -546,7 +607,7 @@ skip:
 -  [Feature:StorageVersionAPI]
 -  [Feature:WatchList]
 
-See :cite:t:`k8s-api-sig-api-machinery`
+See :cite:p:`k8s-api-sig-api-machinery`
 and :ref:`chapters/chapter06:api and feature testing requirements` for more details.
 
 Apps Testing
@@ -566,7 +627,7 @@ skip:
 -  [Feature:StatefulUpgrade]
 -  [Feature:SuspendJob]
 
-See :cite:t:`k8s-api-sig-apps`
+See :cite:p:`k8s-api-sig-apps`
 and :ref:`chapters/chapter06:api and feature testing requirements` for more details.
 
 Auth Testing
@@ -583,7 +644,7 @@ skip:
 -  [Feature:ClusterTrustBundle]
 -  [Feature:PodSecurityPolicy]
 
-See :cite:t:`k8s-api-sig-auth`
+See :cite:p:`k8s-api-sig-auth`
 and :ref:`chapters/chapter06:api and feature testing requirements` for more details.
 
 Cluster Lifecycle Testing
@@ -597,7 +658,7 @@ skip:
 -  [Disruptive]
 -  [Flaky]
 
-See :cite:t:`k8s-api-sig-cluster-lifecycle`
+See :cite:p:`k8s-api-sig-cluster-lifecycle`
 and :ref:`chapters/chapter06:api and feature testing requirements` for more details.
 
 Instrumentation Testing
@@ -617,7 +678,7 @@ skip:
 -  [Feature:StackdriverMetadataAgent]
 -  [Feature:StackdriverMonitoring]
 
-See :cite:t:`k8s-api-sig-instrumentation`
+See :cite:p:`k8s-api-sig-instrumentation`
 and :ref:`chapters/chapter06:api and feature testing requirements` for more details.
 
 Network Testing
@@ -626,8 +687,8 @@ Network Testing
 The regexes load.balancer, LoadBalancer and
 Network.should.set.TCP.CLOSE_WAIT.timeout are currently skipped because
 they haven't been covered successfully neither by
-the :cite:t:`upstream-kubernetes-gate` nor by
-:cite:t:`anuket-rc2-verification`.
+the :cite:p:`upstream-kubernetes-gate` nor by
+:cite:p:`anuket-rc2-verification`.
 
 Please note that a couple of tests must be skipped by name below as they
 are no appropriate labels.
@@ -658,7 +719,7 @@ skip:
 -  LoadBalancer
 -  Network.should.set.TCP.CLOSE_WAIT.timeout
 
-See :cite:t:`k8s-api-sig-network`
+See :cite:p:`k8s-api-sig-network`
 and :ref:`chapters/chapter06:api and feature testing requirements`.
 
 Node Testing
@@ -687,7 +748,7 @@ skip:
 -  [NodeFeature:DownwardAPIHugePages]
 -  [NodeFeature:RuntimeHandler]
 
-See :cite:t:`k8s-api-sig-node`
+See :cite:p:`k8s-api-sig-node`
 and :ref:`chapters/chapter06:api and feature testing requirements`.
 
 Scheduling Testing
@@ -703,16 +764,16 @@ skip:
 -  [Feature:GPUDevicePlugin]
 -  [Feature:Recreate]
 
-See :cite:t:`k8s-api-sig-scheduling`
+See :cite:p:`k8s-api-sig-scheduling`
 and :ref:`chapters/chapter06:api and feature testing requirements`.
 
 Storage Testing
 +++++++++++++++
 
 It should be noted that all in-tree driver testing, [Driver:+], is
-skipped. Conforming to the :cite:t:`upstream-kubernetes-gate`,
+skipped. Conforming to the :cite:p:`upstream-kubernetes-gate`,
 all PersistentVolumes NFS testing is also skipped. The following
-exclusions are about the :cite:t:`deprecated-in-tree-gitrepo-volume-type`:
+exclusions are about the :cite:p:`deprecated-in-tree-gitrepo-volume-type`:
 
 -  should provision storage with different parameters
 -  should not cause race condition when used for git_repo
@@ -743,24 +804,24 @@ skip:
 -  should provision storage with different parameters
 -  should not cause race condition when used for git_repo
 
-See :cite:t:`k8s-api-sig-storage`
+See :cite:p:`k8s-api-sig-storage`
 and :ref:`chapters/chapter06:api and feature testing requirements`.
 
 Kubernetes API benchmarking
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:cite:t:`xrally-kubernetes` is a tool and framework
+:cite:p:`xrally-kubernetes` is a tool and framework
 that performs Kubernetes API benchmarking.
 
-:cite:t:`functest-kubernetes-benchmarking` proposed a Rally-based test case,
-:cite:t:`xrally-kubernetes-full`, which iterates 10 times the mainline
-:cite:t:`xrally-kubernetes` scenarios.
+:cite:p:`functest-kubernetes-benchmarking` proposed a Rally-based test case,
+:cite:p:`xrally-kubernetes-full`, which iterates 10 times the mainline
+:cite:p:`xrally-kubernetes` scenarios.
 
 At the time of writing, no KPI is defined in :ref:`chapters/chapter01:introduction`
 which would have asked for an update of the default SLA (maximum failure
-rate of 0%) proposed in :cite:t:`functest-kubernetes-benchmarking`
+rate of 0%) proposed in :cite:p:`functest-kubernetes-benchmarking`
 
-:cite:t:`functest-kubernetes-benchmarking`:
+:cite:p:`functest-kubernetes-benchmarking`:
 
 .. list-table:: Kubernetes API benchmarking
    :widths: 80 20
@@ -830,11 +891,11 @@ v1.29 (latest stable release) selected by Anuket:
 Dataplane benchmarking
 ^^^^^^^^^^^^^^^^^^^^^^
 
-:cite:t:`kubernetes-perf-tests-repository` hosts various
+:cite:p:`kubernetes-perf-tests-repository` hosts various
 Kubernetes-related performance test related tools especially
-:cite:t:`kubernetes-netperf` which benchmarks Kubernetes networking performance.
+:cite:p:`kubernetes-netperf` which benchmarks Kubernetes networking performance.
 
-As listed in :cite:t:`kubernetes-netperf`'s README,
+As listed in :cite:p:`kubernetes-netperf`'s README,
 the 5 major network traffic paths are combination of pod IP vs virtual
 IP and whether the pods are co-located on the same node versus a
 remotely located pod:
@@ -845,31 +906,31 @@ remotely located pod:
 -  remote node using cluster/virtual IP
 -  same node pod hairpin to itself using cluster/virtual IP
 
-It should be noted that :cite:t:`kubernetes-netperf` leverages :cite:t:`iperf`
-(both TCP and UDP modes) and :cite:t:`netperf`.
+It should be noted that :cite:p:`kubernetes-netperf` leverages :cite:p:`iperf`
+(both TCP and UDP modes) and :cite:p:`netperf`.
 
 At the time of writing, no KPI is defined in Anuket chapters which would
 have asked for an update of the default SLA proposed in
-:cite:t:`functest-kubernetes-benchmarking`.
+:cite:p:`functest-kubernetes-benchmarking`.
 
 Security testing
 ^^^^^^^^^^^^^^^^
 
 There are a couple of opensource tools that help securing the Kubernetes
-stack. Amongst them, :cite:t:`functest-kubernetes-security`
-offers two test cases based on :cite:t:`kube-hunter` and
-:cite:t:`kube-bench`.
+stack. Amongst them, :cite:p:`functest-kubernetes-security`
+offers two test cases based on :cite:p:`kube-hunter` and
+:cite:p:`kube-bench`.
 
-:cite:t:`kube-hunter` hunts for security weaknesses in Kubernetes clusters and
-:cite:t:`kube-bench` checks whether Kubernetes is deployed securely by running
-the checks documented in the :cite:t:`cis-kubernetes-benchmark`.
+:cite:p:`kube-hunter` hunts for security weaknesses in Kubernetes clusters and
+:cite:p:`kube-bench` checks whether Kubernetes is deployed securely by running
+the checks documented in the :cite:p:`cis-kubernetes-benchmark`.
 
-:cite:t:`kube-hunter` classifies all vulnerabilities as low, medium, and high.
+:cite:p:`kube-hunter` classifies all vulnerabilities as low, medium, and high.
 In context of this conformance suite, all vulnerabilities are only printed for
 information.
 
-Here are the :cite:t:`vulnerability-categories` tagged as high by
-:cite:t:`kube-hunter`:
+Here are the :cite:p:`vulnerability-categories` tagged as high by
+:cite:p:`kube-hunter`:
 
 - ExposedSensitiveInterfacesTechnique
 - MountServicePrincipalTechnique
@@ -891,9 +952,9 @@ Here are the :cite:t:`vulnerability-categories` tagged as high by
 At the time of writing, none of the Center for Internet Security (CIS)
 rules are defined as mandatory (e.g., sec.std.001: The Cloud Operator
 **should** comply with Center for Internet Security CIS Controls) else
-it would have required an update of the default :cite:t:`kube-bench` behavior
+it would have required an update of the default :cite:p:`kube-bench` behavior
 (all failures and warnings are only printed) as integrated in
-:cite:t:`functest-kubernetes-security`.
+:cite:p:`functest-kubernetes-security`.
 
 The following software versions are considered to verify Kubernetes
 v1.29 (latest stable release) selected by Anuket:
@@ -919,8 +980,8 @@ technical solution to ensure that the platforms meet Network Functions
 Virtualization requirements.
 
 Functest CNF offers 2 test cases which automatically onboard and test
-:cite:t:`clearwater-ims` via kubectl and Helm. It’s worth mentioning that this
-CNF is covered by the upstream tests (see :cite:t:`clearwater-live-test`).
+:cite:p:`clearwater-ims` via kubectl and Helm. It’s worth mentioning that this
+CNF is covered by the upstream tests (see :cite:p:`clearwater-live-test`).
 
 The following software versions are considered to verify Kubernetes
 v1.29 (latest stable release) selected by Anuket:
@@ -1048,9 +1109,9 @@ and only runs the containers selected by Anuket RC2. It will be
 completed by the next Anuket mandatory test cases and then a new CI
 description file will be proposed in a shared tree.
 
-:cite:t:`xtestingci` only requires internet access, GNU/Linux as Operating
+:cite:p:`xtestingci` only requires internet access, GNU/Linux as Operating
 System and asks for a few dependencies as described in
-:cite:t:`deploy-your-own-xtesting-cicd-toolchains`:
+:cite:p:`deploy-your-own-xtesting-cicd-toolchains`:
 
 -  python-virtualenv
 -  git
@@ -1062,7 +1123,7 @@ and the network settings:
    virtualenv (“Aborting, target uses selinux but python bindings
    (libselinux-python) aren’t installed!”)
 -  Proxy: you may set your proxy in env for Ansible and
-   :cite:t:`systemd-for-docker`
+   :cite:p:`systemd-for-docker`
 
 To deploy your own CI toolchain running Anuket Compliance:
 

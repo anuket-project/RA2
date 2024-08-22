@@ -505,8 +505,8 @@ Requirements and Testing Principles
 In addition to the description of the test case integration and tooling,
 Cloud Infrastructure Reference Architecture managed by OpenStack
 :cite:p:`refarch1` defines the requirements and the testing principles to
-which every Anuket Conformance test suite must comply as this Conformance
-Test Suite.
+which every Anuket Conformance test suite must comply as this one for
+Kubernetes.
 
 In two words, the verification, validation, and conformance processes leverage
 existing Anuket testing knowledge (projects) and experience (history) by
@@ -537,7 +537,7 @@ Xtesting CI :cite:p:`xtestingci`
 leverages the common test case execution proposed by Xtesting. Thanks to
 a simple test case list, this tool deploys plug-and-play CI/CD
 toolchains in a few commands :cite:p:`cicdtoolchainsinafewcommands` to
-run this Conformance Test Suite.
+run this Conformance testing.
 
 See Cloud Infrastructure Reference Architecture managed by OpenStack
 :cite:p:`refarch1` for more details.
@@ -558,9 +558,9 @@ the CNCF).
 
 Anuket shares the same goal to give end users the confidence that when
 they use a certified product they can rely on a high level of common
-functionality. Then Anuket RC2 starts with the test list defined by
-Conformance :cite:p:`k8s-conformance` which is expected to grow according to the
-ongoing requirement traceability.
+functionality. Then the Conformance testing starts with the test list defined
+by the Certified Kubernetes Conformance Program :cite:p:`k8s-conformance`
+which is expected to grow according to the ongoing requirement traceability.
 
 End-to-End Testing :cite:p:`k8s-testing-sig-e2e-tests` basically asks for
 focus and skip regexes to select or to exclude single tests:
@@ -585,8 +585,9 @@ K8s Conformance
 +++++++++++++++
 
 It must be noted that the default K8s Conformance :cite:p:`k8s-conformance`
-testing is disruptive thus Anuket RC2 rather picks
-:cite:p:`non-disruptive-conformance` testing as defined by Sonobuoy :cite:p:`sonobuoy`.
+testing is disruptive thus Anuket RC2 rather picks non-disruptive-conformance
+:cite:p:`non-disruptive-conformance` testing as defined by Sonobuoy
+:cite:p:`sonobuoy`.
 
 focus: [Conformance]
 
@@ -697,8 +698,8 @@ Network Testing
 The regexes load.balancer, LoadBalancer and
 Network.should.set.TCP.CLOSE_WAIT.timeout are currently skipped because
 they haven't been covered successfully neither by
-sig-release-1.29-blocking :cite:p:`upstream-kubernetes-gate` nor by
-Anuket RC2 verification :cite:p:`anuket-rc2-verification`.
+the upstream kubernetes gate :cite:p:`upstream-kubernetes-gate` nor by the
+Anuket verification :cite:p:`anuket-rc2-verification`.
 
 Please note that a couple of tests must be skipped by name below as they
 are no appropriate labels.
@@ -834,7 +835,8 @@ proposed a Rally-based test case, xrally_kubernetes_full
 :cite:p:`xrally-kubernetes-full`, which iterates 10 times the mainline
 xrally-kubernetes :cite:p:`xrally-kubernetes` scenarios.
 
-At the time of writing, no KPI is defined in :ref:`chapters/chapter01:introduction`
+At the time of writing, no KPI is defined in
+:ref:`chapters/chapter02:architecture requirements`
 which would have asked for an update of the default SLA (maximum failure
 rate of 0%) proposed in Functest Kubernetes Benchmarking
 :cite:p:`functest-kubernetes-benchmarking`
@@ -1128,7 +1130,7 @@ Kubernetes Testing Cookbook
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 At the time of writing, the CI description file is hosted in Functest
-and only runs the containers selected by Anuket RC2. It will be
+and only runs the containers selected here. It will be
 completed by the next Anuket mandatory test cases and then a new CI
 description file will be proposed in a shared tree.
 

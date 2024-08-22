@@ -8,7 +8,7 @@ The CNCF has defined a :cite:p:`k8s-testing-sig` to help the community to write 
 analyze, and act upon test results. This chapter maps the requirements written in the previous chapters as mandatory
 Special Interest Group features. It enforces the overall requirements traceability to testing, especially those offered
 for :cite:p:`k8s-testing-sig-e2e-tests`.
-The Anuket Reference Conformance (RC2) testing matches the features and tests defined here.
+The Anuket Reference Conformance testing matches the features and tests defined here.
 
 Kubernetes feature gate policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -585,9 +585,9 @@ K8s Conformance
 +++++++++++++++
 
 It must be noted that the default K8s Conformance :cite:p:`k8s-conformance`
-testing is disruptive thus Anuket RC2 rather picks non-disruptive-conformance
-:cite:p:`non-disruptive-conformance` testing as defined by Sonobuoy
-:cite:p:`sonobuoy`.
+testing is disruptive thus this Conformance testing rather picks
+non-disruptive-conformance :cite:p:`non-disruptive-conformance` testing as
+defined by Sonobuoy :cite:p:`sonobuoy`.
 
 focus: [Conformance]
 

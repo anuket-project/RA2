@@ -458,7 +458,7 @@ Cloud Infrastructure Hardware Profile Requirements
    * - Compute Resources
      - infra.hw.cpu.cfg.004
      - Simultaneous multithreading/ Symmetric multiprocessing (SMT/SMP)
-     - Must support
+     - Must support if available
      - Optional
      - ra2.ch.004
    * - Compute Resources

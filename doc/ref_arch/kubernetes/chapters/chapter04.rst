@@ -291,7 +291,7 @@ the following specifications:
      - en.rsl.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`,
        gen.avl.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`,
        kcm.gen.02 in :ref:`chapters/chapter02:kubernetes architecture requirements`,
-       inf.com.02 in :ref:`chapters/chapter02:Infrastructure Recommendations`
+       inf.com.02 in :cite:t:`anuket-ra1` Chapter 2, section Infrastructure Recommendations
      -
    * - ra2.k8s.005
      - Kubernetes API Version

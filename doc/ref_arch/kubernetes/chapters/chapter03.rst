@@ -545,8 +545,7 @@ plane traffic, require the capability to use an accelerated user space networkin
 ..
    Editor's note: The possibility to SR-IOV for DPDK is under discussion.
 
-   Refer to software and hardware profile features at
-   :ref:`ref_model:chapters/chapter05:cloud infrastructure software profiles features and requirements`.
+   Refer to software and hardware profile features in Chapter 5 of cite:p:`refmodel`.
 
 AF_XDP Architecture
 ^^^^^^^^^^^^^^^^^^^

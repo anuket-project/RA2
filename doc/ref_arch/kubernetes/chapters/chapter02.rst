@@ -8,8 +8,8 @@ This chapter will specialise the requirements defined in the overall Reference M
 requirements. Additional, RA2-specific, entries are included in section
 :ref:`chapters/chapter02:kubernetes architecture requirements`.
 
-Definitions
------------
+Key word definitions
+--------------------
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and
 "OPTIONAL" in this document are to be interpreted as described in RFC 2119 :cite:p:`rfc2119`.

@@ -147,8 +147,8 @@ Cloud Infrastructure Software Profile Capabilities
      - N/A
    * - Internal Infrastructure Capabilities
      - i.cap.014
-     - Specifies the proportion of CPU cores consumed by the Cloud Infrastructure system on the
-       worker nodes. If SMT is used, it indicates the number of consumed SMT threads.
+     - Specifies the proportion of vCPUs consumed by the Cloud Infrastructure system on the worker
+       nodes.
      - 2
      - 2
      - ra2.k8s.008
@@ -458,7 +458,7 @@ Cloud Infrastructure Hardware Profile Requirements
    * - Compute Resources
      - infra.hw.cpu.cfg.004
      - Simultaneous multithreading/ Symmetric multiprocessing (SMT/SMP)
-     - Must support
+     - Must support if available
      - Optional
      - ra2.ch.004
    * - Compute Resources

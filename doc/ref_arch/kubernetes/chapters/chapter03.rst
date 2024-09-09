@@ -307,14 +307,14 @@ carefully scheduled on nodes and preferably still decoupled from the infrastruct
      - Networking (dataplane)
      -
      - No, or Fixed function acceleration, Firmware- programmable network adapters or SmartNICs
-     - Huge pages (for DPDK-based applications); CPU Manager with configuration for isolcpus and SMT; Multiple
-       interfaces; NUMA topology; Device Plugin
+     - Huge pages (for DPDK-based applications); CPU Manager with configuration for isolcpus and SMT (if
+       supported); Multiple interfaces; NUMA topology; Device Plugin
    * - 5
      - Networking (dataplane)
      -
      - CPU instructions
-     - Huge pages (for DPDK-based applications); CPU Manager with configuration for isolcpus and SMT; Multiple
-       interfaces; NUMA topology; Device Plugin; NFD
+     - Huge pages (for DPDK-based applications); CPU Manager with configuration for isolcpus and SMT (if
+       supported); Multiple interfaces; NUMA topology; Device Plugin; NFD
 
 Virtual Machine-based Clusters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

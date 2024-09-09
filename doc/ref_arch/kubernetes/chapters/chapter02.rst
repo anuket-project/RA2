@@ -145,6 +145,18 @@ Cloud Infrastructure Software Profile Capabilities
      - n/a (2)
      - *n/a (2)*
      - N/A
+   * - Exposed Infrastructure Capabilities
+     - e.cap.018
+     - Real-Time settings
+     - No
+     - Optional
+     - 
+   * - Exposed Infrastructure Capabilities
+     - e.cap.019
+     - Time Sensitive Networking with PTP Hardware Clock and syncronization with SyncE
+     - No
+     - Optional
+     - 
    * - Internal Infrastructure Capabilities
      - i.cap.014
      - Specifies the proportion of vCPUs consumed by the Cloud Infrastructure system on the worker

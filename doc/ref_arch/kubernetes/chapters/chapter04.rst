@@ -175,7 +175,7 @@ the following specifications:
      - e.cap.025 from :cite:t:`refmodel` Chapter 4, section Exposed infrastructure capabilities
      -
    * - ra2.ch.020
-     - Real-Tim
+     - Real-Time
      - Real-Time versions and/or configurations in BIOS, kernel and OS services
      - e.cap.026 from :cite:t:`refmodel` Chapter 4, section Exposed infrastructure capabilities
      -

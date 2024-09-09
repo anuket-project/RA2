@@ -146,13 +146,13 @@ Cloud Infrastructure Software Profile Capabilities
      - *n/a (2)*
      - N/A
    * - Exposed Infrastructure Capabilities
-     - e.cap.018
+     - e.cap.026
      - Real-Time settings
      - No
      - Optional
      - 
    * - Exposed Infrastructure Capabilities
-     - e.cap.019
+     - e.cap.027
      - Time Sensitive Networking with PTP Hardware Clock and syncronization with SyncE
      - No
      - Optional

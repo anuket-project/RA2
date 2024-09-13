@@ -27,4 +27,8 @@ jobs:
 
       - name: Run vale
         run: |
+<<<<<<< HEAD
           .vale/bin/vale --output=CLI --no-exit .
+=======
+          vale --output=".vale.tmpl" --no-exit .
+>>>>>>> 8d9712a993af062799452786ab97089fe8db3af2

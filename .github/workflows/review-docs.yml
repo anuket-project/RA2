@@ -3,8 +3,6 @@ name: Review docs
 
 on:
   pull_request:
-    paths:
-      - "ospo-book/content/en/*.md"
 
 jobs:
   review-docs:
@@ -13,6 +11,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Download vale
         env:
           BASEURL: https://github.com/errata-ai/vale/releases/download
@@ -21,7 +20,11 @@ jobs:
           mkdir -p .vale/bin && cd .vale/bin
           wget -O vale.tar.gz --quiet "${BASEURL}/v${VERSION}/vale_${VERSION}_Linux_64-bit.tar.gz"
           tar xzf vale.tar.gz
-          pwd >> "$GITHUB_PATH"
+          echo "${PWD}" >> $GITHUB_PATH
+
+      - name: Add vale to PATH
+        run: echo "$(pwd)/.vale/bin" >> $GITHUB_PATH
+
       - name: Run vale
         run: |
-          vale --output=".vale.tmpl" --no-exit ospo-book/content/en
+          .vale/bin/vale --output=CLI --no-exit .

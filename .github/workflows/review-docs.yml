@@ -3,7 +3,6 @@ name: Review docs
 
 on:
   pull_request:
-    paths:
       - "ospo-book/content/en/*.md"
 
 jobs:

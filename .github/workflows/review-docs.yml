@@ -1,34 +1,20 @@
----
-name: Review docs
-
-on:
+name: reviewdog
+on: 
   pull_request:
-
+  workflow_dispatch:
+permissions: 
+  pull-requests: write
 jobs:
-  review-docs:
-    name: Review docs
+  vale:
+    name: runner / vale
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Download vale
-        env:
-          BASEURL: https://github.com/errata-ai/vale/releases/download
-          VERSION: 3.3.0
-        run: |
-          mkdir -p .vale/bin && cd .vale/bin
-          wget -O vale.tar.gz --quiet "${BASEURL}/v${VERSION}/vale_${VERSION}_Linux_64-bit.tar.gz"
-          tar xzf vale.tar.gz
-          echo "${PWD}" >> $GITHUB_PATH
-
-      - name: Add vale to PATH
-        run: echo "$(pwd)/.vale/bin" >> $GITHUB_PATH
-
-      - name: Run vale
-        run: |
-<<<<<<< HEAD
-          .vale/bin/vale --output=CLI --no-exit .
-=======
-          vale --output=".vale.tmpl" --no-exit .
->>>>>>> 8d9712a993af062799452786ab97089fe8db3af2
+      - name: Run Vale
+        uses: errata-ai/vale-action@reviewdog
+        with:
+          files: '["doc", "README.md"]'
+          # github-pr-check, github-pr-review, github-check
+          reporter: github-pr-check
+          token: ${{ secrets.GITHUB_TOKEN }}

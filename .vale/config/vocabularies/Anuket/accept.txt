@@ -1,2 +1,4 @@
 # Accepted words (other acronyms must be explained)
-Anuket
+[Aa]nuket
+[Mm]ultitenancy
+[Mm]ultitenant

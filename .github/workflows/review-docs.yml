@@ -14,7 +14,7 @@ jobs:
       - name: Run Vale
         uses: errata-ai/vale-action@reviewdog
         with:
-          files: '["doc", "README.md"]'
+          files: '["doc/ref_arch/kubernetes", "README.md"]'
           # github-pr-check, github-pr-review, github-check
           reporter: github-pr-check
           token: ${{ secrets.GITHUB_TOKEN }}

@@ -2,3 +2,4 @@
 [Aa]nuket
 [Mm]ultitenancy
 [Mm]ultitenant
+[Nn]amespace

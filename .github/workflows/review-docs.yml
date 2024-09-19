@@ -16,6 +16,6 @@ jobs:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: errata-ai/vale-action@reviewdog
         with:
-          files: '["doc/ref_arch/kubernetes", "README.md"]''
+          files: 'doc/ref_arch/kubernetes, README.md'
           reporter: github-pr-check
           token: ${{ secrets.GITHUB_TOKEN }}

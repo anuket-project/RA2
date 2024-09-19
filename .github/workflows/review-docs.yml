@@ -17,5 +17,6 @@ jobs:
         uses: errata-ai/vale-action@reviewdog
         with:
           files: '["doc/ref_arch/kubernetes", "README.md"]'
-          reporter: github-pr-check
+#          reporter: github-pr-check
+          reporter: github-pr-review
           token: ${{ secrets.GITHUB_TOKEN }}

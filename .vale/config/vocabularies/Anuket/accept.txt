@@ -70,3 +70,10 @@
 [Ff]unctest
 [Ll]ookaside
 [Ll]ookups
+[hH]ostnames
+[sS]napshotter
+[cC]ontainerd
+[eE]tcd
+[cC]olocated
+[sS]ubcomponent
+[Cc]PUManager

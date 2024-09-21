@@ -55,3 +55,14 @@
 [Ll]ibvirt
 [Nn]ativeness
 [Cc]onformant
+[Ll]ivenessProbe
+[Rr]eadinessProbe
+[Hh]ostNetwork
+[Ss]ecurityContext
+[Hh]ardcoded
+[Nn]odePort
+[Cc]onfig
+[Aa]utoscaler
+[Ee]mptyDir
+[Tt]odo
+[Kk]ubenet

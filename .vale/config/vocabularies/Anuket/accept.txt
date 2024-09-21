@@ -90,3 +90,9 @@
 [tT]bd
 [tT]bd
 [kK]ubeadm
+[Pp]Vs
+[Pp]Vs
+[Pp]VCs
+[Pp]Vs
+[Pp]VCs
+[Cc]RDs

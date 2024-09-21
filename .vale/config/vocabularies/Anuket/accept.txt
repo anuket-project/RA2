@@ -77,3 +77,16 @@
 [cC]olocated
 [sS]ubcomponent
 [Cc]PUManager
+[Nn]ics
+[Nn]ics
+[Vv]Fs
+[Vv]Ms
+[rR]outable
+[Ss]SDs
+[Vv]Ms
+[tT]bd
+[nN]etdevs
+[nN]etdevs
+[tT]bd
+[tT]bd
+[kK]ubeadm

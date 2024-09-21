@@ -8,8 +8,8 @@ This chapter will specialise the requirements defined in the overall Reference M
 requirements. Additional, RA2-specific, entries are included in section
 :ref:`chapters/chapter02:kubernetes architecture requirements`.
 
-Definitions
------------
+Key word definitions
+--------------------
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and
 "OPTIONAL" in this document are to be interpreted as described in RFC 2119 :cite:p:`rfc2119`.
@@ -147,8 +147,8 @@ Cloud Infrastructure Software Profile Capabilities
      - N/A
    * - Internal Infrastructure Capabilities
      - i.cap.014
-     - Specifies the proportion of CPU cores consumed by the Cloud Infrastructure system on the
-       worker nodes. If SMT is used, it indicates the number of consumed SMT threads.
+     - Specifies the proportion of vCPUs consumed by the Cloud Infrastructure system on the worker
+       nodes.
      - 2
      - 2
      - ra2.k8s.008
@@ -458,7 +458,7 @@ Cloud Infrastructure Hardware Profile Requirements
    * - Compute Resources
      - infra.hw.cpu.cfg.004
      - Simultaneous multithreading/ Symmetric multiprocessing (SMT/SMP)
-     - Must support
+     - Must support if available
      - Optional
      - ra2.ch.004
    * - Compute Resources

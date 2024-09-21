@@ -3,3 +3,7 @@
 [Mm]ultitenancy
 [Mm]ultitenant
 [Nn]amespace
+[Cc]NFs
+[Cc]NIs
+[Cc]SIs
+[Bb]aremetal

@@ -113,3 +113,9 @@
 [Oo]Auth
 [Nn]Fc
 [pP]luggable
+[Gg]PUs
+[Ff]PGAs
+[eE]g
+[nN]etdev
+[eE]thtool
+[nN]etdev

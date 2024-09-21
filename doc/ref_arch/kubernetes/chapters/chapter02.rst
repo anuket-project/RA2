@@ -1532,7 +1532,7 @@ machines or containers.
    * - inf.ntw.03
      - Infrastructure
      - Network
-     - The networking solution should be able to be centrally administrated and configured.
+     - The networking solution should be able to be centrally administered and configured.
      - ra2.ntw.001, ra2.ntw.004
    * - inf.ntw.04
      - Infrastructure

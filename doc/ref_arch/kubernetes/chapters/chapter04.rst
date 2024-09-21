@@ -62,7 +62,8 @@ the following specifications:
      - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
    * - ra2.ch.004
      - CPU Simultaneous Multi-Threading (SMT)
-     - SMT must be enabled in the BIOS on the physical machine on which the Kubernetes Node runs.
+     - If SMT is supported, then it must be enabled in the BIOS on the physical machine on which the Kubernetes Node
+       runs.
      - infra.hw.cpu.cfg.004 :cite:t:`refmodel` Chapter 5, section Compute Resources
      - :cite:t:`anuket-ri2` Chapter 3, section Infrastructure Requirements
    * - ra2.ch.005
@@ -291,7 +292,6 @@ the following specifications:
      - en.rsl.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`,
        gen.avl.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`,
        kcm.gen.02 in :ref:`chapters/chapter02:kubernetes architecture requirements`,
-       inf.com.02 in :ref:`chapters/chapter02:Infrastructure Recommendations`
      -
    * - ra2.k8s.005
      - Kubernetes API Version

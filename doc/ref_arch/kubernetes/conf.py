@@ -24,12 +24,6 @@ linkcheck_ignore = [
     'https://github.com/cnti-testcatalog/testsuite/blob/main/RATIONALE.md#'
 ]
 
-intersphinx_mapping = {
-    'cntt': ('https://cntt.readthedocs.io/en/latest/', None),
-    'ref_model': ('https://cntt.readthedocs.io/projects/rm/en/latest/', None),
-    'ref_impl2': ('https://cntt.readthedocs.io/projects/ri2/en/latest/', None),
-    'ref_arch1': ('https://cntt.readthedocs.io/projects/ra1/en/latest/', None)
-}
 autosectionlabel_prefix_document = True
 autosectionlabel_maxdepth = 4
 numfig = True

@@ -66,3 +66,7 @@
 [Ee]mptyDir
 [Tt]odo
 [Kk]ubenet
+[Ff]luentd
+[Ff]unctest
+[Ll]ookaside
+[Ll]ookups

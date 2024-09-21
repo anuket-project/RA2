@@ -7,3 +7,14 @@
 [Cc]NIs
 [Cc]SIs
 [Bb]aremetal
+[Mm]ulticluster
+[Kk]ubeVirt
+[Vv]NFs
+[Vv]PNs
+[Aa]PIs
+[Nn]etconf
+[Mm]ultus
+[Uu]IDs
+[Kk]ibana
+[Ss]tackdriver
+

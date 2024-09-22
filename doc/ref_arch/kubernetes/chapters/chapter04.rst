@@ -199,7 +199,7 @@ For a Host OS to be compliant with this Reference Architecture, it must meet the
      - Linux kernel version
      - A version of the Linux kernel that is compatible with container runtimes and kubeadm - this has been chosen as
        the baseline because kubeadm is focused on installing and managing the lifecycle of Kubernetes and nothing else,
-       hence it is easily integrated into higher-level and more complete tooling for the full lifecycle management of
+       hence it is easily integrated into higher-level and is not comparable tooling for the full lifecycle management of
        the infrastructure, cluster add-ons, and so on.
      - tbd
      - tbd

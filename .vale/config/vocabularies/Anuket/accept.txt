@@ -176,3 +176,4 @@
 [dD]eclaratively
 [rR]epo
 [rR]epo
+[Ss]pecial

@@ -201,3 +201,4 @@
 [Ee]asy
 [Ss]imply
 [Ss]imple
+[Ss]upport

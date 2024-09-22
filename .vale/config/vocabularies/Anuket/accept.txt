@@ -1,5 +1,7 @@
 # Accepted words (other acronyms must be explained)
 [Aa]nuket
+[Aa]PIs
+[Aa]utoscaler
 [Mm]ultitenancy
 [Mm]ultitenant
 [Nn]amespace
@@ -11,7 +13,6 @@
 [Kk]ubeVirt
 [Vv]NFs
 [Vv]PNs
-[Aa]PIs
 [Nn]etconf
 [Mm]ultus
 [Uu]IDs
@@ -62,7 +63,6 @@
 [Hh]ardcoded
 [Nn]odePort
 [Cc]onfig
-[Aa]utoscaler
 [Ee]mptyDir
 [Tt]odo
 [Kk]ubenet

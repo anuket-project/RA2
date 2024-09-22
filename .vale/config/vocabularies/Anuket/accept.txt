@@ -199,3 +199,4 @@
 [Rr]eject
 [Ii]nvalid
 [Ee]asy
+[Ss]imply

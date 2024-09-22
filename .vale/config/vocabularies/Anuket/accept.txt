@@ -194,3 +194,7 @@
 [Ee]xecuted
 [Rr]emains
 [Ee]uropean
+[Rr]eject
+[Dd]estroy
+[Rr]eject
+[Ii]nvalid

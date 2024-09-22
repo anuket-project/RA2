@@ -177,3 +177,4 @@
 [rR]epo
 [rR]epo
 [Ss]pecial
+[Dd]isabled

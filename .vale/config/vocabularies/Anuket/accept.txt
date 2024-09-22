@@ -200,3 +200,4 @@
 [Ii]nvalid
 [Ee]asy
 [Ss]imply
+[Ss]imple

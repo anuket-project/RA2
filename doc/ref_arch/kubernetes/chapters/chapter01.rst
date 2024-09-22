@@ -604,7 +604,7 @@ Abbreviations
    * - VTEP
      - VXLAN Tunnel End Point
    * - VXLAN
-     - Virtual Extensible LAN
+     - Virtual Extendable LAN
    * - WAN
      - Wide Area Network
    * - ZTA

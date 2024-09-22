@@ -198,3 +198,4 @@
 [Dd]estroy
 [Rr]eject
 [Ii]nvalid
+[Ee]asy

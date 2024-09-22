@@ -178,3 +178,4 @@
 [rR]epo
 [Ss]pecial
 [Dd]isabled
+[Cc]learly

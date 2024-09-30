@@ -174,6 +174,11 @@ the following specifications:
        Kubernetes worker node if optional AF_XDP is used.
      - e.cap.025 from :cite:t:`refmodel` Chapter 4, section Exposed infrastructure capabilities
      -
+   * - ra2.ch.020
+     - Real-Time
+     - For Kubernetes nodes belonging to the rt-tsn (ref. :cite:t:`refmodel` Chapter 2) flavour, Real-Time versions and/or configurations in BIOS, kernel and OS services
+     - e.cap.026 from :cite:t:`refmodel` Chapter 4, section Exposed infrastructure capabilities
+     -
 
 Node Operating System
 ---------------------
@@ -239,6 +244,9 @@ Table 4.3 lists the kernel versions that comply with this Reference Architecture
    * - Linux
      - >= 4.18
      - If using optional AF_XDP (see ra2.ch.019).
+   * - Linux
+     - rt/realtime
+     - If using optional Real-Time (see ra2.ch.020).
    * - Windows
      - 1809 (10.0.17763)
      - For worker nodes only.
@@ -590,6 +598,11 @@ the following specifications:
      - Kubernetes Load Balancer - High Availability
      - The networking solution deployed per `ra2.ntw.017` must be capable of fast failover. Upon node or pod failure, it must redirect traffic (i.e., advertisements/routes must be updated) in less than 5 seconds.
      - inf.ntw.15 in :ref:`chapters/chapter02:kubernetes architecture requirements`
+     -
+   * - ra2.ntw.023
+     - Time Sensitive Networking
+     - Timing accuracy with PTP Hardware Clock and synronization with SyncE.
+     - e.cap.027 from :cite:t:`refmodel` Chapter 4, section Exposed infrastructure capabilities
      -
 
 Storage components

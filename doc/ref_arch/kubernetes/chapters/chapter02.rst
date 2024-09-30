@@ -150,13 +150,13 @@ Cloud Infrastructure Software Profile Capabilities
      - Real-Time settings
      - No
      - Mandatory for flavour `rt-tsn`
-     - 
+     -
    * - Exposed Infrastructure Capabilities
      - e.cap.027
      - Time Sensitive Networking with PTP Hardware Clock and syncronization with SyncE
      - No
      - Mandatory for flavour `rt-tsn`
-     - 
+     -
    * - Internal Infrastructure Capabilities
      - i.cap.014
      - Specifies the proportion of vCPUs consumed by the Cloud Infrastructure system on the worker

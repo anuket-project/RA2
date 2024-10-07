@@ -148,7 +148,7 @@ User namespaces in Kubernetes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Related requirements:** ``e.man.004`` in the Cloud Infrastructure Management Capabilities section in Chapter 4 of
-:cite:t:`refmodel`, :ref:`inf.ntw.03 <chapters/chapter02:platform and access requirements>`
+:cite:t:`refmodel`, ```inf.ntw.03`` in the Platform and Access Requirements section in Chapter 2 of :cite:t:`anuket-ra1`
 
 **Baseline project:** *Kubernetes*
 

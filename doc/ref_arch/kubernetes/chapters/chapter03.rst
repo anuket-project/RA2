@@ -398,58 +398,43 @@ vendors and the CNF operators. To allow easy integration of CNFs and the platfor
 the plain CNI API resources or the API resources defined in the v1.2 of the Kubernetes Network Custom Resource
 Definition De-facto Standard :cite:p:`k8s-multi-net-spec`.
 
-- The Default CNI Plugin through the use of a deployment-specific configuration (such as Tungsten Fabric
-  :cite:p:`tungstenfabric`
+- The Default CNI Plugin through the use of a deployment-specific configuration
 - A **multiplexer/meta-plugin** that integrates with the Kubernetes control plane via a Container Network Interface
   (CNI) and allows for the use of multiple CNI plugins, in order to provide this specific connectivity that the
   default Network Plugin may not be able to provide (such as Multus).
 
 .. list-table:: Comparison of example Kubernetes networking solutions
-   :widths: 33 33 33
+   :widths: 33 33
    :header-rows: 1
 
    * - Requirement
      - Networking Solution with Multus
-     - Networking Solution with Tungsten Fabric
    * - Additional network connections provider
      - Multiplexer/meta- plugin
-     - Federated networking manager
    * - The overlay network encapsulation protocol needs to enable ECMP in the underlay (infra.net.cfg.002)
      - Supported via the additional CNI plugin
-     - Supported
    * - NAT (infra.net.cfg.003)
      - Supported via the additional CNI plugin
-     - Supported
    * - Network Policies (Security Groups) (infra.net.cfg.004)
-     - Supported via a CNI Network Plugin that supports Network Policies
      - Supported via a CNI Network Plugin that supports Network Policies
    * - Traffic patterns symmetry (infra.net.cfg.006)
      - Depends on the CNI plugin that is being used
-     - Depends on the CNI plugin that is being used
    * - Centrally administrated and configured (inf.ntw.03)
-     - Supported via the Kubernetes API Server
      - Supported via the Kubernetes API Server
    * - Dual stack IPv4 and IPv6 for Kubernetes workloads (inf.ntw.04)
      - Supported via the additional CNI plugin
-     - Supported
    * - Integrating SDN controllers (inf.ntw.05)
      - Supported via the additional CNI plugin
-     - TF is an SDN controller
    * - More than one networking solution (inf.ntw.06)
-     - Supported
      - Supported
    * - Choose whether or not to deploy more than one networking solution (inf.ntw.07)
      - Supported
-     - Supported
    * - Kubernetes network model (inf.ntw.08)
      - Supported via the additional CNI plugin
-     - Supported
    * - Do not interfere with or cause interference to any interface or network it does not own (inf.ntw.09)
-     - Supported
      - Supported
    * - Cluster-wide coordination of IP address assignment (inf.ntw.10)
      - Supported via IPAM CNI plugin
-     - Supported
 
 For hardware resources that are needed by the Kubernetes applications, Device
 Plugins :cite:p:`k8s-docs-deviceplugin`
@@ -560,8 +545,7 @@ plane traffic, require the capability to use an accelerated user space networkin
 ..
    Editor's note: The possibility to SR-IOV for DPDK is under discussion.
 
-   Refer to software and hardware profile features at
-   :ref:`ref_model:chapters/chapter05:cloud infrastructure software profiles features and requirements`.
+   Refer to software and hardware profile features in Chapter 5 of cite:p:`refmodel`.
 
 AF_XDP Architecture
 ^^^^^^^^^^^^^^^^^^^

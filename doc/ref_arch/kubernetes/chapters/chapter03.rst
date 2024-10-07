@@ -257,6 +257,13 @@ network interfaces for VFs (beyond the primary network interface). During pod cr
 SR-IOV VF to a pod’s network namespace using the VF information given by the meta plugin, and on pod deletion releases
 the VF from the pod.
 
+With the Device Health in Pod Status feature, introduced in Kubernetes 1.31, Device Plugins can expose device health
+information in the `allocatedResourcesStatus` field of the Pod status. This enhancement allows device plugins to
+communicate the health of allocated devices, enabling the kubelet and cluster operators to identify and respond to
+device failures more effectively. Feature gate DeviceHealth must be enabled to use this capability. Telco workloads can
+benefit from improved reliability by leveraging this feature to monitor the health of critical hardware accelerators
+and ensure continuous service availability.
+
 Hardware Acceleration
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -765,8 +772,8 @@ management is, however, limited. The address must be assigned by the CNI plugin 
 Container Storage Services
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Kubernetes supports the Container Storage Interface (CSI) as the stable solution for storage plugins (in-tree volume
-plugins are moved out of the Kubernetes repository).
+Kubernetes supports the Container Storage Interface (CSI) as the stable solution for storage plugins (as of Kubernetes
+1.31, in-tree plugins have been removed, and CSI drivers must be used instead).
 
 Running containers require ephemeral storage on which to run themselves (that is, storage on which the unpacked
 container image is stored and from which it is executed). This ephemeral storage lives and dies with the container and

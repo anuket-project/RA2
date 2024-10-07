@@ -329,11 +329,13 @@ the following specifications:
    * - ra2.k8s.007
      - DevicePlugins feature gate
      - When hosting workloads matching the high-performance profile, the DevicePlugins feature gate must be enabled.
-       --feature-gates="…,DevicePlugins=true,…"
+       Additionally, to utilize device health reporting, the `DeviceHealth` feature gate should be enabled.
+       --feature-gates="…,DevicePlugins=true,DeviceHealth=true,…"
 
        .. note::
 
-        The DevicePlugins feature is enabled by default in Kubernetes v1.10 or later.
+        The DevicePlugins feature is enabled by default in Kubernetes v1.10 or later. Device plugins can report device
+        health status directly in the Pod's `allocatedResources` field.
 
      - Various, e.g. e.cap.013 in :cite:t:`refmodel` Chapter 8, section Exposed Performance Optimisation Capabilities
      - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
@@ -428,7 +430,9 @@ the following specifications:
    * - ra2.k8s.020
      - TLS Certificate management for workloads
      - Cert-manager :cite:p:`cert-manager` should be supported and integrated with a PKI certificate provider for workloads to
-       request/renew TLS certificates.
+       request/renew TLS certificates. It must be configured to use strong hashing algorithms such as SHA-256 for all
+       certificates. SHA-1 signed certificates are deprecated and will be rejected by default starting with Kubernetes 1.31.
+
      - int.api.04 in :ref:`chapters/chapter02:kubernetes architecture requirements`
      - kcm.gen.03
 
@@ -654,7 +658,8 @@ Architecture they must be implemented according to the following specifications:
      -
    * - ra2.stg.006
      - Container Storage Interface (CSI)
-     - An implementation may support the Container Storage Interface (CSI), an Out-of-tree plugin. To support CSI, the
+     - An implementation may support the Container Storage Interface (CSI). In-tree storage plugins for Ceph have been
+       removed in Kubernetes 1.31, so corresponding CSI drivers must be used. To support CSI, the
        feature gates CSIDriverRegistry and CSINodeInfo must be enabled. The implementation must use a CSI driver
        (full list of CSI drivers :cite:p:`k8s-csi-drivers`). An implementation may support ephemeral storage through a
        CSI-compatible volume plugin. In this case, the CSIInlineVolume feature gate must be enabled. An implementation

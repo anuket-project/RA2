@@ -204,7 +204,7 @@ For a Host OS to be compliant with this Reference Architecture, it must meet the
      - Linux kernel version
      - A version of the Linux kernel that is compatible with container runtimes and kubeadm - this has been chosen as
        the baseline because kubeadm is focused on installing and managing the lifecycle of Kubernetes and nothing else,
-       hence it is easily integrated into higher-level and more complete tooling for the full lifecycle management of
+       hence it is easily integrated into higher-level tooling for the full lifecycle management of
        the infrastructure, cluster add-ons, and so on.
      - tbd
      - tbd
@@ -314,7 +314,7 @@ the following specifications:
      - NUMA support
      - When hosting workloads matching the high-performance profile, the TopologyManager and CPUManager feature gates
        must be enabled and configured in the kubelet.
-       --feature-gates="..., TopologyManager=true,CPUManager=true" --topology-manager-policy=single-numa-node
+       --feature-gates="…, TopologyManager=true,CPUManager=true" --topology-manager-policy=single-numa-node
        --cpu-manager-policy=static
 
        .. note::
@@ -329,7 +329,7 @@ the following specifications:
    * - ra2.k8s.007
      - DevicePlugins feature gate
      - When hosting workloads matching the high-performance profile, the DevicePlugins feature gate must be enabled.
-       --feature-gates="...,DevicePlugins=true,..."
+       --feature-gates="…,DevicePlugins=true,…"
 
        .. note::
 
@@ -1061,11 +1061,11 @@ service componenets when the platform service is supported.
     - pas.lb.006 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
   * - ra2.plat.012
     - Load balancer and service proxy
-    - If a load balancer is supported it must support support stateful TCP load balancing
+    - If a load balancer is supported it must support stateful TCP load balancing
     - pas.lb.006 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
   * - ra2.plat.013
     - Load balancer and service proxy
-    - If a load balancer is supported it must support support UDP load balancing
+    - If a load balancer is supported it must support UDP load balancing
     - pas.lb.006 in Reference Model :cite:p:`refmodel` Chapter 5.1.5
   * - ra2.plat.014
     - Load balancer and service proxy

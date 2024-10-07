@@ -419,7 +419,7 @@ Definition De-facto Standard :cite:p:`k8s-multi-net-spec`.
      - Supported via a CNI Network Plugin that supports Network Policies
    * - Traffic patterns symmetry (infra.net.cfg.006)
      - Depends on the CNI plugin that is being used
-   * - Centrally administrated and configured (inf.ntw.03)
+   * - Centrally administered and configured (inf.ntw.03)
      - Supported via the Kubernetes API Server
    * - Dual stack IPv4 and IPv6 for Kubernetes workloads (inf.ntw.04)
      - Supported via the additional CNI plugin

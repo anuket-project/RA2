@@ -13,7 +13,7 @@ deployment of Kubernetes within an operator, whilst being flexible enough to evo
 wider Kubernetes ecosystem outside of Telco.
 
 To set this in context, it makes sense to start with the high-level definition and understanding of Kubernetes.
-Kubernetes :cite:p:`kubernetes` is a "portable, extensible, open-source platform for managing containerised
+Kubernetes :cite:p:`kubernetes` is a "portable, extendable, open-source platform for managing containerised
 workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing
 ecosystem. Kubernetes services, support, and tools are widely available" :cite:p:`whatiskubernetes`.
 Kubernetes is developed as an
@@ -604,7 +604,7 @@ Abbreviations
    * - VTEP
      - VXLAN Tunnel End Point
    * - VXLAN
-     - Virtual Extensible LAN
+     - Virtual eXtensible LAN
    * - WAN
      - Wide Area Network
    * - ZTA

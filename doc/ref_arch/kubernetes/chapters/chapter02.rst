@@ -1103,7 +1103,7 @@ Cloud Infrastructure Security Requirements
    * - Security LCM
      - sec.lcm.009
      - The Platform **must** be able to update the tag of newly instantiated, suspended, hibernated,
-       migrated and restarted images with relevant geolocation (geographical) information.
+       migrated and restarted images with relevant geolocation (geographic) information.
      -
    * - Security LCM
      - sec.lcm.010
@@ -1544,7 +1544,7 @@ machines or containers.
    * - inf.ntw.03
      - Infrastructure
      - Network
-     - The networking solution should be able to be centrally administrated and configured.
+     - The networking solution should be able to be centrally administered and configured.
      - ra2.ntw.001, ra2.ntw.004
    * - inf.ntw.04
      - Infrastructure

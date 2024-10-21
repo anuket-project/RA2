@@ -6,6 +6,7 @@
 [aA]utoscaling
 [Bb]aremetal
 [Cc]groups
+Ceph
 CNF
 CNI
 CSI

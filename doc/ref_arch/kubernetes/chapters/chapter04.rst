@@ -1219,7 +1219,7 @@ automation, modularity, and decoupling of deployment and test steps.  This adher
 cluster operations throughout their lifecycle.
 
 As there is no Reference Implementation for this part of the specification, the following table includes examples of
-implementation from the Cluster API spec, a subproject of the Kubernetes Cluster Lifecycle SIG :cite:p:`clusterapi`.
+implementation from the Cluster API spec, a sub-project of the Kubernetes Cluster Lifecycle SIG :cite:p:`clusterapi`.
 
 .. list-table:: Kubernetes Cluster Lifecycle Management specifications
    :widths: 10 20 50 10 10

@@ -1212,3 +1212,72 @@ service componenets when the platform service is supported.
     - Tracing
     - The platform may support any open source tracing technology
     - Reference Model :cite:p:`refmodel` Chapter 5.1.5
+
+Kubernetes Cluster Lifecycle Management
+---------------------------------------
+
+This section describes the requirements for Kubernetes Cluster Lifecycle Management (LCM). A CaaS Manager is an
+architectural block responsible for the automated lifecycle management of Kubernetes clusters. It provides a
+centralized platform for performing operations like cluster creation, scaling, upgrades, and destruction.  These
+guidelines align with the lifecycle management principles outlined in :cite:p:`refmodel` Chapter 9, emphasizing
+automation, modularity, and decoupling of deployment and test steps.  This adherence ensures consistent and reliable
+cluster operations throughout their lifecycle.
+
+As there is no Reference Implementation for this part of the specification, the following table includes examples of
+implementation from the Cluster API spec, a sub-project of the Kubernetes Cluster Lifecycle SIG :cite:p:`clusterapi`.
+
+.. list-table:: Kubernetes Cluster Lifecycle Management specifications
+   :widths: 10 20 50 10 10
+   :header-rows: 1
+
+   * - Ref
+     - Specification
+     - Details
+     - Requirement Trace
+     - Reference Implementation Trace
+   * - ra2.lcm.001
+     - Cluster Creation and Destruction
+     - The CaaS Manager must support automated cluster creation and destruction. This includes provisioning the underlying infrastructure and installing the Kubernetes control plane and worker nodes.
+     - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
+     - Cluster API: `Cluster` object
+   * - ra2.lcm.002
+     - Cluster Scaling
+     - The CaaS Manager must support automated cluster scaling. This includes scaling the number of worker nodes up or down based on demand.
+     - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
+     - Cluster API: `MachineDeployment` object, scaling feature
+   * - ra2.lcm.003
+     - Cluster Upgrades
+     - The CaaS Manager must support automated cluster upgrades. This includes upgrading the Kubernetes control plane and worker nodes to newer versions.
+     - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
+     - Cluster API: `MachineDeployment` object, upgrade strategies
+   * - ra2.lcm.004
+     - Cluster Object
+     - The CaaS Manager API must support a "Cluster" object. Represents a Kubernetes cluster.
+     - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
+     - Cluster API: `Cluster` object
+   * - ra2.lcm.005
+     - Node Object
+     - The CaaS Manager API must support a "Node" object. Represents a single machine in the cluster, either a control plane or worker node.
+     - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
+     - Cluster API: `Machine` object
+   * - ra2.lcm.006
+     - Node Pool Object
+     - The CaaS Manager API must support a "Node Pool" object. Represents a group of similar nodes with shared characteristics (e.g., machine type, labels).
+     - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
+     - Cluster API: `MachineSet` object (for managing homogeneous groups of Machines)
+   * - ra2.lcm.007
+     - Node Deployment Strategy
+     - The CaaS Manager API must support defining a strategy for node deployments, such as rolling updates or blue/green deployments.
+     - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
+     - Cluster API: `MachineDeployment` object with rolling update strategies
+   * - ra2.lcm.008
+     - Node Health Check
+     - The CaaS Manager must support mechanisms for monitoring the health of nodes in the cluster and taking appropriate actions (e.g., replacing unhealthy nodes).
+     - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
+     - Cluster API: `MachineHealthCheck` object (and integrations with provider-specific health checking)
+   * - ra2.lcm.009
+     - Node Initialization Configuration
+     - The CaaS Manager must support providing initial configuration data for nodes during their creation, such as cloud-init scripts or other bootstrap mechanisms.
+     - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
+     - Cluster API: `BootstrapConfig` object (e.g., using `KubeadmConfigTemplate`)
+

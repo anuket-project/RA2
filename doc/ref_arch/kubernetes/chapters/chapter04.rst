@@ -1233,46 +1233,46 @@ implementation from the Cluster API spec, a subproject of the Kubernetes Cluster
    * - ra2.lcm.001
      - Cluster Creation and Destruction
      - The CaaS Manager must support automated cluster creation and destruction. This includes provisioning the underlying infrastructure and installing the Kubernetes control plane and worker nodes.
-     - (ref)
+     - Reference Model :cite:p:`refmodel` Chapter 9
      - Cluster API: `Cluster` object
    * - ra2.lcm.002
      - Cluster Scaling
      - The CaaS Manager must support automated cluster scaling. This includes scaling the number of worker nodes up or down based on demand.
-     - (ref)
+     - Reference Model :cite:p:`refmodel` Chapter 9
      - Cluster API: `MachineDeployment` object, scaling feature
    * - ra2.lcm.003
      - Cluster Upgrades
      - The CaaS Manager must support automated cluster upgrades. This includes upgrading the Kubernetes control plane and worker nodes to newer versions.
-     - (ref)
+     - Reference Model :cite:p:`refmodel` Chapter 9
      - Cluster API: `MachineDeployment` object, upgrade strategies
    * - ra2.lcm.004
      - Cluster Object
      - The CaaS Manager API must support a "Cluster" object. Represents a Kubernetes cluster.
-     - (ref)
+     - Reference Model :cite:p:`refmodel` Chapter 9
      - Cluster API: `Cluster` object
    * - ra2.lcm.005
      - Node Object
      - The CaaS Manager API must support a "Node" object. Represents a single machine in the cluster, either a control plane or worker node.
-     - (ref)
+     - Reference Model :cite:p:`refmodel` Chapter 9
      - Cluster API: `Machine` object
    * - ra2.lcm.006
      - Node Pool Object
      - The CaaS Manager API must support a "Node Pool" object. Represents a group of similar nodes with shared characteristics (e.g., machine type, labels).
-     - (ref)
+     - Reference Model :cite:p:`refmodel` Chapter 9
      - Cluster API: `MachineSet` object (for managing homogeneous groups of Machines)
    * - ra2.lcm.007
      - Node Deployment Strategy
      - The CaaS Manager API must support defining a strategy for node deployments, such as rolling updates or blue/green deployments.
-     - (ref)
+     - Reference Model :cite:p:`refmodel` Chapter 9
      - Cluster API: `MachineDeployment` object with rolling update strategies
    * - ra2.lcm.008
      - Node Health Check
      - The CaaS Manager must support mechanisms for monitoring the health of nodes in the cluster and taking appropriate actions (e.g., replacing unhealthy nodes).
-     - (ref)
+     - Reference Model :cite:p:`refmodel` Chapter 9
      - Cluster API: `MachineHealthCheck` object (and integrations with provider-specific health checking)
    * - ra2.lcm.009
      - Node Initialization Configuration
      - The CaaS Manager must support providing initial configuration data for nodes during their creation, such as cloud-init scripts or other bootstrap mechanisms.
-     - (ref)
+     - Reference Model :cite:p:`refmodel` Chapter 9
      - Cluster API: `BootstrapConfig` object (e.g., using `KubeadmConfigTemplate`)
 

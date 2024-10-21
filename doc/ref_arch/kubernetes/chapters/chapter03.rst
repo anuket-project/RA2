@@ -260,7 +260,7 @@ the VF from the pod.
 With the Device Health in Pod Status feature, introduced in Kubernetes 1.31, Device Plugins can expose device health
 information in the `allocatedResourcesStatus` field of the Pod status. This enhancement allows device plugins to
 communicate the health of allocated devices, enabling the kubelet and cluster operators to identify and respond to
-device failures more effectively. Feature gate DeviceHealth must be enabled to use this capability. Telco workloads can
+device failures more effectively. Feature gate DeviceHealth must be enabled to use this capability. Telecom workloads can
 benefit from improved reliability by leveraging this feature to monitor the health of critical hardware accelerators
 and ensure continuous service availability.
 

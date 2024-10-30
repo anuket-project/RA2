@@ -384,12 +384,6 @@ Cloud Infrastructure Software Profile Requirements
      - Must support
      - ra2.k8s.014
    * - Virtual Networking
-     - infra.net.cfg.005
-     - SFC support
-     - Optional
-     - Must support
-     - N/A
-   * - Virtual Networking
      - infra.net.cfg.006
      - Traffic patterns symmetry
      - Must support

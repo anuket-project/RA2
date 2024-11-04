@@ -1,6 +1,7 @@
 name: "RA2 pull Request Docs Check"
 on: 
   pull_request:
+  workflow_dispatch:
 
 jobs:
   docs:

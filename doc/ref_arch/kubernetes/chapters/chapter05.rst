@@ -4,198 +4,145 @@ Security Guidance
 Introduction to Security Guidance
 ---------------------------------
 
-Securing Kubernetes requires several layers of security features to provide
-end-to-end security for cloud-native applications. The following is recommended:
+Securing Kubernetes requires a multi-layered security approach to protect cloud-native applications. The following best practices 
+are recommended:
 
--  Security testing is fully integrated into the CI/CD pipelines of all parties
-   (for example, vendors and operators).
--  Automated security policies are used to flag builds with issues.
--  Image registries are monitored to automatically block or replace images with
-   known vulnerabilities, while also ensuring policies are used to gate what can
-   be deployed and who can deploy from the registry.
--  A layered packaging model is adopted which supports separation of concerns
-   during an image build.
+- Security testing should be fully integrated into the CI/CD pipelines of all stakeholders (e.g., vendors and operators).
+- Automated security policies should flag builds with identified issues.
+- Image registries should be monitored to automatically block or replace images with known vulnerabilities. Policies should 
+  also govern what can be deployed and who can deploy from the registry.
+- A layered packaging model should be adopted to support separation of concerns during image builds.
 
-The following functionalities are recommended for securing the Kubernetes
-platforms:
+The following functionalities are recommended for securing Kubernetes platforms:
 
--  Image Certification (scanning for vulnerabilities) and Signing.
--  Role-Based Access Control (RBAC).
--  Secret Management.
--  How to overcome the lack of hard Kubernetes Cluster Multitenancy.
+- Image certification (vulnerability scanning) and signing.
+- Role-Based Access Control (RBAC).
+- Secret management.
+- Addressing the limitations of hard Kubernetes cluster multitenancy:
 
-   -  Tenants without hard multitenancy requirements (multiple development teams
-      in the same organisation) separated from each other by Namespaces.
-   -  For strict multitenancy, a dedicated Kubernetes Cluster per tenant should
-      be used.
+   - For tenants without strict multitenancy requirements (such as multiple development teams within the same organization), 
+     namespaces can provide sufficient separation.
+   - For strict multitenancy, a dedicated Kubernetes cluster per tenant is recommended.
 
--  Integration with other security ecosystem, such as monitoring and alerting tools.
+- Integration with other security tools, such as monitoring and alerting systems.
 
-Security perimeters
+Security Perimeters
 ~~~~~~~~~~~~~~~~~~~
 
-When applications or workloads run on Kubernetes, there are several layers that
-govern the security. Each of these layers needs to be secured within its perimeters.
-The layers are as follows:
+Securing applications and workloads on Kubernetes involves securing several layers. Each layer requires its own perimeter security:
 
--  **Container registry**: The container registry is a repository for managing
-   the container images. The access to container registry needs to be secured, in
-   order to prevent unauthorised access or image tampering.
--  **Container images**: A container image is a lightweight and portable executable image
-   that contains software and all of the dependencies. Before loading the images to a
-   container registry, they need to be secured by performing various checks, such as
-   vulnerability analysis, scans, and so on. These images should also be signed from
-   trusted sources.
--  **Containers**: A container is a running instance of a container image. The containers
-   need to be prevented from accessing the underlying OS capabilities like loading of
-   kernel modules, mounting of directories of the underlying OS, and so on, and running in
-   privileged mode.
--  **Pods**: A Pod represents a set of running containers on a Kubernetes Cluster.
-   Kubernetes inherently offers pod security policies that define a set of
-   conditions that a pod needs to run with, in order to be accepted into the
-   system. These policies help in ensuring that the necessary checks are made for
-   running the pods.
--  **Kubernetes Node**: A Kubernetes (worker) Node is a physical or virtual server that
-   runs the workloads in a Kubernetes Cluster. A Kubernetes node in an unsecured boundary
-   can lead to a potential threat to the running workloads. Such a node should be
-   hardened by disabling unused ports, prohibiting root access, and so on.
--  **Kubernetes Control Plane Node**: A control plane node in an unsecured boundary can
-   lead to a potential threat to the running workloads. A control plane may be hardened,
-   in terms of security, by disabling unused ports, prohibiting root access, and so on.
--  **Kubernetes Control Plane**: The Kubernetes Control Plane is a container orchestration
-   layer that exposes the APIs and other interfaces to define, deploy, and manage the
-   lifecycle of the containers. The communication over these APIs needs to be secured via
-   different mechanisms, such as TLS encryption, API authentication via LDAP, and so on.
+- **Container Registry:** The container registry stores and manages container images. Access must be secured to prevent unauthorized 
+  access and image tampering.
+- **Container Images:** Container images are lightweight, portable executables containing software and dependencies. Before uploading 
+  to a registry, images should undergo security checks, including vulnerability analysis and scans. Images should also be signed by 
+  trusted sources.
+- **Containers:** A container is a running instance of a container image. Containers should be prevented from accessing underlying OS 
+  capabilities (e.g., loading kernel modules, mounting OS directories) and should not run in privileged mode.
+- **Pods:** A pod represents a set of running containers in a Kubernetes cluster. Kubernetes' Pod Security Policies define conditions 
+  for pod execution, ensuring necessary checks are performed.
+- **Kubernetes Node (Worker Node):** A Kubernetes node (worker node) is a physical or virtual server running workloads. Unsecured nodes
+  pose a significant threat. Nodes should be hardened by disabling unused ports, prohibiting root access, etc.
+- **Kubernetes Control Plane Node:** An unsecured control plane node presents a significant threat. These nodes should be hardened by 
+  disabling unused ports, prohibiting root access, etc.
+- **Kubernetes Control Plane:** The Kubernetes control plane orchestrates containers, exposing APIs and interfaces for managing their 
+  lifecycle. API communication should be secured using mechanisms such as TLS encryption and API authentication (e.g., via LDAP).
 
 Security Principles
 -------------------
 
-The core principles to consider when securing cloud-native applications are as follows:
+Core principles for securing cloud-native applications include:
 
--  Only deploy secure and trusted applications and codes.
--  Only deploy applications from validated and verified images.
--  Only deploy applications from trusted registries.
--  Kubernetes containers orchestration must be secured with administrative boundaries
-   between the tenants:
+- Deploy only secure and trusted applications and code.
+- Deploy applications only from validated and verified images.
+- Deploy applications only from trusted registries.
+- Secure Kubernetes container orchestration with administrative boundaries between tenants:
 
-   -  Use Namespaces to establish security boundaries between tenants.
-   -  Create and define Cluster network policies.
-   -  Run a Cluster-wide pod security policy.
-   -  Turn on Audit Logging.
-   -  Separate sensitive workloads using Namespaces.
-   -  Secure tenant metadata access.
+   - Use namespaces to establish security boundaries between tenants.
+   - Create and define cluster network policies.
+   - Implement cluster-wide pod security policies.
+   - Enable audit logging.
+   - Isolate sensitive workloads using namespaces.
+   - Secure tenant metadata access.
 
--  Segment container networks using security zoning and network standards.
--  Harden the Host OS running the containers.
--  Use container-aware runtime defence tools.
--  Enable Role-Based Access Control (RBAC).
+- Segment container networks using security zoning and network standards.
+- Harden the host OS running the containers.
+- Use container-aware runtime defense tools.
+- Enable Role-Based Access Control (RBAC).
 
-Node hardening
+Node Hardening
 --------------
 
-Node hardening: securing the Kubernetes hosts
+Node Hardening: Securing the Kubernetes Hosts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When an operating system or application is installed, it has default settings.
-Usually, all the ports are open, and all the application services are turned on.
-In other words, freshly installed assets are insecure.
+Operating systems and applications often have insecure default settings (open ports, enabled services). Kubernetes nodes must be
+secured, hardened, and correctly configured according to established security frameworks (e.g., CIS benchmarks). These benchmarks 
+provide configuration standards and best practices for hardening digital assets.
 
-Ensure Kubernetes nodes are secure, hardened, and configured correctly, in
-accordance with well-known security frameworks. Security benchmarks, for example,
-CIS benchmarks, are a set of configuration standards and best practices designed to
-help harden the security of their digital assets.
-
-Restricting direct access to nodes
+Restricting Direct Access to Nodes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Restrict root/administrative access to the Kubernetes nodes while avoiding direct
-access to the nodes for operational activities, including debugging, troubleshooting,
-and other tasks.
+Restrict root/administrative access to Kubernetes nodes and avoid direct access for operational tasks (debugging, troubleshooting, etc.).
 
-Vulnerability assessment
+Vulnerability Assessment
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Vulnerability assessments are a crucial part of IT risk management lifecycles.
-The mitigation of vulnerabilities helps in protecting systems and data from
-unauthorised access and breaches. Implement necessary vulnerability scanner tools,
-such as OpenVAS, or any other open-source or commercial tools, to identify threats
-and flaws within the infrastructure that represent potential risks.
+Regular vulnerability assessments are crucial for IT risk management. Implement vulnerability scanner tools (e.g., OpenVAS, or other 
+open-source or commercial tools) to identify and mitigate threats and vulnerabilities.
 
-Patch management
+Patch Management
 ~~~~~~~~~~~~~~~~
 
-Patch management is another key aspect of the IT risk management lifecycle for
-security, compliance, uptime, feature enhancements, and so on. Implement the
-necessary patch management to ensure your environment is not susceptible to
-exploitation.
+Implement a robust patch management process to address security vulnerabilities, ensure compliance, maintain uptime, and enable 
+feature enhancements.
 
-Securing the Kubernetes orchestrator
+Securing the Kubernetes Orchestrator
 ------------------------------------
 
-Communication over the Kubernetes control plane APIs needs to be
-secured via different mechanisms, such as TLS encryption, API authentication via
-LDAP, and so on. A control plane node in an unsecured boundary can lead to a potential
-threat to the running workloads. It is recommended that a control plane node is
-hardened in terms of security by disabling unused ports, prohibiting root access, and
-so on.
+Kubernetes control plane API communication must be secured using TLS encryption, API authentication (e.g., via LDAP), etc. 
+Unsecured control plane nodes represent a significant threat; harden them by disabling unused ports and prohibiting root access.
 
-The security recommendations for the orchestration manager are as follows:
+Security recommendations for the orchestration manager include:
 
--  Cluster management network isolation can help protect the control plane node and
-   control where the administrative commands can run. Use network isolation
-   techniques, configure RBAC on the Cluster manager, and configure node service
-   accounts following the principle of least privilege.
--  Ensure that access control is applied to registries requiring unique
-   credentials, to limit who can control the build or add images.
--  Network access runs over the TLS connections.
--  User roles and access levels are configured to provide segregation of duties.
+- Cluster management network isolation to protect the control plane and restrict administrative command execution. Use network isolation 
+  techniques, configure RBAC on the cluster manager, and configure node service accounts using the principle of least privilege.
+- Enforce access control on registries using unique credentials to limit who can control builds or add images.
+- Use TLS for all network access.
+- Configure user roles and access levels to ensure segregation of duties.
 
-   -  Do not mix container and non-container services on the same node.
-   -  Do not run the containers as root.
+   - Do not co-locate container and non-container services on the same node.
+   - Do not run containers as root.
 
--  Multifactor authentication is used for all administrative access.
--  Harden the configuration by using Center for Internet Security (CIS)
-   benchmarks, which are available for container runtime and Kubernetes.
--  Deploy security products that provide allow listing, behaviour monitoring, and
-   anomaly detection, in order to prevent malicious activity.
--  Avoid privileged container application through policy management to reduce the
-   effects of potential attacks.
--  Enable integration with other security ecosystems (SIEM).
--  Isolate environments (Dev/test/Production) from other environments within
-   the cluster.
--  Create administrative boundaries between resources using Namespace and avoid
-   using default Namespaces.
--  Enable Seccomp to ensure that the workloads have restricted actions available
-   within the container application.
--  Limit discovery by restricting services and users that can access cluster
-   management metadata on configuration, containers, and nodes.
+- Implement multi-factor authentication for all administrative access.
+- Harden the configuration using Center for Internet Security (CIS) benchmarks for container runtimes and Kubernetes.
+- Deploy security products providing allowlisting, behavior monitoring, and anomaly detection to prevent malicious activity.
+- Avoid privileged container applications through policy management to mitigate potential attacks.
+- Integrate with other security ecosystems (SIEM).
+- Isolate environments (dev/test/production) within the cluster.
+- Create administrative boundaries between resources using namespaces and avoid using default namespaces.
+- Enable Seccomp to restrict actions available within container applications.
+- Limit discovery by restricting access to cluster management metadata on configurations, containers, and nodes.
 
-Control network access to sensitive ports
+Control Network Access to Sensitive Ports
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Kubernetes clusters usually listen in on a range of well-defined and distinctive
-ports. This makes it easy to identify the clusters and attack them. It is therefore
-recommended to configure authentication and authorisation on the cluster and the
-cluster nodes.
+Kubernetes clusters use a range of ports, making them potential attack targets. Configure authentication and authorization on the 
+cluster and nodes. The Kubernetes documentation :cite:p:`k8s-documentation-ports-and-protocols` details default ports. Block access 
+to unnecessary ports and limit access to the Kubernetes API server to trusted networks only.
 
-The Kubernetes documentation :cite:p:`k8s-documentation-ports-and-protocols`
-specifies the default ports used in Kubernetes. Make sure that your network blocks
-access to unnecessary ports. Consider limiting access to the Kubernetes API server,
-except from trusted networks.
+**Control Plane Node(s):**
 
-**Control plane node(s):**
-
-======== ========== =======================
+======== ========== ======================
 Protocol Port Range Purpose
-======== ========== =======================
+======== ========== ======================
 TCP      6443       Kubernetes API Server
 TCP      2379-2380  etcd server client API
 TCP      10250      Kubelet API
 TCP      10259      kube-scheduler
 TCP      10257      kube-controller-manager
-======== ========== =======================
+======== ========== ======================
 
-**Worker nodes:**
+**Worker Nodes:**
 
 ======== =========== =================
 Protocol Port Range  Purpose
@@ -204,262 +151,178 @@ TCP      10250       Kubelet API
 TCP      30000-32767 NodePort Services
 ======== =========== =================
 
-Controlling access to the Kubernetes API
+Controlling Access to the Kubernetes API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Kubernetes platform is controlled using APIs. The APIs are the first elements to be secured
-when defending against attackers. Controlling who has access to the Kubernetes API, and what
-actions they are allowed to perform, is the primary concern.
+The Kubernetes API is a primary security target. Control access and allowed actions carefully.
 
-Using Transport Layer Security and service mesh
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Using Transport Layer Security (TLS) and Service Mesh
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Communication in the cluster between services should be handled using Transport Layer Security
-(TLS), encrypting all traffic by default. Kubernetes expects that all API communication
-in the cluster is encrypted by default with TLS, and the majority of installation methods
-allow the necessary certificates to be created and distributed to the cluster components.
+Secure inter-service communication within the cluster using TLS, encrypting all traffic by default. Kubernetes expects default TLS 
+encryption for API communication; most installation methods facilitate certificate creation and distribution.
 
 .. note::
 
-  Some components and installation methods may enable local ports over HTTP. Administrators
-  should familiarize themselves with the settings of each component to identify potentially
-  unsecured traffic.
+  Some components and installation methods might enable local ports over HTTP. Administrators should review component settings to 
+  identify potential unsecured traffic.
 
-Advances in network technology, such as the service mesh, have led to the creation of products
-such as LinkerD and Istio, which can enable TLS by default, while providing extra telemetry
-information on transactions between services. The service mesh is a mesh of layer 7 proxies
-handling service-to-service communications. The service mesh architecture consists of data
-plane components made up of network proxies paired with each microservice, and control plane
-components providing proxies configuration, managing TLS certificates and policies.
-The documents, NIST SP 800-204A :cite:t:`nist-800-204a` and
-NIST SP 800-204B :cite:t:`nist-800-204b` provide guidance on deploying service mesh.
+Service meshes (e.g., Linkerd, Istio) provide default TLS encryption and additional telemetry. A service mesh uses layer 7 proxies for 
+service-to-service communication, comprising data plane (proxies paired with microservices) and control plane (proxy configuration, 
+TLS certificate and policy management) components. NIST SP 800-204A :cite:t:`nist-800-204a` and NIST SP 800-204B :cite:t:`nist-800-204b`
+provide guidance on deploying service meshes.
 
-API authentication and authorization
+API Authentication and Authorization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When securing all connections to a Kubernetes Cluster, adopt the following security
-authentication mechanisms:
+Secure Kubernetes cluster connections using the following authentication mechanisms:
 
--  Configure user roles and access levels to provide segregation of duties (RBAC).
--  Use multifactor authentication for all administrative access.
--  Use token-based or certificate-based service and session authentication
-   mechanisms.
--  Integrate with existing identity management platforms, such as SAML, AD, and so on,
-   for access control.
+- Configure user roles and access levels for segregation of duties (RBAC).
+- Use multi-factor authentication for all administrative access.
+- Use token-based or certificate-based service and session authentication.
+- Integrate with existing identity management platforms (e.g., SAML, AD) for access control.
 
-Restricting access to etcd and encrypt contents within etcd
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Restricting Access to etcd and Encrypting Contents Within etcd
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-etcd is a critical Kubernetes component which stores information on state and
-secrets. It should be protected in a different way from the rest of your cluster.
-Write access to the API server's etcd is equivalent to gaining root on the
-entire cluster. Even read access can be used to escalate privileges fairly
-easily.
+etcd, a critical Kubernetes component storing state and secrets, requires robust protection. Write access to the API server's etcd 
+grants root access to the entire cluster; even read access can be exploited for privilege escalation.
 
-The Kubernetes scheduler searches etcd for pod definitions that do not have a
-node. It then sends the pods it finds to an available kubelet for scheduling.
-Validation for submitted pods is performed by the API server before it writes
-them to etcd. Therefore, malicious users writing directly to etcd can bypass
-many security .mechanisms such as PodSecurityPolicies.
+The Kubernetes scheduler uses etcd to find unscheduled pods, sending them to available kubelets. The API server validates submitted 
+pods before writing them to etcd. Directly writing to etcd bypasses many security mechanisms (e.g., PodSecurityPolicies).
 
-Administrators should always use strong credentials from the API servers to
-their etcd server, such as mutual authorization via TLS client certificates.
-It is recommended to isolate the etcd servers behind a firewall that only the
-API servers may access.
+Use strong credentials (e.g., mutual TLS authentication via client certificates) for API server-etcd communication. Isolate etcd servers 
+behind a firewall accessible only by the API servers.
 
-Controlling access to the kubelet
+Controlling Access to the Kubelet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Kubelets expose HTTPS endpoints which grant control over the node and
-containers. By default, kubelets allow unauthenticated access to this API.
-Production clusters should enable kubelet authentication and authorization.
+Kubelets expose HTTPS endpoints controlling nodes and containers. Production clusters should enable kubelet authentication and 
+authorization (unauthenticated access is insecure by default).
 
-Securing the Kubernetes dashboard
+Securing the Kubernetes Dashboard
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Kubernetes dashboard is a web app for managing your cluster. It is not a
-part of the Kubernetes cluster itself, it has to be installed by the owners of
-the cluster. There are a number of tutorials that show you how to do this.
-Unfortunately, most of them create a service account with high privileges.
-Consequently, Tesla and some others were hacked via a poorly configured
-Kubernetes dashboard (Reference: Tesla cloud resources are hacked to run
-cryptocurrency-mining malware :cite:p:`arstechnica-tesla`).
+The Kubernetes dashboard, a web application for cluster management (not a core Kubernetes component), requires careful security 
+configuration. Many tutorials create highly privileged service accounts, making it a vulnerability (Reference: Tesla cloud resources 
+are hacked to run cryptocurrency-mining malware :cite:p:`arstechnica-tesla`).
 
-To prevent attacks via the dashboard, follow the best practices detailed here:
+To prevent dashboard attacks:
 
--  Do not expose the dashboard to the public without additional authentication.
-   There is no need to access such a powerful tool from outside your LAN.
--  Turn on RBAC, so you can limit the service account that the dashboard uses.
--  Review the privileges granted to the service account of the dashboard privileges,
-   and remove or disable any additional privileges that have been assigned.
--  Grant permissions per user, so that each user can only access the Information
-   they are supposed to access.
--  If you are using network policies, then block requests to the dashboard
-   even from internal pods (this will not affect the proxy tunnel via kubectl
-   proxy).
--  Prior to version 1.8, the dashboard had a service account with full privileges.
-   Therefore, check that there is no longer role binding for cluster-admin.
--  Deploy the dashboard with an authenticating reverse proxy, with multifactor
-   authentication enabled. This can be done with either embedded OpenID Connect (OIDC) id_tokens or
-   using Kubernetes Impersonation. This allows the use of the dashboard with the
-   user's credentials, instead of using a privileged ServiceAccount. This method
-   can be used on both on-prem and managed cloud clusters.
+- Do not publicly expose the dashboard without additional authentication.
+- Enable RBAC to limit the dashboard's service account privileges.
+- Review and restrict the service account's assigned privileges.
+- Implement granular permissions per user.
+- Block dashboard requests from internal pods using network policies (kubectl proxy will still function).
+- Verify that no cluster admin role binding exists (a vulnerability in versions prior to 1.8).
+- Deploy the dashboard with an authenticating reverse proxy and multi-factor authentication (using embedded OpenID Connect (OIDC) 
+  id_tokens or Kubernetes Impersonation). This allows using user credentials instead of a privileged ServiceAccount, suitable for 
+  on-prem and managed cloud clusters.
 
-Using Namespaces to establish security boundaries
+Using Namespaces to Establish Security Boundaries
 -------------------------------------------------
 
-Namespaces in Kubernetes is the first level of isolation between components. It
-is easier to apply security controls (such as Network Policies, Pod policies, and so on)
-to different types of workloads when deployed in separate Namespaces.
+Kubernetes namespaces provide the first level of isolation between components. Apply security controls (network policies, pod 
+policies, etc.) to workloads in separate namespaces.
 
-Separating sensitive workloads
+Separating Sensitive Workloads
 ------------------------------
 
-To limit the potential impact of a compromise, it is recommended to run
-sensitive workloads on a dedicated set of nodes. This approach reduces the
-risk of a sensitive application being accessed through a less secure application
-that shares a container runtime or host.
+Run sensitive workloads on dedicated nodes to minimize the impact of a compromise. This reduces the risk of accessing sensitive 
+applications through less secure applications sharing a runtime or host. Node pools and Kubernetes namespaces can facilitate this 
+separation.
 
--  The separation can be achieved by using node pools and Kubernetes Namespaces.
-
-Creating and defining Network Policies
+Creating and Defining Network Policies
 --------------------------------------
 
-Network Policies allow Kubernetes managers to control network access into and
-out of the cloud-native applications. It is recommended to have a well defined
-ingress and egress policy for cloud-native applications. It is also important to
-modify the default network policies, such as blocking or allowing traffic from
-other Namespaces or Clusters, while ensuring the Namespaces/Clusters are running
-with policy support enabled.
+Network policies control network access to cloud-native applications. Define clear ingress and egress policies and modify default 
+policies (e.g., blocking or allowing traffic from other namespaces/clusters) where policy support is enabled.
 
-Running the latest Version
+Running the Latest Version
 --------------------------
 
-As new security features and patches are added in every quarterly update, it is
-important to take advantage of these fixes and patches.
-
--  It is recommended to run the latest release with its most recent patches.
+Regularly update to the latest Kubernetes release to benefit from new security features and patches.
 
 Securing Platform Metadata
 --------------------------
 
-Kubernetes metadata contains sensitive information, including kubelet admin
-credentials. It is recommended to secure them using encryption to prevent it
-from being stolen and used for escalated privileges in the Cluster.
+Kubernetes metadata contains sensitive information (including kubelet admin credentials). Secure it using encryption to prevent theft 
+and privilege escalation.
 
--  Limit discovery by restricting services and users that can access Cluster
-   management metadata on configurations, container applications, and nodes.
--  Ensure all metadata is encrypted and network access runs over TLS connections.
+- Limit access to cluster management metadata (configurations, containers, nodes).
+- Ensure all metadata is encrypted and network access runs over TLS.
 
-Enabling logging and monitoring
+Enabling Logging and Monitoring
 -------------------------------
 
-Logging, monitoring, alerting, and log aggregation are essential for Kubernetes.
-Enable and monitor audit logs for anomalous or unwanted API calls, especially
-any authorization failure.
+Enable and monitor audit logs for anomalous or unauthorized API calls, paying close attention to authorization failures. Logging, 
+monitoring, and alerting are critical for Kubernetes security.
 
-Runtime security
+Runtime Security
 ----------------
 
-The following actions are recommended as best practices for container runtime:
+Container runtime best practices include:
 
--  Integrate runtime processes to Security Information and Event Monitoring
-   (SIEM).
--  Use container-aware runtime defense tools.
--  Ensure all running cloud-native applications are from secure and verified
-   images.
--  Ensure all cloud-native applications are not run with root privileges.
--  Ensure sensitive workloads are properly segmented by Namespaces or Cluster to
-   mitigate the scope of compromise.
+- Integrate runtime processes with Security Information and Event Monitoring (SIEM).
+- Use container-aware runtime defense tools.
+- Ensure all applications are from secure and verified images.
+- Do not run applications with root privileges.
+- Properly segment sensitive workloads using namespaces or clusters to limit the impact of compromises.
 
-Secrets management
+Secrets Management
 ------------------
 
-It is recommended that the principle of least privilege is applied to secrets
-management in Kubernetes:
+Apply the principle of least privilege to secrets management in Kubernetes:
 
--  Ensure that the cloud-native applications can only read the secrets that these
-   applications need.
--  Have different sets of secrets for different environments (such as production,
-   development, and testing).
+- Applications should only access necessary secrets.
+- Use different secrets for different environments (production, development, testing).
 
-Secret values protect sensitive data. It is therefore recommended to protect them from
-unauthorized access, ideally by being protected at rest and in transit. Encryption in
-transit is achieved by encrypting the traffic between the Kubernetes control plane
-components and worker nodes using TLS.
+Protect secret values (sensitive data) at rest and in transit. TLS encrypts traffic between Kubernetes control plane and worker nodes.
 
+Avoid storing secrets in scripts or code; instead, provide them dynamically at runtime. Use a secure data repository (key manager, 
+vault) for sensitive data (SSH keys, API keys, database credentials). Retrieve credentials on demand over secure channels to prevent 
+writing unprotected data to disk. Back up key manager or vault encryption keys using a FIPS 140-2 Hardware Security Module.
 
-It is recommended that secrets not be stored in scripts or code, but instead provided
-dynamically at runtime, as needed. Keep any sensitive data, including SSH keys, API
-access keys, and database credentials, in a secure data repository, such as a key
-manager or a vault. Only pull credentials on demand and over secure channels, to ensure
-that sensitive data is not written to a disk unprotected. The key manager or vault
-encryption keys should be backed by a FIPS 140-2 Hardware Security Module. It is also
-important to take the following actions:
+- Check for hardcoded passwords, keys, and other sensitive items in container applications.
+- Use security tools to automate scanning for hardcoded sensitive items.
 
--  Check that there are no hardcoded passwords, keys, and other sensitive items in
-   the container application.
--  Where possible, use security tools to automate scanning for hardcoded passwords,
-   keys, and other sensitive items in the container application.
-
-Trusted registry
+Trusted Registry
 ----------------
 
-Ensure that the container registry only accepts container images from trusted
-sources that have tested and validated the images. Where images are provided by
-third parties, define and follow a formal process to validate compliance with
-security requirements. Also ensure that access control is applied to registries
-requiring unique credentials, in order to limit who can control the build or add images.
+Use trusted container registries accepting images only from validated sources. For third-party images, establish a formal validation 
+process ensuring compliance with security requirements. Enforce access control using unique credentials to limit who can control builds 
+or add images.
 
--  To ensure trust, it is recommended to secure network access to the registry using
-   TLS, SSL, or VPN connections.
--  Ensure that the container applications are validated to assess their use and
-   applicability as well as scanned for viruses and vulnerabilities. Only deploy
-   container application from images that are signed with a trusted key.
--  Ensure that the latest certified container application is always selected by
-   versioning images.
--  Trusted repository and registry services should reject containers that are not
-   properly signed.
--  Use approved registries for images loaded into production.
--  Where possible, use third-party products to validate container content both
-   before and after deployment.
+- Secure registry network access using TLS/SSL/VPN.
+- Validate and scan container applications for viruses and vulnerabilities. Deploy only images signed with trusted keys.
+- Use image versioning to ensure the latest certified applications are deployed.
+- Trusted registries should reject improperly signed containers.
+- Use approved registries for production images.
+- Consider using third-party products for pre- and post-deployment container validation.
 
-Ensure that stale images are removed from the registry. Remove unsafe and vulnerable
-images (for example, containers should no longer be used based on time triggers and
-labels associated with images).
+Remove stale, unsafe, and vulnerable images from the registry (using time triggers and image labels).
 
 Isolation
 ---------
 
-.. _vm-vs-container-isolation:
-
-VM versus container isolation
+VM versus Container Isolation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Sometimes container isolation is compared directly to VM-based isolation, with
-the conclusion "*There are issues with container isolation, it is not as good as
-VM isolation*". Such a 1:1 comparison is not reasonable because VM-based isolation
-and container-based isolation are fundamentally different:
+Directly comparing container and VM isolation is misleading. They differ fundamentally:
 
--  VMs: Hard isolation, in the layers underlying the application software.
--  Containers: Isolation by software-based mechanisms available in the OS, the
-   container runtime, and Kubernetes. A container workload is just a set of Linux
-   processes. It is *possible* to configure software-based *additional isolation*
-   for container workloads, for example by kernel namespaces.
+- **VMs:** Provide hard isolation at the layers underlying application software.
+- **Containers:** Rely on OS, container runtime, and Kubernetes software-based mechanisms. Container workloads are sets of Linux 
+  processes; additional software-based isolation (e.g., kernel namespaces) is possible.
 
-The primary isolation mechanism in Kubernetes environment should be VM-based or
-physical machine-based. This implies that multiple cloud-native applications
-should not be deployed together in the same Kubernetes Cluster, unless these
-applications have been planned and verified to coexist. Therefore, the default is
-to allocate one Namespace per Cloud-Native Network Function (CNF).
+The primary isolation mechanism in Kubernetes should be VM-based or physical machine-based. Deploy multiple applications in the same 
+Kubernetes cluster only after careful planning and verification of their compatibility. The default recommendation is one namespace per 
+Cloud-Native Network Function (CNF).
 
-Container isolation in the Kubernetes Cluster
+Container Isolation in the Kubernetes Cluster
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Namespaces
 ^^^^^^^^^^
 
-Kubernetes Namespaces should be used to provide resource isolation within a
-Kubernetes Cluster. They should not be used to isolate different steps in the
-deployment process, such as development, production, or testing. The most reliable
-separation is achieved by deploying sensitive workloads into dedicated Clusters.
+Use Kubernetes namespaces for resource isolation within a cluster. Do *not* use them to isolate deployment stages (development, 
+production, testing). Dedicated clusters provide the most reliable separation for sensitive workloads.

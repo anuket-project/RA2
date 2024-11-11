@@ -166,7 +166,7 @@ Controlling Access to the Kubernetes API
 
 The Kubernetes API is a primary security target. Control access and allowed actions carefully.
 
-Using Transport Layer Security (TLS) and Service Mesh
+Using Transport Layer Security and Service Mesh
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Secure inter-service communication within the cluster using TLS, encrypting all traffic by default. Kubernetes expects

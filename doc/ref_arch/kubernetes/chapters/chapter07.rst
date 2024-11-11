@@ -103,9 +103,8 @@ multiple Pod interfaces, requiring a CNI multiplexer (like
 on the multiplexer and its CNI plugins, leading to
 inconsistency.
 
-**Status:** A KEP (:cite:t:`googledocs-kep-multi-network-
-pod-object`) aims to natively support multiple Pod
-interfaces.
+**Status:** A KEP (:cite:t:`googledocs-kep-multi-network-pod-object`)
+aims to natively support multiple Pod interfaces.
 
 
 Dynamic Network Management

@@ -5,15 +5,15 @@ Introduction to High Level Architecture
 ---------------------------------------
 
 The Anuket Reference Architecture (RA2) for Kubernetes based cloud infrastructure is intended to be an industry
-standard-independent Kubernetes reference architecture that is not tied to any specific offering or distribution.
+standard and independent Kubernetes reference architecture that is not tied to any specific offering or distribution.
 No vendor-specific enhancements are required to achieve conformance with the Anuket specifications.
 Conformance to these specifications can be achieved by using upstream components or features that are developed by the
 open source community, and conformance is ensured by successfully running the RC2 conformance testing suite.
 
 By using the Reference Architecture (RA2) for Kubernetes based cloud infrastructure specifications, operators can
 deploy infrastructure that will run any VNF or CNF that has successfully run on an RA2-conformant infrastructure. The
-purpose of this chapter is to outline all the components required to provide Telco-grade Kubernetes in a consistent and
-reliable way. The specification of how to setup these components is detailed in the
+purpose of this chapter is to outline all the components required to provide Telecom-grade Kubernetes in a consistent
+and reliable way. The specification of how to setup these components is detailed in the
 :ref:`chapters/chapter04:component level architecture` chapter.
 
 Kubernetes is already a well-documented and widely deployed open source project of the Cloud Native
@@ -24,8 +24,8 @@ The following chapters describe the specific features required by the Anuket Ref
 expected to be implemented.
 
 While this reference architecture provides options for modular components, such as service mesh, the focus of the
-Reference Architecture is on the abstracted interfaces and features that are required for Telco workload management and
-execution.
+Reference Architecture is on the abstracted interfaces and features that are required for Telecom workload management
+and execution.
 
 Chapter 4 of the Reference Model (RM) :cite:p:`refmodel` describes the hardware and software profiles
 that reflect the capabilities and features that the types of Cloud Infrastructure provide to the workloads.
@@ -37,7 +37,7 @@ high-performance).
    the local folder during the GSMA transformation work.
 
 .. figure:: ../figures/RM-ch05-sw-profile.png
-   :alt: (from RM): NFVI softwareprofiles
+   :alt: (from RM): NFVI software profiles
    :name: (from RM): NFVI software profiles
 
    (from RM): NFVI software profiles
@@ -122,14 +122,14 @@ Where low-level runtimes are used for the execution of a container within an ope
 complete high-level container runtimes are used for the general management of container images - moving them to where
 they need to be executed, unpacking them, and then passing them to the low-level runtime, which then executes the
 container. These high-level runtimes also include a comprehensive API that other components, such as Kubernetes, can
-use to interact and manage the containers. An example of this type of runtime is containerd, which provides the
+use to interact and manage the containers. An example of this type of runtime is Containerd, which provides the
 features described above, and depends on runc for execution.
 
 For Kubernetes, the important interface to consider for container management is the Kubernetes Container Runtime
 Interface (CRI).
 This is an interface specification for any container runtime to integrate with the control plane (kubelet) of a
 Kubernetes node. The CRI allows to decouple the kubelet from the runtime that is running in the node OS, allowing to
-swap container runtime if it is compliant with CRI. Examples CRI-compliant runtimes include containerd
+swap container runtime if it is compliant with CRI. Examples CRI-compliant runtimes include Containerd
 and cri-o, which are built specifically to work with Kubernetes.
 
 To fulfill ``inf.vir.01``, the architecture should support a container runtime which provides the isolation of the
@@ -344,9 +344,9 @@ TLS Certificate Management
 
 Network functions (NFs) running in Kubernetes may require PKI TLS certificates for multiple purposes.
 For example, 3GPP TS 33.501 describes how Inter-NF communications must be secured using mutual TLS and OAuth.
-`cert-manager` :cite:p:`cert-manager` can automatically provision and manage TLS certificates in Kubernetes, in order for CNFs to use them for
-TLS communications. It can request PKI certificates from issuers, ensure the certificates are valid and up-to-date,
-and can renew them before their expiry. Network Functions that are deployed on Kubernetes clusters
+`cert-manager` :cite:p:`cert-manager` can automatically provision and manage TLS certificates in Kubernetes, in order
+for CNFs to use them for TLS communications. It can request PKI certificates from issuers, ensure the certificates are
+valid and up-to-date, and can renew them before their expiry. Network Functions that are deployed on Kubernetes clusters
 can delegate the lifecycle management of their certificates to `cert-manager`.
 
 Example lifecycle steps are listed below:
@@ -359,10 +359,10 @@ Example lifecycle steps are listed below:
    of “how” the certificate is obtained, since this is delegated to cert-manager. The certificate request can originate
    from any container in the CNF Pod- either the NFc “application”, or the service mesh (e.g. where deployed as a
    sidecar).
-2. When it receives the certificate request, cert-manager will generate a new private key, then send a Certificate Signing
-   Request (CSR) to the relevant issuing CA. The CA returns the signed certificate. One of the benefits of cert-manager
-   is its “pluggable” architecture. It comes with built-in support for a number of issuing CA types and protocols, and
-   developers can easily add support for new ones.
+2. When it receives the certificate request, cert-manager will generate a new private key, then send a Certificate
+   Signing Request (CSR) to the relevant issuing CA. The CA returns the signed certificate. One of the benefits of
+   cert-manager is its “pluggable” architecture. It comes with built-in support for a number of issuing CA types and
+   protocols, and developers can easily add support for new ones.
 3. Once the certificate is returned by the relevant issuing CA, cert-manager stores the private key and certificate as a
    K8s Secret (specifically using the built-in “kubernetes.io/tls” Secret type). The Secret name is taken from the
    Certificate CRD.
@@ -450,7 +450,8 @@ applications. This allows resources such as “GPUs, high-performance NICs, FPGA
 and other similar computing resources that may require vendor-specific initialization and setup” to be
 managed and consumed via standard interfaces.
 
-The figure `Kubernetes Networking Architecture` below shows the main building blocks of a Kubernetes networking solution:
+The figure `Kubernetes Networking Architecture` below shows the main building blocks of a Kubernetes networking
+solution:
 
 -  **Kubernetes Control Plane**: this is the core of a Kubernetes Cluster: the apiserver, the etcd cluster,
    the kube-scheduler, and the various controller-managers. The control plane (in particular the apiserver)
@@ -504,7 +505,7 @@ The figure `Kubernetes Networking Architecture` below shows the main building bl
       they are coordinated (as required by ``inf.ntw.10``).
 
 -  **Service Mesh**: The well-known service meshes are "application service meshes"
-   that address and interact with the application layer 7 protocols (eg.: HTTP)
+   that address and interact with the application layer 7 protocols (e.g.: HTTP)
    only. Therefore, their support is not required, as these service meshes are outside
    the scope of the infrastructure layer of this architecture.
 
@@ -538,8 +539,8 @@ Kubernetes, including:
    Custom Resource Definitions) or an external management plane (e.g., dynamic
    address assignment from a VPN server).
 
-There are several types of low latency and high throughput networks required by telco workloads: for example signalling
-traffic workloads and user plane traffic workloads.
+There are several types of low latency and high throughput networks required by Telecom workloads: for example
+signalling traffic workloads and user plane traffic workloads.
 Networks used for signalling traffic are more demanding than what a standard overlay network can handle, but still do
 not need the use of user space networking. Due to the nature of the signalling protocols used, these type of
 networks require NAT-less communication documented in ``infra.net.cfg.003`` and will need to be served by a CNI plugin

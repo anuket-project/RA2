@@ -4,30 +4,28 @@ Introduction
 Overview
 --------
 
-The objective of this Reference Architecture (RA) is to develop a usable Kubernetes-based platform for the Telco
-industry. The RA will be based on the standard Kubernetes platform wherever possible. This Reference Architecture
-for Kubernetes will describe the high-level system components and their interactions, taking the goals and requirements
+The objective of this Reference Architecture (RA) is to develop an usable Kubernetes-based platform for the Telecom
+industry. The RA is based on the standard Kubernetes platform wherever possible. This Reference Architecture
+for Kubernetes describes the high-level system components and their interactions, taking the goals and requirements
 from the Cloud Infrastructure Reference Model :cite:p:`refmodel` (RM) and mapping them to Kubernetes (and related)
 components. This document needs to be sufficiently detailed and robust such that it can be used to guide the production
-deployment of Kubernetes within an operator, whilst being flexible enough to evolve with and remain aligned with the
-wider Kubernetes ecosystem outside of Telco.
+deployment of Kubernetes within a network operator, whilst being flexible enough to evolve with and remain aligned with
+the wider Kubernetes ecosystem outside of Telecom.
 
 To set this in context, it makes sense to start with the high-level definition and understanding of Kubernetes.
-Kubernetes :cite:p:`kubernetes` is a "portable, extendable, open-source platform for managing containerised
-workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing
-ecosystem. Kubernetes services, support, and tools are widely available" :cite:p:`whatiskubernetes`.
-Kubernetes is developed as an
-open source project in the `kubernetes` :cite:p:`k8srepo` repository of GitHub.
+Kubernetes :cite:p:`kubernetes` is a "portable, extendable, open source platform for managing containerised
+workloads and services, that facilitates both declarative configuration and automation. It has a large and rapidly
+growing ecosystem. Kubernetes services, support, and tools are widely available" :cite:p:`whatiskubernetes`.
+Kubernetes is developed as an open source project in the `kubernetes` :cite:p:`k8srepo` repository of GitHub.
 
-To assist with the goal of creating a reference architecture that will support Telco workloads, but at the same time
-leverage the work that already has been completed in the Kubernetes community, RA2 will take an
-"RA2 Razor" approach to build the foundation. This can be
-explained along the lines of "if something is useful for non-Telco workloads, we will not include it only for Telco
-workloads". For example, start the Reference Architecture from a vanilla Kubernetes (say, v1.16) feature set, then
-provide clear evidence that a functional requirement cannot be met by that system (say, multi-NIC support), only then
-the RA would add the least invasive, Kubernetes-community aligned extension (say, Multus) to fill the gap. If there are
-still gaps that cannot be filled by standard Kubernetes community technologies or extensions then the RA will concisely
-document the requirement in the
+To assist with the goal of creating a reference architecture that will support Telecom workloads, but at the same time
+leverage the work that already has been completed in the Kubernetes community, RA2 will take an "RA2 Razor" approach to
+build the foundation. This can be explained along the lines of "if something is useful for non-Telecom workloads, we
+will not include it only for Telecom workloads". For example, start the Reference Architecture from a vanilla Kubernetes
+(say, v1.31) feature set, then provide clear evidence that a functional requirement cannot be met by that system
+(say, multi-NIC support), only then the RA would add the least invasive, Kubernetes-community aligned extension
+(say, Multus) to fill the gap. If there are still gaps that cannot be filled by standard Kubernetes community
+technologies or extensions then the RA will concisely record the requirement in the
 :ref:`chapters/chapter07:introduction to gaps, innovation, and development` chapter of this
 document and approach the relevant project maintainers with a request to add this functionality into the feature set.
 
@@ -37,7 +35,7 @@ Kubernetes-based Network Function workloads, and lifecycle management of Kuberne
 community. The intention is to expand as much of the existing test frameworks to be used for the verification and
 conformance testing of Kubernetes-based workloads, and Kubernetes cluster lifecycle management.
 
-Required component versions
+Required Component Versions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ========== ===================
@@ -49,32 +47,24 @@ Kubernetes 1.31
 Principles
 ~~~~~~~~~~
 
-Architectural principles
+Architectural Principles
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 This Reference Architecture conforms with the Anuket principles:
 
-1. **Open-source preference:** for building Cloud Infrastructure
-   solutions, components and tools, using open-source technology.
-2. **Open APIs:** to enable interoperability, component
-   substitution, and minimise integration efforts.
-3. **Separation of concerns:** to promote lifecycle independence of
-   different architectural layers and modules (e.g., disaggregation of
-   software from hardware).
-4. **Automated lifecycle management:** to minimise the
-   end-to-end lifecycle costs, maintenance downtime (target zero
+1. **Open source preference:** for building Cloud Infrastructure solutions, components and tools, using open source
+   technology.
+2. **Open APIs:** to enable interoperability, component substitution, and minimise integration efforts.
+3. **Separation of concerns:** to promote lifecycle independence of different architectural layers and modules
+   (e.g., disaggregation of software from hardware).
+4. **Automated lifecycle management:** to minimise the end-to-end lifecycle costs, maintenance downtime (target zero
    downtime), and errors resulting from manual processes.
-5. **Automated scalability:** of workloads to minimise costs and
-   operational impacts.
-6. **Automated closed loop assurance:** for fault resolution,
-   simplification, and cost reduction of cloud operations.
-7. **Cloud nativeness:** to optimise the utilisation of resources
-   and enable operational efficiencies.
-8. **Security compliance:** to ensure the architecture follows
-   the industry best security practices and is at all levels compliant
-   to relevant security regulations.
-9. **Resilience and Availability:** to withstand
-   Single Point of Failure.
+5. **Automated scalability:** of workloads to minimise costs and operational impacts.
+6. **Automated closed loop assurance:** for fault resolution, simplification, and cost reduction of cloud operations.
+7. **Cloud nativeness:** to optimise the utilisation of resources and enable operational efficiencies.
+8. **Security compliance:** to ensure the architecture follows the industry best security practices and is at all levels
+   compliant to relevant security regulations.
+9. **Resilience and Availability:** to withstand Single Point of Failure.
 
 Cloud Native Principles
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -232,10 +222,11 @@ Definitions
        of systems to focus attention on topics of greater importance or general concepts. It can be the result of
        decoupling.
    * - Anuket
-     - A LFN open-source project developing open reference infrastructure models, architectures, tools, and programs.
+     - A Linux Foundation Networking (LFN) open source project developing open reference infrastructure models,
+       architectures, tools, and programs.
    * - CaaS Containers as a Service
-     - A Platform suitable to host and run Containerised workloads, such as Kubernetes.
-       Instances of CaaS Platforms are known as **CaaS Clusters**.
+     - A Platform suitable to host and run Containerised workloads, such as Kubernetes. Instances of CaaS Platforms are
+       known as **CaaS Clusters**.
    * - CaaS Manager
      - A management plane function that manages the lifecycle (instantiation, scaling, healing, etc.) of one or more
        CaaS instances, including communication with VIM for control plane and node lifecycle management.
@@ -243,7 +234,7 @@ Definitions
      - A generic term covering **NFVI**, **IaaS** and **CaaS** capabilities - essentially the infrastructure on which a
        **Workload** can be executed. **NFVI**, **IaaS** and **CaaS** layers can be built on top of each other. In case
        of CaaS some cloud infrastructure features (e.g.: HW management or multitenancy) are implemented by using an
-       underlying *IaaS** layer.
+       underlying **IaaS** layer.
    * - Cloud Infrastructure Hardware Profile
      - Defines the behaviour, capabilities, configuration, and metrics provided by a cloud infrastructure hardware layer
        resources available for the workloads.
@@ -293,10 +284,10 @@ Definitions
      - External networks provide network connectivity for a cloud infrastructure tenant to resources outside of the
        tenant space.
    * - Fluentd
-     - An open-source data collector for unified logging layer, which allows data collection and consumption for better
+     - An open source data collector for unified logging layer, which allows data collection and consumption for better
        use and understanding of data. **Fluentd** is a CNCF graduated project.
    * - Functest
-     - An open-source project part of Anuket LFN project. It addresses functional testing with a collection of
+     - An open source project part of Anuket LFN project. It addresses functional testing with a collection of
        state-of-the-art virtual infrastructure test suites, including automatic VNF testing.
    * - Hardware resources
      - Compute, storage and network hardware resources on which the cloud infrastructure platform software, virtual
@@ -316,9 +307,9 @@ Definitions
      - Is a virtual compute resource, in a known state such as running or suspended, that can be used like a physical
        server. It can be used to specify VM Instance or Container Instance.
    * - Kibana
-     - An open-source data visualisation system.
+     - An open source data visualisation system.
    * - Kubernetes
-     - An open-source system for automating deployment, scaling, and management of containerised applications.
+     - An open source system for automating deployment, scaling, and management of containerised applications.
    * - Kubernetes Cluster
      - A set of machines, called nodes (either *workers* or *control plane*), that run containerised applications
        managed by Kubernetes.
@@ -365,8 +356,8 @@ Definitions
    * - Open Platform for NFV (OPNFV)
      - A collaborative project under the Linux Foundation. OPNFV is now part of the LFN Anuket project. It aims to
        implement, test, and deploy tools for conformance and performance of NFV infrastructure.
-   * - OPNFV Verification Program (OVP)
-     - An open-source, community-led compliance and verification program aiming to demonstrate the readiness and
+   * - OPNFV Verification Program (OVP) / Anuket Assured
+     - An open source, community-led compliance and verification program aiming to demonstrate the readiness and
        availability of commercial NFV products and services using OPNFV and ONAP components.
    * - Platform
      - A cloud capabilities type in which the cloud service user can deploy, manage and run customer-created or
@@ -379,7 +370,7 @@ Definitions
        typically set up to run a single primary container. It can also run optional sidecar containers that add
        supplementary features like logging.
    * - Prometheus
-     - An open-source monitoring and alerting system.
+     - An open source monitoring and alerting system.
    * - Quota
      - An imposed upper limit on specific types of resources, usually used to prevent excessive resource consumption by
        a given consumer (tenant, VM, container).

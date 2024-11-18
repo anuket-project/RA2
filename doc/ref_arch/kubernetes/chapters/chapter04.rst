@@ -275,7 +275,7 @@ the following specifications:
      - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.k8s.002
      - Highly available etcd
-     - An implementation must consist of either three, five or seven nodes running the etcd service (can be collocated
+     - An implementation must consist of either three, five or seven nodes running the etcd service (can be colocated
        on the control plane nodes, or can run on separate nodes, but not on worker nodes).
      - gen.rsl.02 in :ref:`chapters/chapter02:kubernetes architecture requirements`,
        gen.avl.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`

@@ -66,6 +66,7 @@ Istio
 [Kk]ubeVirt
 [kK]ubemci
 [Ll]ibvirt
+Linkerd
 [Ll]ivenessProbe
 [Ll]oadbalancer
 [Ll]ookaside

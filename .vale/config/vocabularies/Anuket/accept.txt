@@ -37,6 +37,7 @@ CRD
 [Ee]xecuted
 [Ff]ail
 [Ff]ailed
+[Ff]ailure
 [Ff]ailover
 [Ff]luentd
 [Ff]uzzer

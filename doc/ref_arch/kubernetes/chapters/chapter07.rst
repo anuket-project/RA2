@@ -18,14 +18,15 @@ Gap Template
 (e.g., ``abc.xyz.00``) from RA2 or RM addressed by this
 gap.
 
-**Baseline project:**  Identify the upstream project
-(e.g., *Kubernetes*) where the gap exists. If none, state
-"none".
+   **Baseline project:**  Identify the upstream project
+   (e.g., *Kubernetes*) where the gap exists. If none, state
+   "none".
 
-**Gap description:** Describe missing functionality from
-the related requirements in known implementations. Include
-references to ongoing work in the target project that may
-address the gap.
+..
+   **Gap description:** Describe missing functionality from
+    the related requirements in known implementations. Include
+    references to ongoing work in the target project that may
+    address the gap.
 
 
 Container Run-Time Interfaces Towards NFVI Resources
@@ -153,7 +154,7 @@ requiring Kubernetes Pod connection to L3 VPNs (currently
 only possible via Multus).  However, network orchestration
 (connecting the interface to a gateway router terminating
 the L3 VPN) isn't handled by Kubernetes, and lacks a
-production-grade open-source solution.
+production-grade open source solution.
 
 .. note:: While possible with IaaS, this creates an
           undesirable dependency between Kubernetes workload
@@ -171,8 +172,7 @@ of :cite:t:`refmodel`).
 
 **Gap description:** The Memory Manager (alpha feature in
 v1.21) is addressed in
-:ref:`chapters/chapter03:management of memory and huge
-pages resources`.
+:ref:`chapters/chapter03:management of memory and huge pages resources`.
 
 
 User Namespaces in Kubernetes

@@ -62,11 +62,11 @@ Core principles for securing cloud-native applications include:
 - Deploy applications only from trusted registries.
 - Secure Kubernetes container orchestration with administrative boundaries between tenants:
 
-   - Use namespaces to establish security boundaries between tenants.
-   - Create and define cluster network policies.
+   - Use Namespaces to establish security boundaries between tenants.
+   - Create and define cluster Network Policies.
    - Implement cluster-wide pod security policies.
    - Enable audit logging.
-   - Isolate sensitive workloads using namespaces.
+   - Isolate sensitive workloads using Namespaces.
    - Secure tenant metadata access.
 
 - Segment container networks using security zoning and network standards.
@@ -94,13 +94,13 @@ Vulnerability Assessment
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Regular vulnerability assessments are crucial for IT risk management. Implement vulnerability scanner tools (e.g.,
-OpenVAS, or other open-source or commercial tools) to identify and mitigate threats and vulnerabilities.
+OpenVAS, or other open source or commercial tools) to identify and mitigate threats and vulnerabilities.
 
 Patch Management
 ~~~~~~~~~~~~~~~~
 
-Implement a robust patch management process to address security vulnerabilities, ensure compliance, maintain uptime,
-and enable feature enhancements.
+A robust patch management process should be implemented to address security vulnerabilities, ensure compliance,
+maintain uptime, and enable feature enhancements.
 
 Securing the Kubernetes Orchestrator
 ------------------------------------

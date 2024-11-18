@@ -8,7 +8,7 @@ This chapter will specialise the requirements defined in the overall Reference M
 requirements. Additional, RA2-specific, entries are included in section
 :ref:`chapters/chapter02:kubernetes architecture requirements`.
 
-Key word definitions
+Key Word Definitions
 --------------------
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and
@@ -45,31 +45,31 @@ Cloud Infrastructure Software Profile Capabilities
      - Specification Reference
    * - Exposed Infrastructure Capabilities
      - e.cap.001
-     - Max number of vCPU that can be assigned to a single pod by the Cloud Infrastructure
+     - Max number of vCPU that can be assigned to a single Pod by the Cloud Infrastructure
      - At least 16
      - At least 16
      - ra2.ch.011
    * - Exposed Infrastructure Capabilities
      - e.cap.002
-     - Max memory in MB that can be assigned to a single pod by the Cloud Infrastructure
+     - Max memory in MB that can be assigned to a single Pod by the Cloud Infrastructure
      - at least 32 GB
      - at least 32 GB
      - ra2.ch.012
    * - Exposed Infrastructure Capabilities
      - e.cap.003
-     - Max storage in GB that can be assigned to a single pod by the Cloud Infrastructure
+     - Max storage in GB that can be assigned to a single Pod by the Cloud Infrastructure
      - at least 320 GB
      - at least 320 GB
      - ra2.ch.010
    * - Exposed Infrastructure Capabilities
      - e.cap.004
-     - Max number of connection points that can be assigned to a single pod by the Cloud Infrastructure
+     - Max number of connection points that can be assigned to a single Pod by the Cloud Infrastructure
      - 6
      - 6
      - ra2.ntw.003
    * - Exposed Infrastructure Capabilities
      - e.cap.005
-     - Max storage in GB that can be attached / mounted to pod by the Cloud Infrastructure
+     - Max storage in GB that can be attached / mounted to Pod by the Cloud Infrastructure
      - Up to 16TB (1)
      - Up to 16TB (1)
      - N/A
@@ -196,7 +196,7 @@ Cloud Infrastructure Software Profile Capabilities
      - N/A
    * - Internal Infrastructure Capabilities
      - i.pm.002
-     - Monitor pod CPU usage, per nanosecond
+     - Monitor Pod CPU usage, per nanosecond
      - Must support
      - Must support
      - N/A
@@ -208,7 +208,7 @@ Cloud Infrastructure Software Profile Capabilities
      - N/A
    * - Internal Infrastructure Capabilities
      - i.pm.004
-     - Monitor pod CPU utilisation
+     - Monitor Pod CPU utilisation
      - Must support
      - Must support
      - N/A
@@ -244,8 +244,8 @@ Cloud Infrastructure Software Profile Capabilities
 Virtual Network Interface Specifications
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  Note: The required number of connection points to a pod is described in ``e.cap.004`` above. This section describes the
-  required bandwidth of those connection points.
+  Note: The required number of connection points to a Pod is described in ``e.cap.004`` above. This section describes
+  the required bandwidth of those connection points.
 
 .. list-table:: Reference Model Requirements: Network Interface Specifications
    :widths: 10 30 30 10 10 10
@@ -422,7 +422,7 @@ Cloud Infrastructure Software Profile Requirements
 
 Virtual Networking
 
-**(1)** Might have other interfaces (such as SR-IOV VFs to be directly passed to a VM or a pod) or NIC-specific drivers
+**(1)** Might have other interfaces (such as SR-IOV VFs to be directly passed to a VM or a Pod) or NIC-specific drivers
 on Kubernetes nodes.
 
 **(2)** In Kubernetes based infrastructures network separation is possible without an overlay (e.g.: with IPVLAN)
@@ -539,7 +539,7 @@ Cloud Infrastructure Hardware Profile Requirements
 Edge Cloud Infrastructure Hardware Profile Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the case of Telco Edge Cloud Deployments, hardware requirements can differ from the above to account for
+In the case of Telecom Edge Cloud Deployments, hardware requirements can differ from the above to account for
 environmental and other constraints.
 The Reference Model :cite:p:`refmodel`
 includes considerations specific to deployments at the edge of the network. The infrastructure profiles "Basic" and
@@ -556,26 +556,26 @@ of requirements of the above table are relaxed as follows:
      - Requirement for Basic Profile
      - Requirement for High-Performance Profile
      - Specification Reference
-   * - Telco Edge Cloud: Infrastructure Profiles
+   * - Telecom Edge Cloud: Infrastructure Profiles
      - infra.hw.cpu.cfg.001
      - sockets
      -
      -
      -
-   * - Telco Edge Cloud: Infrastructure Profiles
+   * - Telecom Edge Cloud: Infrastructure Profiles
      - infra.hw.cpu.cfg.002
      - Minimum number of Cores per CPU
      - 1
      - 1
      - ra2.ch.008
-   * - Telco Edge Cloud: Infrastructure Profiles
+   * - Telecom Edge Cloud: Infrastructure Profiles
      - infra.hw.cpu.cfg.003
      - NUMA alignment
      - N
      - Y (1)
      - ra2.ch.008
 
-Telco Edge Cloud: Infrastructure Profiles.
+Telecom Edge Cloud: Infrastructure Profiles.
 
 **(1)** immaterial if the number of CPU sockets (infra.hw.cpu.cfg.001) is 1.
 
@@ -658,7 +658,7 @@ Cloud Infrastructure Monitoring Capabilities
      - N/A
    * - Internal Performance Measurement Capabilities
      - i.pm.002
-     - Capability to monitor per pod CPU (Virtual compute resource) usage (in ns)
+     - Capability to monitor per Pod CPU (Virtual compute resource) usage (in ns)
      - Must support
      - N/A
    * - Internal Performance Measurement Capabilities
@@ -668,7 +668,7 @@ Cloud Infrastructure Monitoring Capabilities
      - N/A
    * - Internal Performance Measurement Capabilities
      - i.pm.004
-     - Capability to monitor per pod CPU (Virtual compute resource) usage (in percentage)
+     - Capability to monitor per Pod CPU (Virtual compute resource) usage (in percentage)
      - Must support
      - N/A
    * - Internal Performance Measurement Capabilities
@@ -938,11 +938,13 @@ Cloud Infrastructure Security Requirements
      -
    * - Platform and Access
      - sec.sys.020
-     - The Cloud Infrastructure architecture **should** rely on Zero Trust principles to build a secure by design environment.
+     - The Cloud Infrastructure architecture **should** rely on Zero Trust principles to build a secure by design
+       environment.
      -
    * - Confidentiality and Integrity
      - sec.ci.001
-     - The Platform **must** support Confidentiality and Integrity of data at rest and in-transit. by design environment.
+     - The Platform **must** support Confidentiality and Integrity of data at rest and in-transit. by design
+       environment.
      - :ref:`chapters/chapter05:securing the kubernetes orchestrator`
    * - Confidentiality and Integrity
      - sec.ci.002
@@ -1256,13 +1258,13 @@ Cloud Infrastructure Security Requirements
      -
    * - IaaC - Secure Code Stage Requirements
      - sec.code.001
-     - SAST -Static Application Security Testing **must** be applied during Secure Coding stage triggered by Pull,
+     - Static Application Security Testing (SAST) **must** be applied during Secure Coding stage triggered by Pull,
        Clone or Comment trigger. Security testing that analyses application source code for software vulnerabilities
        and gaps against best practices. Example: open source OWASP range of tools.
      -
    * - IaaC - Secure Code Stage Requirements
      - sec.code.002
-     - SCA - Software Composition Analysis **should** be applied during Secure Coding stage triggered by Pull,
+     - Software Composition Analysis (SCA) **should** be applied during Secure Coding stage triggered by Pull,
        Clone or Comment trigger. Security testing that analyses application source code or compiled code for
        software components with known vulnerabilities. Example: open source OWASP range of tools.
      -
@@ -1278,12 +1280,12 @@ Cloud Infrastructure Security Requirements
      -
    * - IaaC - Secure Code Stage Requirements
      - sec.code.005
-     - SAST of Source Code Repo **should** be performed during Secure Coding stage triggered by Developer Code trigger.
-       Continuous delivery pre-deployment: scanning prior to deployment.
+     - SAST of Source Code Repository **should** be performed during Secure Coding stage triggered by Developer Code
+       trigger. Continuous delivery pre-deployment: scanning prior to deployment.
      -
    * - IaaC - Continuous Build, Integration and Testing Stage Requirements
      - sec.bld.001
-     - SAST -Static Application Security Testing **should** be applied during the Continuous Build, Integration and
+     - Static Application Security Testing (SAST) **should** be applied during the Continuous Build, Integration and
        Testing stage triggered by Build and Integrate trigger. Example: open source OWASP range of tools.
      -
    * - IaaC - Continuous Build, Integration and Testing Stage Requirements
@@ -1299,7 +1301,7 @@ Cloud Infrastructure Security Requirements
      -
    * - IaaC - Continuous Build, Integration and Testing Stage Requirements
      - sec.bld.004
-     - DAST - Dynamic Application Security Testing **should** be applied during the Continuous Build, Integration
+     - Dynamic Application Security Testing (DAST) **should** be applied during the Continuous Build, Integration
        and Testing stage triggered by Stage & Test trigger. Security testing that analyses a running application by
        exercising application functionality and detecting vulnerabilities based on application behaviour and response.
        Example: OWASP ZAP.
@@ -1313,7 +1315,7 @@ Cloud Infrastructure Security Requirements
      -
    * - IaaC - Continuous Build, Integration and Testing Stage Requirements
      - sec.bld.006
-     - IAST - Interactive Application Security Testing **should** be applied during the Continuous Build, Integration
+     - Interactive Application Security Testing (IAST) **should** be applied during the Continuous Build, Integration
        and Testing stage triggered by Stage & Test trigger. Software component deployed with an application that
        assesses application behaviour and detects presence of vulnerabilities on an application being exercised in
        realistic testing scenarios. Example: Contrast Community Edition.
@@ -1321,7 +1323,7 @@ Cloud Infrastructure Security Requirements
    * - IaaC - Continuous Delivery and Deployment Stage Requirements
      - sec.del.001
      - Image Scan **must** be applied during the Continuous Delivery and Deployment stage triggered by
-       Publish to Artifact and Image Repository trigger. Example: GitLab uses the open-source Clair engine for
+       Publish to Artifact and Image Repository trigger. Example: GitLab uses the open source Clair engine for
        container image scanning.
      -
    * - IaaC - Continuous Delivery and Deployment Stage Requirements
@@ -1351,7 +1353,7 @@ Cloud Infrastructure Security Requirements
      -
    * - IaaC - Runtime Defence and Monitoring Requirements
      - sec.run.002
-     - RASP - Runtime Application Self- Protection **should** be continuously applied during the Runtime Defence
+     - Runtime Application Self-Protection (RASP) **should** be continuously applied during the Runtime Defence
        and Monitoring stage. Security technology deployed within the target application in production for detecting,
        alerting, and blocking attacks.
      -
@@ -1514,13 +1516,13 @@ machines or containers.
    * - inf.com.01
      - Infrastructure
      - Compute
-     - The Architecture must provide compute resources for pods.
+     - The Architecture must provide compute resources for Pods.
      - ra2.k8s.004
    * - inf.stg.01
      - Infrastructure
      - Storage
      - The Architecture must support the ability for an operator to choose whether or
-       not to deploy persistent storage for pods.
+       not to deploy persistent storage for Pods.
      - ra2.stg.004
    * - inf.ntw.01
      - Infrastructure
@@ -1587,7 +1589,7 @@ machines or containers.
    * - inf.ntw.14
      - Infrastructure
      - Network
-     - The platform must allow NAT-less traffic (i.e., exposing the pod IP address directly to the
+     - The platform must allow NAT-less traffic (i.e., exposing the Pod IP address directly to the
        outside), allowing source and destination IP addresses to be preserved in the traffic headers
        from workloads to external networks. This is needed e.g. for signalling applications, using SIP
        and Diameter protocols.

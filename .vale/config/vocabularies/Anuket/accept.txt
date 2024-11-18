@@ -3,6 +3,7 @@
 [Aa]PIs
 [aA]rchirecture
 [Aa]utoscaler
+[Aa]llowlist
 [aA]utoscaling
 [Bb]aremetal
 [Cc]groups
@@ -32,6 +33,11 @@ CRD
 [eE]thtool
 [eE]thernet
 [Ee]rrored
+[Ee]xecute
+[Ee]xecuted
+[Ff]ail
+[Ff]ailed
+[Ff]ailure
 [Ff]ailover
 [Ff]luentd
 [Ff]uzzer
@@ -61,6 +67,7 @@ Istio
 [Kk]ubeVirt
 [kK]ubemci
 [Ll]ibvirt
+Linkerd
 [Ll]ivenessProbe
 [Ll]oadbalancer
 [Ll]ookaside

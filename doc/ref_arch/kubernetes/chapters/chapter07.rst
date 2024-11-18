@@ -4,158 +4,193 @@ Gaps, Innovation, and Development
 Introduction to Gaps, Innovation, and Development
 -------------------------------------------------
 
-There are functional gaps between the current state of technology available in open source and the requirements of this
-Reference Architecture or the Reference Model. This chapter highlights these gaps in detail and provides proposed
-solutions. As a result, various “upstream” community projects may be identified and will be targeted for development
-efforts.
+Functional gaps exist between available open source
+technology and this Reference Architecture's (RA) or
+Reference Model's (RM) requirements. This chapter
+details these gaps and proposes solutions.  This may
+identify and target various "upstream" community
+projects for development efforts.
 
-Gap template
+Gap Template
 ~~~~~~~~~~~~
 
-   **Related requirements:** List the requirement references ``abc.xyz.00`` from RA2 or RM which this gap tries to
-   address.
+**Related requirements:** List requirement references
+(e.g., ``abc.xyz.00``) from RA2 or RM addressed by this
+gap.
+
+   **Baseline project:**  Identify the upstream project
+   (e.g., *Kubernetes*) where the gap exists. If none, state
+   "none".
 
 ..
+   **Gap description:** Describe missing functionality from
+    the related requirements in known implementations. Include
+    references to ongoing work in the target project that may
+    address the gap.
 
-   **Baseline project:** Describe against which upstream project the gap exists, for example, *Kubernetes*. If the gap is not
-   against any specific upstream project, state "none".
 
-   **Gap description:** Describe which functionality described in the related requirements is currently missing in the
-   implementations that you are aware of. Include references to work ongoing in the target project, which may address the gap.
-
-.. Container run-time Interfaces towards NFVI resources
-.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-..
-..   (unclear) This is the southbound interface from the container to the infrastructure resources provided by the IaaS provider.
-..
-..
-..
-   e.g., network interface type that is presented to a running container.
-
-Multitenancy and workload isolation with Kubernetes
+Container Run-Time Interfaces Towards NFVI Resources
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Related requirements:** ``e.man.004``, ``sec.ci.008``, ``sec.wl.005``, ``sec.wl.006``
+This describes the southbound interface from the container
+to IaaS-provided infrastructure resources; e.g., the
+network interface type presented to a running container.
+
+
+Multitenancy and Workload Isolation with Kubernetes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Related requirements:** ``e.man.004``, ``sec.ci.008``,
+``sec.wl.005``, ``sec.wl.006``
 
 **Baseline project:** *Kubernetes*
 
-**Gap description:** Today, Kubernetes lacks hard multitenancy capabilities that allow untrusted tenants to share
-infrastructure resources. This presents a security problem when operators seek to separate workloads by categorization
-or simply production versus non-production. Furthermore, tenant networks need to be segmented, yet still centrally
-administered and maintained. Beyond just security, this also presents an operational problem. Trying to deploy too
-many CNFs in the same cluster could result in version conflicts, configuration conflicts, and problems with software
-lifecycle management. Finally, without proper isolation, there is an increased risk of cascading failures.
+**Gap description:** Kubernetes currently lacks robust
+multitenancy, preventing secure infrastructure resource
+sharing among untrusted tenants. This poses security risks
+when separating workloads by category (e.g., production
+vs. non-production).  Tenant network segmentation is also
+needed, while maintaining central administration.  Beyond
+security, this creates operational challenges. Deploying
+many CNFs in one cluster risks version and configuration
+conflicts, and software lifecycle management problems.
+Lack of isolation increases cascading failure risk.
 
-**Proposals & Resolution:** Kubernetes is not a single-cluster solution. This has been demonstrated across the
-industry from case studies at prominent companies such as :cite:t:`alibaba-blog-twitter`, :cite:t:`youtube-zalando`, and
-:cite:t:`cncf-blog-alibaba` to the biannual CNCF survey that finds that the number of clusters being deployed within
-an organization is growing. While there are many reasons behind the multicluster paradigm, examining the gap above we
-find that a multicluster solution can address many of these problems such as security and software lifecycle management.
+**Proposals & Resolution:** Kubernetes isn't a
+single-cluster solution.  Industry case studies
+(:cite:t:`alibaba-blog-twitter`, :cite:t:`youtube-zalando`,
+:cite:t:`cncf-blog-alibaba`) and CNCF surveys show
+growing multi-cluster deployments within organizations. A
+multi-cluster approach addresses security and software
+lifecycle management challenges.
 
-Without multitenancy within a cluster, separate clusters must be used to provide adequate separation for CNFs that
-require strong isolation. CNFs may need to be separated for various reasons, including different types of workloads based
-on their vendors, environments such as production versus non-production, per-categorization, or supporting independent
-lifecycles. Having multiple clusters in which to deploy CNFs allows operators to choose similar CNFs together while
-segregating those with different lifecycles from each other. CNFs deployed in the same cluster can be upgraded
-together to reduce the operational load, while CNFs that require different versions, configurations, and dependencies
-can run in separate clusters and be upgraded independently, if necessary.
+Without in-cluster multitenancy, separate clusters provide
+necessary CNF isolation (based on vendor, environment,
+category, or independent lifecycles).  Co-locating similar
+CNFs allows for simultaneous upgrades, while separate
+clusters accommodate independent upgrades for CNFs with
+different versions, configurations, and dependencies.
 
-If running multiple clusters is the only solution to meeting these workload and infrastructure requirements, the
-operational burden of this model must also be considered. Running a multitude of clusters at scale could be a massive
-operational challenge, if done manually. Any operator considering running Kubernetes at scale should carefully evaluate
-their multicluster management strategy, including the management of the applications within those clusters.
+However, managing numerous clusters at scale poses
+significant operational challenges if done manually.
+Operators should carefully consider their multi-cluster
+management strategy, including application management.
 
-Kubernetes as a VM-based VNF orchestrator
+
+Kubernetes as a VM-based VNF Orchestrator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   **Related requirements:** None.
+**Related requirements:** None.
 
-   **Baseline project:** *Kubernetes*, *Kubevirt*
+**Baseline project:** *Kubernetes*, *Kubevirt*
 
-   **Gap description:** Kubernetes and at least one CRI-compliant runtime should support the running of VNFs without
-   requiring changes to the VNF's architecture and deployment artifacts.
+**Gap description:** Kubernetes and a CRI-compliant
+runtime should support VNF execution without altering VNF
+architecture or deployment artifacts.
 
-Native multiple network interfaces on Pods
+
+Native Multiple Network Interfaces on Pods
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   **Related requirements:** Virtual Network Interface Specifications section in Chapter 4 of :cite:t:`refmodel`
+**Related requirements:** Virtual Network Interface
+Specifications (Chapter 4 of :cite:t:`refmodel`)
 
-   **Baseline project:** *Kubernetes*
+**Baseline project:** *Kubernetes*
 
-   **Gap description:** Kubernetes does not have native support for multiple Pod interfaces. Therefore, a CNI
-   multiplexer, such as :cite:t:`github-multus`, is needed to provision multiple interfaces. Implementation of different
-   network services for the interfaces, such as Network Policies, Ingress, Egress, or Load Balancers, depends on the feature
-   set of the CNI multiplexer and the CNI plugins it uses. It is therefore inconsistent.
+**Gap description:** Kubernetes lacks native support for
+multiple Pod interfaces, requiring a CNI multiplexer (like
+:cite:t:`github-multus`).  Network service implementation
+(Network Policies, Ingress, Egress, Load Balancers) depends
+on the multiplexer and its CNI plugins, leading to
+inconsistency.
 
-   **Status:** There is a :cite:t:`googledocs-kep-multi-network-pod-object` created to support multiple Pod interfaces
-   natively.
+**Status:** A KEP (:cite:t:`googledocs-kep-multi-network-pod-object`)
+aims to natively support multiple Pod interfaces.
 
-Dynamic network management
+
+Dynamic Network Management
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   **Related requirements:** inf.ntw.03 in :ref:`chapters/chapter02:kubernetes architecture requirements`
+**Related requirements:** ``inf.ntw.03``
+(:ref:`chapters/chapter02:kubernetes architecture
+requirements`)
 
-   **Baseline project:** *Kubernetes*
+**Baseline project:** *Kubernetes*
 
-   **Gap description:** Kubernetes does not have an API for network service management (for example, VPNs). Therefore,
-   a CNI plugin, such as :cite:t:`github-multus`, needs to be used to expose APIs for Network services. Alternatively,
-   this is done nowadays with Netconf and so on, and integration with SDN controllers, for example, connecting
-   individual VPNs, such as L3VPN, to the CNF, on demand.
+**Gap description:** Kubernetes lacks an API for network
+service management (e.g., VPNs).  A CNI plugin
+(:cite:t:`github-multus`) or integration with SDN
+controllers (using NetConf, etc.) is needed to provide
+APIs for network services and connect VPNs (e.g., L3VPN)
+to CNFs on demand.
 
-Control plane efficiency
+
+Control Plane Efficiency
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-   **Related requirements:** None
+**Related requirements:** None
 
-   **Baseline project:** *Kubernetes*
+**Baseline project:** *Kubernetes*
 
-   **Gap description:** In situations where multiple sites/availability zones exist, an operator may
-   choose to run multiple Kubernetes clusters, not only for security/multitenancy reasons but also for fault, resilience,
-   latency purposes, and so on. This produces an overhead of Kubernetes Control plane nodes. There should be a way to
-   operate multiple clusters more efficiently while still being able to meet the non-functional requirements of the operator,
-   such as fault, resilience, latency, and so on.
+**Gap description:**  Multi-site/availability zone
+deployments often utilize multiple Kubernetes clusters for
+security, multitenancy, fault tolerance, resilience, and
+latency. This creates Kubernetes control plane node
+overhead.  More efficient multi-cluster operation is
+needed to meet non-functional requirements.
 
-Interoperability with VRF-based networking
+
+Interoperability with VRF-based Networking
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   **Related requirements:** None
+**Related requirements:** None
 
-   **Baseline project:** *Kubernetes*
+**Baseline project:** *Kubernetes*
 
-   **Gap description:** In existing networks, L3 VRFs/VPNs are commonly used for traffic separation (for example, for
-   separating L3 VPN for signalling, charging, LI, O&M, and so on). CNFs have to interwork with existing network elements.
-   Therefore, a Kubernetes POD will somehow need to be connected to a L3 VPN. Currently, this is only possible via Multus.
-   However, typically there is a network orchestration responsibility to connect the network interface to a gateway
-   router, where the L3 VPN is terminated. This network orchestration is not taken care of by K8s, nor is there a
-   production-grade solution in the open-source space to take care of this.
+**Gap description:**  L3 VRFs/VPNs are commonly used for
+traffic separation (signaling, charging, LI, O&M).  CNFs
+must interoperate with existing network elements,
+requiring Kubernetes Pod connection to L3 VPNs (currently
+only possible via Multus).  However, network orchestration
+(connecting the interface to a gateway router terminating
+the L3 VPN) isn't handled by Kubernetes, and lacks a
+production-grade open source solution.
 
-   .. note::
-      With an underlying IaaS, this is possible. However, it introduces a dependency between workload orchestration in K8s
-      and infrastructure orchestration in IaaS, which is not desirable.
+.. note:: While possible with IaaS, this creates an
+          undesirable dependency between Kubernetes workload
+          orchestration and IaaS infrastructure orchestration.
 
-Hardware topology-aware huge pages
+
+Hardware Topology-Aware Huge Pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Related requirements:** ``infra.com.cfg.004`` and ``infra.com.cfg.002`` in the Virtual Compute Profiles section in
-Chapter 5 of :cite:t:`refmodel`.
+**Related requirements:** ``infra.com.cfg.004`` and
+``infra.com.cfg.002`` (Virtual Compute Profiles, Chapter 5
+of :cite:t:`refmodel`).
 
 **Baseline project:** *Kubernetes*
 
-**Gap description:** The Memory Manager was added in v1.21 as alpha feature. For details, see
+**Gap description:** The Memory Manager (alpha feature in
+v1.21) is addressed in
 :ref:`chapters/chapter03:management of memory and huge pages resources`.
 
-User namespaces in Kubernetes
+
+User Namespaces in Kubernetes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Related requirements:** ``e.man.004`` in the Cloud Infrastructure Management Capabilities section in Chapter 4 of
-:cite:t:`refmodel`, ```inf.ntw.03`` in the Platform and Access Requirements section in Chapter 2 of :cite:t:`anuket-ra1`
+**Related requirements:** ``e.man.004`` (Cloud
+Infrastructure Management Capabilities, Chapter 4 of
+:cite:t:`refmodel`), ``inf.ntw.03`` (Platform and Access
+Requirements, Chapter 2 of :cite:t:`anuket-ra1`)
 
 **Baseline project:** *Kubernetes*
 
-**Gap description:** Kubernetes does not support namespace scoped user IDs (UIDs). Therefore, when a CNF requires system
-privileges, the container either needs to run in privileged mode, or the infrastructure needs to provide random system
-UIDs. Randomised UIDs result in errors when the application needs to set kernel capabilities (for example, in the case of
-VLAN trunking), or when a Pod shares data with other Pods via persistent storage. The "privileged mode" solution is not secure
-while "random UID" solution is error-prone. These techniques should therefore not be used. Support for proper user
-namespaces in Kubernetes has been introduced as an alpha feature in Kubernetes 1.25 :cite:t:`kubernetes-user-namespaces`
-(relevant KEP :cite:t:`kubernetes-kep-user-namespaces`).
+**Gap description:** Kubernetes lacks namespace-scoped UIDs.
+CNFs requiring system privileges must run in privileged
+mode or use random system UIDs. Random UIDs cause errors
+when setting kernel capabilities (e.g., VLAN trunking) or
+sharing data via persistent storage.  Privileged mode is
+insecure; random UIDs are error-prone.  Proper user
+namespaces (alpha in Kubernetes 1.25
+:cite:t:`kubernetes-user-namespaces`, KEP
+:cite:t:`kubernetes-kep-user-namespaces`) are needed.

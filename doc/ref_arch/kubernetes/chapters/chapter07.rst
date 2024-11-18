@@ -4,7 +4,7 @@ Gaps, Innovation, and Development
 Introduction to Gaps, Innovation, and Development
 -------------------------------------------------
 
-Functional gaps exist between available open-source
+Functional gaps exist between available open source
 technology and this Reference Architecture's (RA) or
 Reference Model's (RM) requirements. This chapter
 details these gaps and proposes solutions.  This may

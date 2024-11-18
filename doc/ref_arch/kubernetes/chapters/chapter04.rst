@@ -59,7 +59,7 @@ the following specifications:
      - For the node's profile to qualify as high-performance, SR-IOV virtual functions (VFs) must be
        configured within the Kubernetes Node OS, as the SR-IOV Device Plugin does not manage the creation of these VFs.
      - e.cap.013 :cite:t:`refmodel` Chapter 4, section Exposed Performance Optimisation Capabilities
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.ch.004
      - CPU Simultaneous Multi-Threading (SMT)
      - If SMT is supported, then it must be enabled in the BIOS on the physical machine on which the Kubernetes Node
@@ -161,13 +161,13 @@ the following specifications:
        New changes to the Kubernetes node must be implemented as new node instances. This covers any changes from the
        BIOS, through the Operating System, to running processes and all associated configurations.
      - gen.cnt.02 from :cite:t:`anuket-ra1` Chapter 2, section General Recommendations
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.ch.018
      - NFD
      - :cite:t:`k8s-nfd-sig` must be used to advertise the detailed software and hardware capabilities of each node in
        the Kubernetes Cluster.
      - tbd
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.ch.019
      - AF_XDP Zero Copy capable netdevs
      - AF_XDP Zero Copy capable netdevs (dependent on AF_XDP Zero Copy NIC driver) must be available in a compliant
@@ -272,14 +272,14 @@ the following specifications:
        :cite:t:`k8s-distributions` and marked (X) as conformant for the Kubernetes version defined in
        :ref:`chapters/chapter01:required component versions`.
      - gen.cnt.03 in :ref:`chapters/chapter02:kubernetes architecture requirements`
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.k8s.002
      - Highly available etcd
-     - An implementation must consist of either three, five or seven nodes running the etcd service (can be colocated
+     - An implementation must consist of either three, five or seven nodes running the etcd service (can be collocated
        on the control plane nodes, or can run on separate nodes, but not on worker nodes).
      - gen.rsl.02 in :ref:`chapters/chapter02:kubernetes architecture requirements`,
        gen.avl.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.k8s.003
      - Highly available control plane
      - An implementation must consist of at least one control plane node per availability zone or fault domain to
@@ -292,7 +292,7 @@ the following specifications:
        kube-scheduler and kube-controller-manager.
      - gen.rsl.02 in :ref:`chapters/chapter02:kubernetes architecture requirements`,
        gen.avl.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.k8s.004
      - Highly available worker nodes
      - An implementation must consist of at least one worker node per availability zone or fault domain to ensure the
@@ -338,7 +338,7 @@ the following specifications:
         health status directly in the Pod's `allocatedResources` field.
 
      - Various, e.g. e.cap.013 in :cite:t:`refmodel` Chapter 8, section Exposed Performance Optimisation Capabilities
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.k8s.008
      - System resource reservations
      - To avoid resource starvation issues on the nodes, the implementation of the architecture must reserve compute
@@ -429,9 +429,10 @@ the following specifications:
      -
    * - ra2.k8s.020
      - TLS Certificate management for workloads
-     - Cert-manager :cite:p:`cert-manager` should be supported and integrated with a PKI certificate provider for workloads to
-       request/renew TLS certificates. It must be configured to use strong hashing algorithms such as SHA-256 for all
-       certificates. SHA-1 signed certificates are deprecated and will be rejected by default starting with Kubernetes 1.31.
+     - Cert-manager :cite:p:`cert-manager` should be supported and integrated with a PKI certificate provider for
+       workloads to request/renew TLS certificates. It must be configured to use strong hashing algorithms such as
+       SHA-256 for all certificates. SHA-1 signed certificates are deprecated and will be rejected by default starting
+       with Kubernetes 1.31.
 
      - int.api.04 in :ref:`chapters/chapter02:kubernetes architecture requirements`
      - kcm.gen.03
@@ -452,13 +453,13 @@ Container runtimes
      - Conformance with the Open Container Initiative (OCI) 1.0 runtime specification
      - The container runtime must be implemented as per the OCI 1.0 :cite:p:`github-oci-specification` specification.
      - gen.ost.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.crt.002
      - Kubernetes Container Runtime Interface (CRI)
      - The Kubernetes container runtime must be implemented as per the Kubernetes Container Runtime Interface (CRI)
        :cite:p:`k8s-blog-cri`
      - gen.ost.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
 
 Networking solutions
 --------------------
@@ -480,63 +481,63 @@ the following specifications:
      - The networking solution deployed within the implementation must be administered through the Kubernetes API using
        native Kubernetes API resources and objects, or Custom Resources.
      - inf.ntw.03 in :ref:`chapters/chapter02:kubernetes architecture requirements`
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.ntw.002
      - Default Pod Network - CNI
      - The networking solution deployed within the implementation must use a CNI-conformant Network Plugin for the
        Default Pod Network, as the alternative (kubenet) does not support cross-node networking or Network Policies.
      - gen.ost.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`,
        inf.ntw.08 in :ref:`chapters/chapter02:kubernetes architecture requirements`
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.ntw.003
      - Multiple connection points
      - The networking solution deployed within the implementation must support the capability to connect at least 5
        connection points to each Pod, which are additional to the default connection point managed by the default Pod
        network CNI plugin.
      - e.cap.004 in :ref:`chapters/chapter02:cloud infrastructure software profile capabilities`
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.ntw.004
      - Multiple connection points presentation
      - The networking solution deployed within the implementation must ensure that all additional non-default
        connection points are requested by Pods using standard Kubernetes resource scheduling mechanisms, such as
        annotations, or container resource requests and limits.
      - inf.ntw.03 in :ref:`chapters/chapter02:kubernetes architecture requirements`
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.ntw.005
      - Multiplexer/meta-plugin
      - The networking solution deployed within the implementation may use a multiplexer/meta-plugin.
      - inf.ntw.06 in :ref:`chapters/chapter02:kubernetes architecture requirements`,
        inf.ntw.07 in :ref:`chapters/chapter02:kubernetes architecture requirements`
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.ntw.006
      - Multiplexer/meta-plugin CNI conformance
      - If used, the selected multiplexer/meta-plugin must integrate with the Kubernetes control plane via CNI.
      - gen.ost.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.ntw.007
      - Multiplexer/meta-plugin CNI Plugins
      - If used, the selected multiplexer/meta-plugin must support the use of multiple CNI-conformant Network Plugins.
      - gen.ost.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`,
        inf.ntw.06 :ref:`chapters/chapter02:kubernetes architecture requirements`
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.ntw.008
      - SR-IOV device plugin for high performance
      - When hosting workloads that match the high-performance profile and require SR-IOV acceleration, a Device Plugin
        for SR-IOV must be used to configure the SR-IOV devices and advertise them to the kubelet.
      - e.cap.013 in :cite:t:`refmodel` Chapter 4, section Exposed Performance Optimisation Capabilities`
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.ntw.009
      - Multiple connection points with multiplexer / meta-plugin
      - When a multiplexer/meta-plugin is used, the additional non-default connection points must be managed by a
        CNI-conformant Network Plugin.
      - gen.ost.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.ntw.010
      - User plane networking
      - When hosting workloads that match the high-performance profile, CNI network plugins that support the use of
        DPDK, VPP, and/or SR-IOV must be deployed as part of the networking solution.
      - infra.net.acc.cfg.001 in :cite:t:`refmodel`, Chapter 5, section Virtual Networking Profiles
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.ntw.011
      - NATless connectivity
      - When hosting workloads that require source and destination IP addresses to be preserved in the traffic headers,
@@ -549,7 +550,7 @@ the following specifications:
      - When hosting workloads matching the High Performance profile that require the use of FPGA, SR-IOV or other
        Acceleration Hardware, a Device Plugin for that FPGA or Acceleration Hardware must be used.
      - e.cap.016 and e.cap.013 in :cite:t:`refmodel`, Chapter 4, section Exposed Performance Optimisation Capabilities`
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.ntw.013
      - Dual-stack CNI
      - The networking solution deployed within the implementation must use a CNI-conformant network plugin that is able
@@ -572,10 +573,11 @@ the following specifications:
      - When a multiplexer/meta-plugin is used, the multiplexer/meta-plugin must implement version 1.2 of the
        :cite:t:`multi-net-spec`.
      - gen.ost.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`
-     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infratructure
+     - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
    * - ra2.ntw.017
      - Kubernetes Load Balancer
-     - The networking solution deployed within the implementation must include a L4 (TCP/UDP - except QUIC) Load Balancer to steer inbound traffic across the primary interfaces of multiple CNF pods.
+     - The networking solution deployed within the implementation must include a L4 (TCP/UDP - except QUIC) Load
+       Balancer to steer inbound traffic across the primary interfaces of multiple CNF pods.
      - inf.ntw.15 in :ref:`chapters/chapter02:kubernetes architecture requirements`
      -
    * - ra2.ntw.018
@@ -590,22 +592,25 @@ the following specifications:
      -
    * - ra2.ntw.020
      - Kubernetes Load Balancer - Advertisements
-     - The Load Balancer solution deployed per `ra2.ntw.017` must be capable of advertising the IPs of Services to external networks.
+     - The Load Balancer solution deployed per `ra2.ntw.017` must be capable of advertising the IPs of Services to
+       external networks.
      - inf.ntw.15 in :ref:`chapters/chapter02:kubernetes architecture requirements`
      -
    * - ra2.ntw.021
      - Kubernetes Load Balancer - Active/active Multipath
-     - The Load Balancer solution deployed per `ra2.ntw.017` must support multi-path advertisements in an active/active design, allowing the same service IP to be advertised by multiple cluster nodes.
+     - The Load Balancer solution deployed per `ra2.ntw.017` must support multi-path advertisements in an
+       active/active design, allowing the same service IP to be advertised by multiple cluster nodes.
      - inf.ntw.15 in :ref:`chapters/chapter02:kubernetes architecture requirements`
      -
    * - ra2.ntw.022
      - Kubernetes Load Balancer - High Availability
-     - The networking solution deployed per `ra2.ntw.017` must be capable of fast failover. Upon node or pod failure, it must redirect traffic (i.e., advertisements/routes must be updated) in less than 5 seconds.
+     - The networking solution deployed per `ra2.ntw.017` must be capable of fast failover. Upon node or pod
+       failure, it must redirect traffic (i.e., advertisements/routes must be updated) in less than 5 seconds.
      - inf.ntw.15 in :ref:`chapters/chapter02:kubernetes architecture requirements`
      -
    * - ra2.ntw.023
      - Time Sensitive Networking
-     - Timing accuracy with PTP Hardware Clock and synronization with SyncE.
+     - Timing accuracy with PTP Hardware Clock and synchronization with SyncE.
      - e.cap.027 from :cite:t:`refmodel` Chapter 4, section Exposed infrastructure capabilities
      -
 
@@ -749,7 +754,7 @@ Architecture, they must be implemented according to the following specifications
      - Reference Implementation Trace
    * - ra2.app.006
      - Consumption of additional, non-default connection points
-     - Any additional non-default connection points must be requested through the use of workload annotations
+     - Any additional non-default connection points must be requested with workload annotations
        or resource requests and limits within the container spec passed to the Kubernetes API Server.
      - int.api.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`
      - N/A
@@ -812,49 +817,49 @@ Architecture, they must be implemented according to the following specifications
      - N/A
    * - ra2.app.017
      - CNF resiliency (node drain)
-     - The CNF must not lose data. It must continue to run and its readiness probe outcome must be Success, even in the
+     - The CNF must not lose data. It must continue to run, and its readiness probe outcome must be Success, even in the
        event of a node drain and consequent rescheduling.
      - :cite:t:`cnti-testsuite-node_drain`
      - N/A
    * - ra2.app.018
      - CNF resiliency (network latency)
-     - The CNF must not lose data. It must continue to run and its readiness probe outcome must be Success, even if
+     - The CNF must not lose data. It must continue to run, and its readiness probe outcome must be Success, even if
        network latency of up to 2000 ms occurs.
      - :cite:t:`cnti-testsuite-pod_network_latency`
      - N/A
    * - ra2.app.019
      - CNF resiliency (pod delete)
-     - The CNF must not lose data. It must continue to run and its readiness probe outcome must be Success, even if a
+     - The CNF must not lose data. It must continue to run, and its readiness probe outcome must be Success, even if a
        pod delete occurs.
      - :cite:t:`cnti-testsuite-disk_fill`
      - N/A
    * - ra2.app.020
      - CNF resiliency (pod memory hog)
-     - The CNF must not lose data. It must continue to run and its readiness probe outcome must be Success, even if a
+     - The CNF must not lose data. It must continue to run, and its readiness probe outcome must be Success, even if a
        pod memory hog occurs.
      - :cite:t:`cnti-testsuite-pod_memory_hog`
      - N/A
    * - ra2.app.021
      - CNF resiliency (pod I/O stress)
-     - The CNF must not lose data. It must continue to run and its readiness probe outcome must be Success, even if pod
+     - The CNF must not lose data. It must continue to run, and its readiness probe outcome must be Success, even if pod
        I/O stress occurs.
      - :cite:t:`cnti-testsuite-pod_io_stress`
      - N/A
    * - ra2.app.022
      - CNF resiliency (pod network corruption)
-     - The CNF must not lose data. It must continue to run and its readiness probe outcome must be Success, even if pod
+     - The CNF must not lose data. It must continue to run, and its readiness probe outcome must be Success, even if pod
        network corruption occurs.
      - :cite:t:`cnti-testsuite-pod_network_corruption`
      - N/A
    * - ra2.app.023
      - CNF resiliency (pod network duplication)
-     - The CNF must not lose data. It must continue to run and its readiness probe outcome must be Success, even if a
+     - The CNF must not lose data. It must continue to run, and its readiness probe outcome must be Success, even if a
        pod network duplication occurs.
      - :cite:t:`cnti-testsuite-pod_network_duplication`
      - N/A
    * - ra2.app.024
      - CNF resiliency (pod DNS error)
-     - The CNF must not lose data. It must continue to run and its readiness probe outcome must be Success, even if a
+     - The CNF must not lose data. It must continue to run, and its readiness probe outcome must be Success, even if a
        pod DNS error occurs.
      -
      - N/A
@@ -1008,7 +1013,7 @@ Platform service components
 ---------------------------
 
 The architecture may support additional platform services, this chapter defines the requirements for the platform
-service componenets when the platform service is supported.
+service components when the platform service is supported.
 
 .. list-table:: Platform service components requirements
   :widths: 10 20 50 10
@@ -1237,17 +1242,20 @@ implementation from the Cluster API spec, a sub-project of the Kubernetes Cluste
      - Reference Implementation Trace
    * - ra2.lcm.001
      - Cluster Creation and Destruction
-     - The CaaS Manager must support automated cluster creation and destruction. This includes provisioning the underlying infrastructure and installing the Kubernetes control plane and worker nodes.
+     - The CaaS Manager must support automated cluster creation and destruction. This includes provisioning the
+       underlying infrastructure and installing the Kubernetes control plane and worker nodes.
      - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
      - Cluster API: `Cluster` object
    * - ra2.lcm.002
      - Cluster Scaling
-     - The CaaS Manager must support automated cluster scaling. This includes scaling the number of worker nodes up or down based on demand.
+     - The CaaS Manager must support automated cluster scaling. This includes scaling the number of worker nodes up
+       or down based on demand.
      - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
      - Cluster API: `MachineDeployment` object, scaling feature
    * - ra2.lcm.003
      - Cluster Upgrades
-     - The CaaS Manager must support automated cluster upgrades. This includes upgrading the Kubernetes control plane and worker nodes to newer versions.
+     - The CaaS Manager must support automated cluster upgrades. This includes upgrading the Kubernetes control
+       plane and worker nodes to newer versions.
      - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
      - Cluster API: `MachineDeployment` object, upgrade strategies
    * - ra2.lcm.004
@@ -1257,27 +1265,32 @@ implementation from the Cluster API spec, a sub-project of the Kubernetes Cluste
      - Cluster API: `Cluster` object
    * - ra2.lcm.005
      - Node Object
-     - The CaaS Manager API must support a "Node" object. Represents a single machine in the cluster, either a control plane or worker node.
+     - The CaaS Manager API must support a "Node" object. Represents a single machine in the cluster, either a
+       control plane or worker node.
      - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
      - Cluster API: `Machine` object
    * - ra2.lcm.006
      - Node Pool Object
-     - The CaaS Manager API must support a "Node Pool" object. Represents a group of similar nodes with shared characteristics (e.g., machine type, labels).
+     - The CaaS Manager API must support a "Node Pool" object. Represents a group of similar nodes with shared
+       characteristics (e.g., machine type, labels).
      - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
      - Cluster API: `MachineSet` object (for managing homogeneous groups of Machines)
    * - ra2.lcm.007
      - Node Deployment Strategy
-     - The CaaS Manager API must support defining a strategy for node deployments, such as rolling updates or blue/green deployments.
+     - The CaaS Manager API must support defining a strategy for node deployments, such as rolling updates or
+       blue/green deployments.
      - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
      - Cluster API: `MachineDeployment` object with rolling update strategies
    * - ra2.lcm.008
      - Node Health Check
-     - The CaaS Manager must support mechanisms for monitoring the health of nodes in the cluster and taking appropriate actions (e.g., replacing unhealthy nodes).
+     - The CaaS Manager must support mechanisms for monitoring the health of nodes in the cluster and taking
+       appropriate actions (e.g., replacing unhealthy nodes).
      - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
      - Cluster API: `MachineHealthCheck` object (and integrations with provider-specific health checking)
    * - ra2.lcm.009
      - Node Initialization Configuration
-     - The CaaS Manager must support providing initial configuration data for nodes during their creation, such as cloud-init scripts or other bootstrap mechanisms.
+     - The CaaS Manager must support providing initial configuration data for nodes during their creation, such
+       as cloud-init scripts or other bootstrap mechanisms.
      - Reference Model :cite:p:`refmodel` Chapter 9 - Infrastructure lifecycle management automation
      - Cluster API: `BootstrapConfig` object (e.g., using `KubeadmConfigTemplate`)
 

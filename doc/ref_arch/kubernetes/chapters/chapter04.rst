@@ -437,7 +437,7 @@ the following specifications:
      - int.api.04 in :ref:`chapters/chapter02:kubernetes architecture requirements`
      - kcm.gen.03
 
-Container runtimes
+Container Runtimes
 ------------------
 
 .. list-table:: Container runtime specifications
@@ -461,7 +461,7 @@ Container runtimes
      - gen.ost.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`
      - :cite:t:`anuket-ri2` Chapter 4, section Installation on Bare Metal Infrastructure
 
-Networking solutions
+Networking Solutions
 --------------------
 
 For the networking solutions to be conformant with the Reference Architecture, they must be implemented according to
@@ -614,7 +614,7 @@ the following specifications:
      - e.cap.027 from :cite:t:`refmodel` Chapter 4, section Exposed infrastructure capabilities
      -
 
-Storage components
+Storage Components
 ------------------
 
 For the storage solutions to be conformant with the Reference
@@ -695,7 +695,7 @@ Architecture they must be implemented according to the following specifications:
    horizontally scalable storage). Also sec.gen.06 (storage resource isolation), sec.gen.10 (CIS - if
    applicable) and sec.zon.03 (data encryption at rest).
 
-Service meshes
+Service Meshes
 --------------
 
 Application service meshes are not in the scope of the architecture. The service mesh is a dedicated infrastructure
@@ -706,7 +706,7 @@ use of a service mesh extends Kubernetes capabilities regarding observability an
 
 Network service mesh specifications are handled in `Networking solutions <#networking-solutions>`__.
 
-Kubernetes Application package managers
+Kubernetes Application Package Managers
 ---------------------------------------
 
 For the application package managers to be conformant with the Reference
@@ -737,7 +737,7 @@ Helm version 3 has been chosen as the Application packaging mechanism to ensure 
 ONAP ASD NF descriptor specification :cite:p:`onap-asd-spec` and ETSI SOL-001 rel. 4 MCIOP specification
 :cite:p:`etsi-nfv-sol001`.
 
-Kubernetes workloads
+Kubernetes Workloads
 --------------------
 
 For the Kubernetes workloads to be conformant with the Reference
@@ -1003,13 +1003,13 @@ Architecture, they must be implemented according to the following specifications
      -
      - N/A
 
-Additional required components
+Additional Required Components
 ------------------------------
 
    This chapter should list any additional components needed to provide the services defined in the chapter
    :ref:`chapters/chapter03:infrastructure services` (for example, Prometheus).
 
-Platform service components
+Platform Service Components
 ---------------------------
 
 The architecture may support additional platform services, this chapter defines the requirements for the platform

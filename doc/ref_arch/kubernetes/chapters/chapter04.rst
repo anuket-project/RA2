@@ -282,7 +282,7 @@ the following specifications:
      - en.rsl.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`,
        gen.avl.01 in :ref:`chapters/chapter02:kubernetes architecture requirements`,
        kcm.gen.02 in :ref:`chapters/chapter02:kubernetes architecture requirements`,
-       inf.com.02 in :ref:`chapters/chapter02:Infrastructure Recommendations`
+       inf.com.02 in :ref:`chapters/chapter02:kubernetes architecture requirements`
      -
    * - ra2.k8s.005
      - Kubernetes API Version
@@ -303,7 +303,7 @@ the following specifications:
           is enabled by default in Kubernetes v1.10 and later.
 
      - e.cap.007 in :ref:`chapters/chapter02:cloud infrastructure software profile capabilities`,
-       infra.com.cfg.002 in :ref:`ref_model:chapters/chapter05:Virtual Compute Profiles`, e.cap.013 :cite:t:`refmodel`
+       infra.com.cfg.002 in :cite:t:`refmodel`, e.cap.013 :cite:t:`refmodel`
        Chapter 8, section Exposed Performance Optimisation Capabilities
      -
    * - ra2.k8s.007

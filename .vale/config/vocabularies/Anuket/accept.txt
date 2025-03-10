@@ -35,6 +35,7 @@ CRD
 [Ee]rrored
 [Ee]xecute
 [Ee]xecuted
+[Ee]xecution
 [Ff]ail
 [Ff]ailed
 [Ff]ailure
@@ -82,6 +83,7 @@ Linkerd
 NAT
 NATless
 [Nn]amespace
+[Nn]amespaces
 [Nn]etconf
 [Nn]etdevs
 NF

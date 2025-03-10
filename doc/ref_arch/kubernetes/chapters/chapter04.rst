@@ -456,7 +456,7 @@ the following specifications:
      - Kubernetes must provide information about allocated virtualized resources per tenant, including resource usage
        metrics.  It must also support notifications for state changes of allocated resources (e.g., Pod creation,
        deletion, updates) and expose performance information. The platform should provide mechanisms for collecting and
-       notifying fault information on virtualized resources.
+       notifying fault information on virtualised resources.
      - e.man.006, e.man.007, e.man.008, e.man.009 :cite:t:`refmodel` Chapter 9, section Cloud Infrastructure Management
        Capabilities
      -

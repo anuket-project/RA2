@@ -453,7 +453,7 @@ the following specifications:
      -
    * - ra2.k8s.023
      - Resource Monitoring and Notifications
-     - Kubernetes must provide information about allocated virtualized resources per tenant, including resource usage
+     - Kubernetes must provide information about allocated virtualised resources per tenant, including resource usage
        metrics.  It must also support notifications for state changes of allocated resources (e.g., Pod creation,
        deletion, updates) and expose performance information. The platform should provide mechanisms for collecting and
        notifying fault information on virtualised resources.

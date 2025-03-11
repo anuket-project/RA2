@@ -4,7 +4,7 @@
 sphinx==7.2.6 # BSD
 doc8==1.1.1 # Apache-2.0
 piccolo-theme==0.22.0 # MIT
-sphinxcontrib-bibtex==2.5.0
+sphinxcontrib-bibtex==2.6.3
 pybtex==0.24.0
 sphinxcontrib-devhelp===1.0.6
 sphinxcontrib-applehelp===1.0.8

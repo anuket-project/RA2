@@ -1524,6 +1524,16 @@ machines or containers.
      - The Architecture must support the ability for an operator to choose whether or
        not to deploy persistent storage for Pods.
      - ra2.stg.004
+   * - inf.stg.02
+     - Infrastructure
+     - Storage
+     - The Architecture should support multiple storage classes (e.g. Block, File).
+     -
+   * - inf.stg.03
+     - Infrastructure
+     - Storage
+     - The physical machines on which the Kubernetes nodes run should be equipped with solid-state drives (SSDs).
+     - ra2.ch.009
    * - inf.ntw.01
      - Infrastructure
      - Network

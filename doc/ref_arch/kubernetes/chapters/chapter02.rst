@@ -1529,7 +1529,7 @@ machines or containers.
      - Storage
      - The Architecture should support multiple storage classes (e.g. Block, File).
      -
-    * - inf.stg.03
+   * - inf.stg.03
      - Infrastructure
      - Storage
      - The physical machines on which the Kubernetes nodes run should be equipped with solid-state drives (SSDs).

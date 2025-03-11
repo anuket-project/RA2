@@ -436,6 +436,30 @@ the following specifications:
 
      - int.api.04 in :ref:`chapters/chapter02:kubernetes architecture requirements`
      - kcm.gen.03
+   * - ra2.k8s.021
+     - Resource Allocation and Management
+     - The Kubernetes scheduler must support the allocation of virtual compute, storage, and networking resources to
+       Pods, as defined in Pod specifications. This includes resource requests and limits for CPU, memory, and
+       ephemeral storage, as well as the attachment of Persistent Volumes and network interfaces.  The scheduler must
+       also support resource isolation between tenants using Kubernetes Namespaces.
+     - e.man.001, e.man.002, e.man.003, e.man.004 :cite:t:`refmodel` Chapter 9, section Cloud Infrastructure Management
+       Capabilities
+     -
+   * - ra2.k8s.022
+     - Workload Image Management
+     - Kubernetes must support the management of container images, including pulling images from registries, storing
+       images locally, and making them available for Pod execution.
+     - e.man.005 :cite:t:`refmodel` Chapter 9, section Cloud Infrastructure Management Capabilities
+     -
+   * - ra2.k8s.023
+     - Resource Monitoring and Notifications
+     - Kubernetes must provide information about allocated virtualised resources per tenant, including resource usage
+       metrics.  It must also support notifications for state changes of allocated resources (e.g., Pod creation,
+       deletion, updates) and expose performance information. The platform should provide mechanisms for collecting and
+       notifying fault information on virtualised resources.
+     - e.man.006, e.man.007, e.man.008, e.man.009 :cite:t:`refmodel` Chapter 9, section Cloud Infrastructure Management
+       Capabilities
+     -
 
 Container Runtimes
 ------------------

@@ -337,14 +337,14 @@ Cloud Infrastructure Software Profile Requirements
    * - Virtual Storage
      - infra.stg.cfg.003
      - Storage with replication
-     - Optional
+     - Must support
      - Must support
      - N/A
    * - Virtual Storage
      - infra.stg.cfg.004
      - Storage with encryption
-     - Must support
-     - Must support
+     - Optional
+     - Optional
      - N/A
    * - Virtual Storage
      - infra.stg.acc.cfg.001

@@ -678,7 +678,20 @@ Architecture they must be implemented according to the following specifications:
        between providers of a service and consumers of the service.
      -
      -
-
+   * - ra2.stg.008
+     - Storage with Replication
+     - An implementation may support Kubernetes Persistent Volumes (PV) with replication to provide redundant storage
+       for Pods.  Replication should be configurable and occur at the storage layer, independent of the Pod lifecycle.
+       The replication mechanism should ensure data consistency across replicas.
+     - infra.stg.cfg.003 :cite:t:`refmodel` Chapter 5, section Virtual Storage
+     -
+   * - ra2.stg.009
+     - Storage with Encryption
+     - An implementation may support Kubernetes Persistent Volumes (PV) with encryption at rest. Encryption should be
+       configurable at the storage layer.  Key management for encryption should follow security best practices, and
+       integrate with a dedicated key management system (KMS).
+     - infra.stg.cfg.004 :cite:t:`refmodel` Chapter 5, section Virtual Storage
+     -
 
 
 .. note::

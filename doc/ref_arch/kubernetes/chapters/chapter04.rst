@@ -743,7 +743,6 @@ use of a service mesh extends Kubernetes capabilities regarding observability an
 
 Network service mesh specifications are handled in `Networking solutions <#networking-solutions>`__.
 
-      
 Infrastructure Monitoring and Telemetry
 ---------------------------------------
 
@@ -784,8 +783,6 @@ This section describes the requirements for monitoring the health and performanc
 ..   - Log aggregation (as per ra2.mon.002) **SHOULD** be achieved using a standard, configurable logging agent deployed on each node (e.g., Fluentd, Fluent Bit, Logstash agent).
 ..   -
 ..   - :cite:t:`anuket-ri2` Chapter 5, section Logging
-
-    
 
 Kubernetes Application Package Managers
 ---------------------------------------

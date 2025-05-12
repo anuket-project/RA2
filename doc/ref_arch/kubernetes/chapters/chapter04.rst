@@ -775,7 +775,7 @@ This section describes the requirements for monitoring the health and performanc
 ..
 .. * - ra2.mon.004
 ..   - Standard Metrics Exposition
-..   - Collected metrics (as per ra2.mon.001) **SHOULD** be exposed in a format compatible with the Prometheus exposition format via standardized endpoints (e.g., `/metrics`). This facilitates integration with common monitoring tools.
+..   - Collected metrics (as per ra2.mon.001) **SHOULD** be exposed in a format compatible with the Prometheus scraping format via standardized endpoints (e.g., `/metrics`). This facilitates integration with common monitoring tools.
 ..   -
 ..   - :cite:t:`anuket-ri2` Chapter 5, section Monitoring
 .. * - ra2.mon.005

@@ -718,7 +718,9 @@ Architecture they must be implemented according to the following specifications:
      -
    * - ra2.stg.010
      - Storage Class Support
-     - An implementation must support at least one storage class through Kubernetes Persistent Volumes (PVs) and Persistent Volume Claims (PVCs).  The supported storage class(es) must be clearly documented.  Support for both Block and File storage classes is optional, but recommended.
+     - An implementation must support at least one storage class through Kubernetes Persistent Volumes (PVs) and
+       Persistent Volume Claims (PVCs). The supported storage class(es) must be documented. Support for both Block and
+       File storage classes is optional, but recommended.
      - inf.stg.02 in :ref:`chapters/chapter02:kubernetes architecture requirements`
      -
 

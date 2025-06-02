@@ -818,9 +818,7 @@ of several pods and other Kubernetes objects, the Reference Architecture mandate
 Application package manager. The package manager must be able to manage the lifecycle of an application and provide a
 framework to customize a set of parameters for its deployment. The requirement for the clusters is to expose a
 Kubernetes API for the package managers to use in the lifecycle management of the applications they manage. This must
-comply with the CNCF CNF Conformance Test. As it is not recommended to use a Kubernetes Application package manager with
-a server side component installed in the Kubernetes cluster (for example, Tiller), Helm v3 :cite:p:`helm-docs`
-is the chosen Kubernetes Application package manager.
+comply with the CNCF CNF Conformance Test.
 
 Custom Resources
 ~~~~~~~~~~~~~~~~

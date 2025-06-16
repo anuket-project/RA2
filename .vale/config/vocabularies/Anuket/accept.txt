@@ -96,7 +96,9 @@ OAuth
 [Pp]reboot
 [Pp]luggable
 PV
+PVs
 PVC
+PVCs
 [Pp]enetration
 [Rr]eadinessProbe
 [rR]estart[Pp]olicy

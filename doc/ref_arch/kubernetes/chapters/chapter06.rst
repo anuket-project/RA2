@@ -375,7 +375,7 @@ Node Special Interest Group :cite:p:`k8s-api-sig-node`
      -
      - Resource tracking for 0 pods per node.
    * - Feature:SidecarContainers :cite:p:`k8s-feature-gates`
-     -
+     - X
      - Allow setting the restartPolicy of an init container to Always so that
        the container becomes a sidecar container (restartable init containers).
    * - Feature:UserNamespacesSupport :cite:p:`k8s-feature-gates`
@@ -754,7 +754,6 @@ skip:
 -  [Feature:PodGarbageCollector]
 -  [Feature:PodLifecycleSleepAction]
 -  [Feature:RegularResourceUsageTracking]
--  [Feature:SidecarContainers]
 -  [Feature:UserNamespacesSupport]
 -  [Feature:UserNamespacesStatelessPodsSupport]
 -  [NodeFeature:DownwardAPIHugePages]

@@ -460,6 +460,12 @@ the following specifications:
      - e.man.006, e.man.007, e.man.008, e.man.009 :cite:t:`refmodel` Chapter 9, section Cloud Infrastructure Management
        Capabilities
      -
+   * - ra2.k8s.024
+     - Sidecar Containers
+     - An implementation must support sidecar containers. This feature is needed for deploying service mesh proxies,
+       log shippers, and other supporting processes with CNFs.
+     - TBC
+     -
 
 Container Runtimes
 ------------------

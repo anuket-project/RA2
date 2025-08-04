@@ -283,6 +283,21 @@ Container runtime best practices include:
 - Do not run applications with root privileges.
 - Properly segment sensitive workloads using namespaces or clusters to limit the impact of compromises.
 
+User Namespaces for Enhanced Isolation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A primary security concern in containerized environments is a container breakout, where an attacker escapes the
+container's boundaries to gain control over the underlying host. A key enabler for this is when a container runs as the
+root user, as this user ID (UID 0) is the same as the root user on the host.
+
+The User Namespaces feature in Kubernetes directly mitigates this risk. It allows a Pod to run in a separate user
+namespace where the internal user (e.g., root) is mapped to a high-numbered, non-privileged user on the host. This
+isolation ensures that even if an attacker compromises a container running as root, they do not have root privileges on
+the host node, significantly limiting their ability to cause damage.
+
+Given the substantial security benefits, the platform **should** have the User Namespaces feature enabled to enhance
+workload isolation and enforce the principle of least privilege at the host level.
+
 Secrets Management
 ------------------
 

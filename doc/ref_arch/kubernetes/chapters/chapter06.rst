@@ -379,7 +379,7 @@ Node Special Interest Group :cite:p:`k8s-api-sig-node`
      - Allow setting the restartPolicy of an init container to Always so that
        the container becomes a sidecar container (restartable init containers).
    * - Feature:UserNamespacesSupport :cite:p:`k8s-feature-gates`
-     -
+     - X
      - Enable user namespace support for Pods.
    * - Feature: ProbeTerminationGracePeriod :cite:p:`k8s-feature-probeterminationgraceperiod`
      - X
@@ -754,7 +754,6 @@ skip:
 -  [Feature:PodGarbageCollector]
 -  [Feature:PodLifecycleSleepAction]
 -  [Feature:RegularResourceUsageTracking]
--  [Feature:UserNamespacesSupport]
 -  [Feature:UserNamespacesStatelessPodsSupport]
 -  [NodeFeature:DownwardAPIHugePages]
 -  [NodeFeature:RuntimeHandler]

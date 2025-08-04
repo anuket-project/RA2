@@ -295,7 +295,7 @@ namespace where the internal user (e.g., root) is mapped to a high-numbered, non
 isolation ensures that even if an attacker compromises a container running as root, they do not have root privileges on
 the host node, significantly limiting their ability to cause damage.
 
-Given the substantial security benefits, the platform **should** have the User Namespaces feature enabled to enhance
+Starting with Kubernetes 1.33, the platform will have the User Namespaces feature enabled to enhance
 workload isolation and enforce the principle of least privilege at the host level.
 
 Secrets Management

@@ -943,7 +943,7 @@ Cloud Infrastructure Security Requirements
      -
    * - Platform and Access
      - sec.sys.021
-     - The Platform **should** support User Namespaces to isolate Pod users from the node's users, preventing
+     - The Platform **must** support User Namespaces to isolate Pod users from the node's users, preventing
        container-to-host privilege escalation.
      - :ref:`chapters/chapter05:user namespaces for enhanced isolation`
    * - Confidentiality and Integrity

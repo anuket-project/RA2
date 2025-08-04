@@ -49,7 +49,7 @@ In these Reference Architecture APIs, only those APIs which are in any of the fo
 
 The Kubernetes API reference is available here :cite:p:`k8s-api-reference`.
 
-The list of :cite:p:`k8s-v1.31-api-groups` that are mandatory is as follows:
+The list of :cite:p:`k8s-v1.33-api-groups` that are mandatory is as follows:
 
 .. list-table:: Mandatory API Groups
    :widths: 30 30

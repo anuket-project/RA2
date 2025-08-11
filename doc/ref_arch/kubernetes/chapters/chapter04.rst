@@ -460,6 +460,12 @@ the following specifications:
      - e.man.006, e.man.007, e.man.008, e.man.009 :cite:t:`refmodel` Chapter 9, section Cloud Infrastructure Management
        Capabilities
      -
+   * - ra2.k8s.024
+     - Sidecar Containers
+     - An implementation must support sidecar containers. This feature is needed for deploying service mesh proxies,
+       log shippers, and other supporting processes with CNFs.
+     - TBC
+     -
 
 Container Runtimes
 ------------------
@@ -687,8 +693,8 @@ Architecture they must be implemented according to the following specifications:
      -
    * - ra2.stg.006
      - Container Storage Interface (CSI)
-     - An implementation may support the Container Storage Interface (CSI). In-tree storage plugins for Ceph have been
-       removed in Kubernetes 1.31, so corresponding CSI drivers must be used. To support CSI, the
+     - An implementation may support the Container Storage Interface (CSI). CSI drivers must be used as in-tree volume
+       plugins are deprecated and have been removed. To support CSI, the
        feature gates CSIDriverRegistry and CSINodeInfo must be enabled. The implementation must use a CSI driver
        (full list of CSI drivers :cite:p:`k8s-csi-drivers`). An implementation may support ephemeral storage through a
        CSI-compatible volume plugin. In this case, the CSIInlineVolume feature gate must be enabled. An implementation

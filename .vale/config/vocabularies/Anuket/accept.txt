@@ -9,6 +9,7 @@
 [Cc]groups
 Ceph
 CNF
+CNFs
 CNI
 CSI
 [Cc]onfig

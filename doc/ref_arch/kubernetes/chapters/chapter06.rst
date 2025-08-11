@@ -49,7 +49,7 @@ In these Reference Architecture APIs, only those APIs which are in any of the fo
 
 The Kubernetes API reference is available here :cite:p:`k8s-api-reference`.
 
-The list of :cite:p:`k8s-v1.31-api-groups` that are mandatory is as follows:
+The list of :cite:p:`k8s-v1.33-api-groups` that are mandatory is as follows:
 
 .. list-table:: Mandatory API Groups
    :widths: 30 30
@@ -375,11 +375,11 @@ Node Special Interest Group :cite:p:`k8s-api-sig-node`
      -
      - Resource tracking for 0 pods per node.
    * - Feature:SidecarContainers :cite:p:`k8s-feature-gates`
-     -
+     - X
      - Allow setting the restartPolicy of an init container to Always so that
        the container becomes a sidecar container (restartable init containers).
    * - Feature:UserNamespacesSupport :cite:p:`k8s-feature-gates`
-     -
+     - X
      - Enable user namespace support for Pods.
    * - Feature: ProbeTerminationGracePeriod :cite:p:`k8s-feature-probeterminationgraceperiod`
      - X
@@ -754,8 +754,6 @@ skip:
 -  [Feature:PodGarbageCollector]
 -  [Feature:PodLifecycleSleepAction]
 -  [Feature:RegularResourceUsageTracking]
--  [Feature:SidecarContainers]
--  [Feature:UserNamespacesSupport]
 -  [Feature:UserNamespacesStatelessPodsSupport]
 -  [NodeFeature:DownwardAPIHugePages]
 -  [NodeFeature:RuntimeHandler]

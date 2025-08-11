@@ -22,7 +22,7 @@ To assist with the goal of creating a reference architecture that will support T
 leverage the work that already has been completed in the Kubernetes community, RA2 will take an "RA2 Razor" approach to
 build the foundation. This can be explained along the lines of "if something is useful for non-Telecom workloads, we
 will not include it only for Telecom workloads". For example, start the Reference Architecture from a vanilla Kubernetes
-(say, v1.31) feature set, then provide clear evidence that a functional requirement cannot be met by that system
+(say, v1.33) feature set, then provide clear evidence that a functional requirement cannot be met by that system
 (say, multi-NIC support), only then the RA would add the least invasive, Kubernetes-community aligned extension
 (say, Multus) to fill the gap. If there are still gaps that cannot be filled by standard Kubernetes community
 technologies or extensions then the RA will concisely record the requirement in the
@@ -41,7 +41,7 @@ Required Component Versions
 ========== ===================
 Component  Required version(s)
 ========== ===================
-Kubernetes 1.31
+Kubernetes 1.33
 ========== ===================
 
 Principles

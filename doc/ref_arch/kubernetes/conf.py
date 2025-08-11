@@ -13,6 +13,8 @@ extensions = [
 
 html_theme = "piccolo_theme"
 
+linkcheck_retries = 3
+
 linkcheck_ignore = [
     "https://github.com/cncf/cnf-testsuite/blob/main/RATIONALE.md",
     "https://github.com/opencontainers/runtime-spec/blob/master/config.md",

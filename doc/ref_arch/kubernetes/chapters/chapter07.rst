@@ -185,12 +185,13 @@ Requirements, Chapter 2 of :cite:t:`anuket-ra1`)
 
 **Baseline project:** *Kubernetes*
 
-**Gap description:** Kubernetes lacks namespace-scoped UIDs.
-CNFs requiring system privileges must run in privileged
-mode or use random system UIDs. Random UIDs cause errors
-when setting kernel capabilities (e.g., VLAN trunking) or
-sharing data via persistent storage.  Privileged mode is
-insecure; random UIDs are error-prone.  Proper user
-namespaces (alpha in Kubernetes 1.25
-:cite:t:`kubernetes-user-namespaces`, KEP
-:cite:t:`kubernetes-kep-user-namespaces`) are needed.
+**Gap description:** Kubernetes has historically lacked a mechanism to isolate the user within a container from the
+host's user, meaning a container running as root (UID 0) was also seen as root by the host kernel. This creates a
+significant security risk.
+
+**Status**: This gap is now being addressed. The User Namespaces feature, which graduated to Beta and is enabled by
+default in Kubernetes v1.33, allows re-mapping the user inside the Pod to a different, non-privileged user range on the
+node. This means a container can run as root internally while being mapped to a harmless user externally,
+drastically reducing the attack surface for privilege escalation. While the feature is still Beta, its default-on
+status makes it a viable solution for enhancing workload isolation. This RA recommends its adoption to satisfy security
+requirements for multitenancy.

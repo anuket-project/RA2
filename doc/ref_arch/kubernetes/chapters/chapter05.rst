@@ -41,8 +41,9 @@ perimeter security:
 - **Containers:** A container is a running instance of a container image. Containers should be prevented from accessing
   underlying OS capabilities (e.g., loading kernel modules, mounting OS directories) and should not run in privileged
   mode.
-- **Pods:** A pod represents a set of running containers in a Kubernetes cluster. Kubernetes' Pod Security Policies
-  define conditions for pod execution, ensuring necessary checks are performed.
+- **Pods:** A pod represents a set of running containers in a Kubernetes cluster. Kubernetes' Pod Security Admission
+  (PSA) enforces Pod Security Standards by using namespace labels to define specific security profiles (Privileged,
+  Baseline, or Restricted), ensuring necessary checks are performed.
 - **Kubernetes Node (Worker Node):** A Kubernetes node (worker node) is a physical or virtual server running workloads.
   Unsecured nodes pose a significant threat. Nodes should be hardened by disabling unused ports, prohibiting root
   access, etc.
@@ -64,7 +65,8 @@ Core principles for securing cloud-native applications include:
 
    - Use Namespaces to establish security boundaries between tenants.
    - Create and define cluster Network Policies.
-   - Implement cluster-wide pod security policies.
+   - Enforce Pod Security Standards (Privileged, Baseline, Restricted) via Pod Security Admission using namespace
+     labels.
    - Enable audit logging.
    - Isolate sensitive workloads using Namespaces.
    - Secure tenant metadata access.
@@ -202,7 +204,7 @@ server's etcd grants root access to the entire cluster; even read access can be 
 
 The Kubernetes scheduler uses etcd to find unscheduled pods, sending them to available kubelets. The API server
 validates submitted pods before writing them to etcd. Directly writing to etcd bypasses many security mechanisms
-(e.g., PodSecurityPolicies).
+(e.g., Pod Security Admission).
 
 Use strong credentials (e.g., mutual TLS authentication via client certificates) for API server-etcd communication.
 Isolate etcd servers behind a firewall accessible only by the API servers.
@@ -236,7 +238,7 @@ Using Namespaces to Establish Security Boundaries
 -------------------------------------------------
 
 Kubernetes namespaces provide the first level of isolation between components. Apply security controls (network
-policies, pod policies, etc.) to workloads in separate namespaces.
+policies, Pod Security Standards, etc.) to workloads in separate namespaces.
 
 Separating Sensitive Workloads
 ------------------------------
